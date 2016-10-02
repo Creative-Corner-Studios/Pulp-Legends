@@ -2,7 +2,12 @@
 using System.Collections;
 
 public class MenuScript : MonoBehaviour {
-	
+
+    [SerializeField]
+    private GameObject optionCanvas;
+    [SerializeField]
+    private GameObject creditsCanvas;
+
     // Use this for initialization
 	void Start () {
 	
@@ -22,4 +27,22 @@ public class MenuScript : MonoBehaviour {
     {
         LoadScene("Test Level");
     }
+
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
+
+    public void SwitchCredits()
+    {
+        optionCanvas.SetActive(false);
+        creditsCanvas.SetActive(true);    
+    }
+
+    public void SwitchOption()
+    {
+        optionCanvas.SetActive(true);
+        creditsCanvas.SetActive(false);
+    }
+
 }
