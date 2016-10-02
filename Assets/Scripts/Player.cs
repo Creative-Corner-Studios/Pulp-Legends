@@ -177,8 +177,11 @@ public class Player : MonoBehaviour {
         }
     }
 
-    private void DestroyPlayer()
+    public void DestroyPlayer()
     {
+        Destroy(gameObject);
+        print(gameObject.name + " has Died So Sad :(");
+        Application.LoadLevel("Main Menu");
     }
 
     public void ModHealth(int mod) {
