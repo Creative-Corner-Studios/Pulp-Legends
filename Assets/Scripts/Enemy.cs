@@ -4,7 +4,7 @@ using System.Collections;
 public class Enemy : MonoBehaviour {
 
     private int health;
-    private enum enemyType; //we should create a state machine so we can distinguish enemy types
+    //private enum enemyType; //we should create a state machine so we can distinguish enemy types
     private float attackPower;
     private float speed;
     private GameObject enemy;
