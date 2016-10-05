@@ -27,6 +27,7 @@ GameObject:
   - 114: {fileID: 11439740}
   - 50: {fileID: 5010620}
   - 60: {fileID: 6093076}
+  - 61: {fileID: 6145978}
   m_Layer: 0
   m_Name: Sam Spade
   m_TagString: Player
@@ -81,7 +82,7 @@ PolygonCollider2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 143998}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
@@ -194,6 +195,19 @@ PolygonCollider2D:
       - {x: -.296797007, y: -3.57196355}
       - {x: -.103437647, y: -3.41083074}
       - {x: .0738084465, y: -3.50751042}
+--- !u!61 &6145978
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 143998}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: -.181851402, y: -.429832101}
+  serializedVersion: 2
+  m_Size: {x: 3, y: 6}
 --- !u!114 &11439740
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -253,6 +267,26 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_TagString
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Offset.x
+      value: -.181851402
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Offset.y
+      value: -.429832101
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Size.y
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Size.x
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

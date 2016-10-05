@@ -12,6 +12,7 @@ GameObject:
   - 60: {fileID: 6033588}
   - 50: {fileID: 5041366}
   - 114: {fileID: 11459342}
+  - 61: {fileID: 6152762}
   m_Layer: 0
   m_Name: Nora Carter
   m_TagString: Player
@@ -81,7 +82,7 @@ PolygonCollider2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 128284}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
@@ -176,6 +177,19 @@ PolygonCollider2D:
       - {x: .44942373, y: -3.47500062}
       - {x: .384970605, y: -3.18496156}
       - {x: .433310449, y: -2.81435609}
+--- !u!61 &6152762
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 128284}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: -.247979194, y: -.529023588}
+  serializedVersion: 2
+  m_Size: {x: 3, y: 6}
 --- !u!114 &11459342
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -235,6 +249,26 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_TagString
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Offset.x
+      value: -.247979194
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Offset.y
+      value: -.529023588
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Size.y
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Size.x
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
