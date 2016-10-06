@@ -1,16 +1,23 @@
 ﻿using UnityEngine;
+using UnityEngine.EventSystems;
 using System.Collections;
 
 public class MenuScript : MonoBehaviour {
 
     [SerializeField]
-    private GameObject optionCanvas;
+    private GameObject optionGroup;
     [SerializeField]
-    private GameObject creditsCanvas;
+    private GameObject creditsGroup;
+    [SerializeField]
+    private GameObject eventObject;
+
+    private EventSystem eventSystem1;
+
+
 
     // Use this for initialization
-	void Start () {
-	
+    void Start () {
+        eventSystem1 = eventObject.GetComponent<EventSystem>();
 	}
 	
 	// Update is called once per frame
@@ -35,14 +42,18 @@ public class MenuScript : MonoBehaviour {
 
     public void SwitchCredits()
     {
-        optionCanvas.SetActive(false);
-        creditsCanvas.SetActive(true);    
+        optionGroup.GetComponent<CanvasGroup>().alpha = 0;
+        optionGroup.GetComponent<CanvasGroup>().interactable = false;
+        creditsGroup.GetComponent<CanvasGroup>().alpha = 1;
+        creditsGroup.GetComponent<CanvasGroup>().interactable = true;
     }
 
     public void SwitchOption()
     {
-        optionCanvas.SetActive(true);
-        creditsCanvas.SetActive(false);
+        creditsGroup.GetComponent<CanvasGroup>().alpha = 0;
+        creditsGroup.GetComponent<CanvasGroup>().interactable = false;
+        optionGroup.GetComponent<CanvasGroup>().alpha = 1;
+        optionGroup.GetComponent<CanvasGroup>().interactable = true;
     }
 
 }
