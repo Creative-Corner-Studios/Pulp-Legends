@@ -23,6 +23,9 @@ public class CharacterSelect : MonoBehaviour {
     [SerializeField]
     private GameObject P1_Controller, P2_Controller;
 
+    [SerializeField]
+    private GameObject P1_Check, P2_Check, Instruct0, Instruct1, Instruct2, P1_Inactive, P2_Inactive;
+
     //controller positions
     [SerializeField]
     private float xl, xm, xr;
@@ -35,7 +38,7 @@ public class CharacterSelect : MonoBehaviour {
     [SerializeField]
     private bool p2Active = true;
 
-    private bool p1Confirm = false;
+    [SerializeField] private bool p1Confirm = false;
     private bool p2Confirm = false;
 
     private Player.CharacterType p1Character;
@@ -51,25 +54,86 @@ public class CharacterSelect : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        CheckActive();
+
+        if (p1Active && p2Active)
+        {
+            Instruct0.SetActive(false);
+            P1_Inactive.SetActive(false);
+            P2_Inactive.SetActive(false);
+
+            if (p1Confirm && p2Confirm)
+            {
+                Instruct1.SetActive(false);
+                Instruct2.SetActive(true);
+            }
+            else
+            {
+                Instruct1.SetActive(true);
+                Instruct2.SetActive(false);
+            }
+        }
+        else if (p1Active)
+        {
+            P1_Inactive.SetActive(false);
+            if (p1Confirm)
+            {
+                Instruct1.SetActive(false);
+                Instruct2.SetActive(true);
+            }
+            else
+            {
+                Instruct1.SetActive(true);
+                Instruct2.SetActive(false);
+            }
+        }
+        else if (p2Active)
+        {
+            P2_Inactive.SetActive(false);
+            if (p2Confirm)
+            {
+                Instruct1.SetActive(false);
+                Instruct2.SetActive(true);
+            }
+            else
+            {
+                Instruct1.SetActive(true);
+                Instruct2.SetActive(false);
+            }
+        }
+
+        if(!p1Active || !p2Active)
+        {
+            Instruct0.SetActive(true);
+        }
+
         GetInput();
 
         StartLevel();
 
-        if (p1Confirm != true)
+        if (p1Active)
         {
-            P1Select();
-            P1Confirm();
+            if (p1Confirm != true)
+            {
+                P1Select();
+                P1Confirm();
+            }
+            input.P1Submit = false;
         }
-        input.P1Submit = false;
-        if (p2Confirm != true)
+
+        if (p2Active)
         {
-            P2Select();
-            P2Confirm();
+            if (p2Confirm != true)
+            {
+                P2Select();
+                P2Confirm();
+            }
+            input.P2Submit = false;
         }
-        input.P2Submit = false;
 
         CancelConfirmation();
-
+        input.P1Cancel = false;
+        input.P2Cancel = false;
 	}
 
     void GetInput()
@@ -166,11 +230,13 @@ public class CharacterSelect : MonoBehaviour {
             {
                 p1Character = Player.CharacterType.SAMSPADE;
                 p1Confirm = true;
+                P1_Check.SetActive(true);
             }
             else if(P1_Controller.transform.localPosition.x == xr)
             {
                 p1Character = Player.CharacterType.NORACARTER;
                 p1Confirm = true;
+                P1_Check.SetActive(true);
             }
 
             Debug.Log("P1: " + p1Character);
@@ -185,11 +251,13 @@ public class CharacterSelect : MonoBehaviour {
             {
                 p2Character = Player.CharacterType.SAMSPADE;
                 p2Confirm = true;
+                P2_Check.SetActive(true);
             }
             else if (P2_Controller.transform.localPosition.x == xr)
             {
                 p2Character = Player.CharacterType.NORACARTER;
                 p2Confirm = true;
+                P2_Check.SetActive(true);
             }
 
             Debug.Log("P2: " + p2Character);
@@ -204,6 +272,7 @@ public class CharacterSelect : MonoBehaviour {
             {
                 p1Character = Player.CharacterType.NULL;
                 p1Confirm = false;
+                P1_Check.SetActive(false);
             }
         }
         if(input.P2Cancel == true)
@@ -212,22 +281,73 @@ public class CharacterSelect : MonoBehaviour {
             {
                 p2Confirm = false;
                 p2Character = Player.CharacterType.NULL;
+                P2_Check.SetActive(false);
             }
+        }
+    }
+
+    void CheckActive()
+    {
+        if(input.P1Submit && p1Active == false)
+        {
+            p1Active = true;
+        }
+
+        if(input.P2Submit && p2Active == false)
+        {
+            p2Active = true;
         }
     }
 
     void StartLevel()
     {
-        if (input.P1Submit || input.P2Submit)
+        if (p1Active && p2Active)
         {
-            if (p1Confirm && p2Confirm)
+            if (input.P1Submit || input.P2Submit)
             {
-                //transfer data to world controller
-                worldControl.P1Char = p1Character;
-                worldControl.P2Char = p2Character;
-                worldControl.currentScreen = WorldController.Screen.TESTLEVEL;
-                worldControl.runSetup = true;
-                Application.LoadLevel("Test Level");
+                if (p1Confirm && p2Confirm)
+                {
+                    //transfer data to world controller
+                    worldControl.P1Char = p1Character;
+                    worldControl.P2Char = p2Character;
+                    worldControl.p1Active = p1Active;
+                    worldControl.p2Active = p2Active;
+                    worldControl.currentScreen = WorldController.Screen.TESTLEVEL;
+                    worldControl.runSetup = true;
+                    Application.LoadLevel("Test Level");
+                }
+            }
+        }
+        else if (p1Active)
+        {
+            if (input.P1Submit)
+            {
+                if (p1Confirm)
+                {
+                    //transfer data to world controller
+                    worldControl.P1Char = p1Character;
+                    worldControl.p1Active = p1Active;
+                    worldControl.p2Active = p2Active;
+                    worldControl.currentScreen = WorldController.Screen.TESTLEVEL;
+                    worldControl.runSetup = true;
+                    Application.LoadLevel("Test Level");
+                }
+            }
+        }
+        else if (p2Active)
+        {
+            if (input.P2Submit)
+            {
+                if (p2Confirm)
+                {
+                    //transfer data to world controller
+                    worldControl.P2Char = p2Character;
+                    worldControl.p1Active = p1Active;
+                    worldControl.p2Active = p2Active;
+                    worldControl.currentScreen = WorldController.Screen.TESTLEVEL;
+                    worldControl.runSetup = true;
+                    Application.LoadLevel("Test Level");
+                }
             }
         }
     }

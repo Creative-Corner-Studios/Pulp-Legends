@@ -20,7 +20,9 @@ public class WorldController : MonoBehaviour {
     private Player player2;
     private Player.CharacterType p1Char;
     private Player.CharacterType p2Char;
-    
+    public bool p1Active = true;
+    public bool p2Active = true;
+
     //Test Level Data
     [SerializeField] private Vector3 p1TestPos;
     [SerializeField] private Vector3 p2TestPos;
@@ -107,6 +109,7 @@ public class WorldController : MonoBehaviour {
 
     private void checkInOptionMenu()//if the scene is the option menu, do this for update
     {
+        GameCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
 
     }
 
@@ -134,48 +137,69 @@ public class WorldController : MonoBehaviour {
 
     public void SetupCharacter()
     {
-        switch (p1Char)
+        if (p1Active)
         {
-            case Player.CharacterType.SAMSPADE:
-                P1 = Instantiate(SamSpade);
-                player1 = P1.GetComponent<Player>();
-                player1.PlayerNum = 1;
-                break;
+            switch (p1Char)
+            {
+                case Player.CharacterType.SAMSPADE:
+                    P1 = Instantiate(SamSpade);
+                    player1 = P1.GetComponent<Player>();
+                    player1.PlayerNum = 1;
+                    break;
 
-            case Player.CharacterType.NORACARTER:
-                P1 = Instantiate(NoraCarter);
-                player1 = P1.GetComponent<Player>();
-                player1.PlayerNum = 1;
-                break;
+                case Player.CharacterType.NORACARTER:
+                    P1 = Instantiate(NoraCarter);
+                    player1 = P1.GetComponent<Player>();
+                    player1.PlayerNum = 1;
+                    break;
+            }
         }
 
-        switch (p2Char)
+        if (p2Active)
         {
-            case Player.CharacterType.SAMSPADE:
-                P2 = Instantiate(SamSpade);
-                player2 = P2.GetComponent<Player>();
-                player2.PlayerNum = 2;
-                if (p1Char == Player.CharacterType.SAMSPADE)
-                {
-                    P2.GetComponent<SpriteRenderer>().color = Color.green;
-                }
-                break;
+            switch (p2Char)
+            {
+                case Player.CharacterType.SAMSPADE:
+                    P2 = Instantiate(SamSpade);
+                    player2 = P2.GetComponent<Player>();
+                    player2.PlayerNum = 2;
+                    if (p1Char == Player.CharacterType.SAMSPADE && !p1Active)
+                    {
+                        P2.GetComponent<SpriteRenderer>().color = Color.green;
+                    }
+                    break;
 
-            case Player.CharacterType.NORACARTER:
-                P2 = Instantiate(NoraCarter);
-                player2 = P2.GetComponent<Player>();
-                player2.PlayerNum = 2;
-                if (p1Char == Player.CharacterType.NORACARTER)
-                {
-                    P2.GetComponent<SpriteRenderer>().color = Color.green;
-                }
-                break;
+                case Player.CharacterType.NORACARTER:
+                    P2 = Instantiate(NoraCarter);
+                    player2 = P2.GetComponent<Player>();
+                    player2.PlayerNum = 2;
+                    if (p1Char == Player.CharacterType.NORACARTER && !p1Active)
+                    {
+                        P2.GetComponent<SpriteRenderer>().color = Color.green;
+                    }
+                    break;
+            }
         }
     }
 
     void SetupTestLevel()
     {
-        P1.transform.localPosition = p1TestPos;
-        P2.transform.localPosition = p2TestPos;
+        GameCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
+        if (p1Active)
+        {
+            P1.transform.localPosition = p1TestPos;
+            GameCamera.GetComponent<UnityStandardAssets._2D.Camera2DFollow>().target = P1.transform;
+        }
+        if(p1Active && p2Active)
+        {
+            P1.transform.localPosition = p1TestPos;
+            P2.transform.localPosition = p2TestPos;
+            GameCamera.GetComponent<UnityStandardAssets._2D.Camera2DFollow>().target = P1.transform;
+        }
+        if (p2Active)
+        {
+            P2.transform.localPosition = p2TestPos;
+            GameCamera.GetComponent<UnityStandardAssets._2D.Camera2DFollow>().target = P2.transform;
+        }
     }
 }

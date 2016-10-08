@@ -942,6 +942,14 @@ Prefab:
       propertyPath: NoraCarter
       value: 
       objectReference: {fileID: 128284, guid: ca66f86d4b5289b4e89599df1cc9e62a, type: 2}
+    - target: {fileID: 11459226, guid: ccf4adad8f62c4243ada7345c823b624, type: 2}
+      propertyPath: p2Active
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11459226, guid: ccf4adad8f62c4243ada7345c823b624, type: 2}
+      propertyPath: p1Active
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ccf4adad8f62c4243ada7345c823b624, type: 2}
   m_IsPrefabParent: 0
