@@ -32,7 +32,7 @@ public class MenuScript : MonoBehaviour {
 
     public void StartGame()
     {
-        LoadScene("Test Level");
+        LoadScene("Character Selection");
     }
 
     public void ExitGame()

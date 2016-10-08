@@ -4,7 +4,7 @@ using System.Collections;
 [RequireComponent(typeof(Collider2D))]
 [RequireComponent(typeof(Rigidbody2D))]
 public class Player : MonoBehaviour {
-    enum CharacterType { SAMSPADE , NORACARTER};
+    public enum CharacterType { SAMSPADE , NORACARTER, NULL};
     enum PulpPowerType { MALTESEFALCON, SATAN}
     [System.Serializable]
     public class InputSettings
@@ -67,6 +67,22 @@ public class Player : MonoBehaviour {
     {
         get { return position; }
         set { position = value; }
+    }
+
+    public int PlayerNum
+    {
+        get { return playerNum; }
+        set
+        {
+            if(value > 2 || value < 1)
+            {
+                Debug.LogError("Trying to set player num to a value that is not 1 or 2");
+            }
+            else
+            {
+                playerNum = value;
+            }
+        }
     }
 
     // Use this for initialization

@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 436988}
   - 114: {fileID: 11459226}
   m_Layer: 0
-  m_Name: WorldControllerPrefab
+  m_Name: WorldController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -39,9 +39,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69ca95503cc1b2749938e675702dffb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  P1: {fileID: 0}
-  P2: {fileID: 0}
-  prefab: {fileID: 436988}
+  currentScreen: 0
+  SamSpade: {fileID: 143998, guid: c1dca6418b0535c4689c74b45ba07f0f, type: 2}
+  NoraCarter: {fileID: 128284, guid: ca66f86d4b5289b4e89599df1cc9e62a, type: 2}
+  p1TestPos: {x: -3.94000006, y: 0, z: 0}
+  p2TestPos: {x: -5.80000019, y: 0, z: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -53,6 +55,22 @@ Prefab:
       propertyPath: prefab
       value: 
       objectReference: {fileID: 436988}
+    - target: {fileID: 0}
+      propertyPath: SamSpade
+      value: 
+      objectReference: {fileID: 143998, guid: c1dca6418b0535c4689c74b45ba07f0f, type: 2}
+    - target: {fileID: 0}
+      propertyPath: NoraCarter
+      value: 
+      objectReference: {fileID: 128284, guid: ca66f86d4b5289b4e89599df1cc9e62a, type: 2}
+    - target: {fileID: 0}
+      propertyPath: p1TestPos.x
+      value: -3.94000006
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: p2TestPos.x
+      value: -5.80000019
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 145326}

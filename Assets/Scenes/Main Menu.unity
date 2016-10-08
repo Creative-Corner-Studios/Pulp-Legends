@@ -290,8 +290,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b95661dc078c29e42a6490187d8f4e27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  optionCanvas: {fileID: 0}
-  creditsCanvas: {fileID: 0}
+  optionGroup: {fileID: 0}
+  creditsGroup: {fileID: 0}
+  eventObject: {fileID: 530567549}
 --- !u!1 &530567549
 GameObject:
   m_ObjectHideFlags: 0
@@ -499,8 +500,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b95661dc078c29e42a6490187d8f4e27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  optionCanvas: {fileID: 0}
-  creditsCanvas: {fileID: 0}
+  optionGroup: {fileID: 0}
+  creditsGroup: {fileID: 0}
+  eventObject: {fileID: 530567549}
 --- !u!1 &859737705
 GameObject:
   m_ObjectHideFlags: 0
@@ -890,8 +892,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b95661dc078c29e42a6490187d8f4e27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  optionCanvas: {fileID: 0}
-  creditsCanvas: {fileID: 0}
+  optionGroup: {fileID: 0}
+  creditsGroup: {fileID: 0}
+  eventObject: {fileID: 530567549}
 --- !u!1001 &1549559902
 Prefab:
   m_ObjectHideFlags: 0
@@ -931,6 +934,14 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 11459226, guid: ccf4adad8f62c4243ada7345c823b624, type: 2}
+      propertyPath: SamSpade
+      value: 
+      objectReference: {fileID: 143998, guid: c1dca6418b0535c4689c74b45ba07f0f, type: 2}
+    - target: {fileID: 11459226, guid: ccf4adad8f62c4243ada7345c823b624, type: 2}
+      propertyPath: NoraCarter
+      value: 
+      objectReference: {fileID: 128284, guid: ca66f86d4b5289b4e89599df1cc9e62a, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ccf4adad8f62c4243ada7345c823b624, type: 2}
   m_IsPrefabParent: 0

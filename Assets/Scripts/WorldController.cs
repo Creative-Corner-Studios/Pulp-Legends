@@ -1,24 +1,50 @@
 ﻿using UnityEngine;
+using UnityEditor;
 using System.Collections;
 
 public class WorldController : MonoBehaviour {
+    public enum Screen { MAINMENU, OPTIONMENU, TESTLEVEL, LEVEL1, GAMEOVER};
 
-    public GameObject P1;
-    public GameObject P2;
     Camera GameCamera;
-    //MenuScript Menues;
+    public Screen currentScreen = Screen.MAINMENU;
+    public bool runSetup = true;
+
+    //Player/Character selection Data
+    [SerializeField]
+    private GameObject SamSpade;
+    [SerializeField]
+    private GameObject NoraCarter;
+    private GameObject P1;
+    private GameObject P2;
+    private Player player1;
+    private Player player2;
+    private Player.CharacterType p1Char;
+    private Player.CharacterType p2Char;
+    
+    //Test Level Data
+    [SerializeField] private Vector3 p1TestPos;
+    [SerializeField] private Vector3 p2TestPos;
+
+
+    //Properties
+    public Player.CharacterType P1Char
+    {
+        set { p1Char = value; }
+    }
+
+    public Player.CharacterType P2Char
+    {
+        set { p2Char = value; }
+    }
 
     void Awake()//happens once, even if the script is not active
     {
-        DontDestroyOnLoad(GameObject.Find("WorldControllerPrefab"));
+        DontDestroyOnLoad(GameObject.Find("WorldController"));
     }
 
 	// Use this for initialization
 	void Start () {
-        P1 = null;
-        P2 = null;
         GameCamera = Camera.current;
-        //Menues = new MenuScript();
 	}
 	
 
@@ -32,7 +58,13 @@ public class WorldController : MonoBehaviour {
             case "Option Menu":
                 checkInOptionMenu();
                 break;
-            case "Test Level": //will take out later
+            case "Test Level":
+                if (runSetup)
+                {
+                    SetupCharacter();
+                    SetupTestLevel();
+                    runSetup = false;
+                }
                 checkInTestLevel();
                 break;
             case "Level 1":
@@ -100,4 +132,50 @@ public class WorldController : MonoBehaviour {
 
     }
 
+    public void SetupCharacter()
+    {
+        switch (p1Char)
+        {
+            case Player.CharacterType.SAMSPADE:
+                P1 = Instantiate(SamSpade);
+                player1 = P1.GetComponent<Player>();
+                player1.PlayerNum = 1;
+                break;
+
+            case Player.CharacterType.NORACARTER:
+                P1 = Instantiate(NoraCarter);
+                player1 = P1.GetComponent<Player>();
+                player1.PlayerNum = 1;
+                break;
+        }
+
+        switch (p2Char)
+        {
+            case Player.CharacterType.SAMSPADE:
+                P2 = Instantiate(SamSpade);
+                player2 = P2.GetComponent<Player>();
+                player2.PlayerNum = 2;
+                if (p1Char == Player.CharacterType.SAMSPADE)
+                {
+                    P2.GetComponent<SpriteRenderer>().color = Color.green;
+                }
+                break;
+
+            case Player.CharacterType.NORACARTER:
+                P2 = Instantiate(NoraCarter);
+                player2 = P2.GetComponent<Player>();
+                player2.PlayerNum = 2;
+                if (p1Char == Player.CharacterType.NORACARTER)
+                {
+                    P2.GetComponent<SpriteRenderer>().color = Color.green;
+                }
+                break;
+        }
+    }
+
+    void SetupTestLevel()
+    {
+        P1.transform.localPosition = p1TestPos;
+        P2.transform.localPosition = p2TestPos;
+    }
 }

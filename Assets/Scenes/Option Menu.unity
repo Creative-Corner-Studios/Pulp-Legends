@@ -442,6 +442,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   optionGroup: {fileID: 640069411}
   creditsGroup: {fileID: 1869003395}
+  eventObject: {fileID: 672802761}
 --- !u!114 &348263489
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -651,6 +652,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   optionGroup: {fileID: 640069411}
   creditsGroup: {fileID: 1869003395}
+  eventObject: {fileID: 672802761}
 --- !u!1 &432445196
 GameObject:
   m_ObjectHideFlags: 0
@@ -1509,6 +1511,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   optionGroup: {fileID: 640069411}
   creditsGroup: {fileID: 1869003395}
+  eventObject: {fileID: 672802761}
 --- !u!114 &1606718636
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1848,3 +1851,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   optionGroup: {fileID: 640069411}
   creditsGroup: {fileID: 1869003395}
+  eventObject: {fileID: 672802761}
