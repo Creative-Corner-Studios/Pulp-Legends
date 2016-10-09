@@ -201,6 +201,6 @@ public class Player : MonoBehaviour {
     }
 
     public void ModHealth(int mod) {
-
+        health += mod;
     }
 }

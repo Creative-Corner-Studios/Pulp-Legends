@@ -9,8 +9,8 @@ public class Enemy : MonoBehaviour {
 
     //attributes
     public int health;
-    public float attackPower;
-    public float speed;
+    [SerializeField] private float attackPower;
+    [SerializeField] private float speed;
     [SerializeField] private enemyType type; //the type of enemy  
     [SerializeField] private GameObject Bullet;
     public GameObject endPointLeft; //left end point to turn around for moving enemies
@@ -19,17 +19,14 @@ public class Enemy : MonoBehaviour {
     private Vector3 ePRightStart;//the starting position of the right end point
     public bool direction; //left = true, right = false
     private int timer; //current amount has passed
-    public int timeToShoot; //amount of frames have passed for enemy to shoot
-    public float detectRange; //how close a player can be so the enemy will notice them
+    [SerializeField] private int timeToShoot; //amount of frames have passed for enemy to shoot
+    [SerializeField] private float detectRange; //how close a player can be so the enemy will notice them
 
     private Rigidbody2D rBody;
 
     // Use this for initialization
     void Start () {
         timer = 0;
-        attackPower = 1.0f;
-        speed = 2.0f;
-        detectRange = 40.0f;
         rBody = GetComponent<Rigidbody2D>();
         rBody.mass = 1.0f;
         if (endPointLeft != null && endPointRight != null)
@@ -52,7 +49,7 @@ public class Enemy : MonoBehaviour {
                 Move();
                 break;
             case enemyType.SHOOTING:
-               // checkToShoot();
+                checkToShoot();
                 break;
             default:
                 break;
@@ -113,18 +110,25 @@ public class Enemy : MonoBehaviour {
         {
             //shoot animation
             GameObject b = GameObject.Instantiate(Bullet);
+            
+            if (direction)//going left
+            {
+                b.transform.position = new Vector3(transform.position.x - .5f, transform.position.y+.1f);
+            }
+            else//going right
+            {
+                b.transform.position = new Vector3(transform.position.x + .5f, transform.position.y+.1f);
+            }
+            b.GetComponent<Bullet>().adjustVelocity(direction);
         }
-        else//not time to shoot
-        {
-            timer++;
-            timer %= timeToShoot;
-        }
+        timer++;
+        timer %= timeToShoot;
     }
 
-    private void Sentry() // this method will have the enemy patrol for player
-    {
+    //private void Sentry() // this method will have the enemy patrol for player
+    //{
 
-    }
+    //}
 
     private bool DetectPlayer(Player p)  // this method checks if player is within enemy’s detection range.
     {

@@ -14,8 +14,8 @@ public class WorldController : MonoBehaviour {
     private GameObject SamSpade;
     [SerializeField]
     private GameObject NoraCarter;
-    private GameObject P1;
-    private GameObject P2;
+    public GameObject P1;
+    public GameObject P2;
     private Player player1;
     private Player player2;
     private Player.CharacterType p1Char;

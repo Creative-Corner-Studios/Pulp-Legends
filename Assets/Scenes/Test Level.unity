@@ -1470,7 +1470,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 425964, guid: fd8bc11780eaedb4e9ab0f2cf629de6d, type: 2}
       propertyPath: m_RootOrder
-      value: 11
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 405616, guid: fd8bc11780eaedb4e9ab0f2cf629de6d, type: 2}
       propertyPath: m_LocalPosition.y
@@ -1494,11 +1494,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11426548, guid: fd8bc11780eaedb4e9ab0f2cf629de6d, type: 2}
       propertyPath: detectRange
-      value: 60
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 11426548, guid: fd8bc11780eaedb4e9ab0f2cf629de6d, type: 2}
       propertyPath: speed
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 171656, guid: fd8bc11780eaedb4e9ab0f2cf629de6d, type: 2}
       propertyPath: m_StaticEditorFlags
@@ -2891,7 +2891,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 10
 --- !u!114 &1462238160
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3083,11 +3083,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 479790, guid: db7fd3b07f7c0fb40af696aba5d2686b, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 34.7599983
+      value: 3.34800005
       objectReference: {fileID: 0}
     - target: {fileID: 479790, guid: db7fd3b07f7c0fb40af696aba5d2686b, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 11.4499998
+      value: -.418000013
       objectReference: {fileID: 0}
     - target: {fileID: 479790, guid: db7fd3b07f7c0fb40af696aba5d2686b, type: 2}
       propertyPath: m_LocalPosition.z
@@ -3111,11 +3111,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 479790, guid: db7fd3b07f7c0fb40af696aba5d2686b, type: 2}
       propertyPath: m_RootOrder
-      value: 16
-      objectReference: {fileID: 0}
-    - target: {fileID: 21282126, guid: db7fd3b07f7c0fb40af696aba5d2686b, type: 2}
-      propertyPath: m_Enabled
-      value: 1
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: db7fd3b07f7c0fb40af696aba5d2686b, type: 2}
