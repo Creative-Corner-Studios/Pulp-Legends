@@ -21,5 +21,9 @@ public class Killzone : MonoBehaviour {
         {
             thing.GetComponent<Player>().DestroyPlayer();
         }
+        if (thing.tag == "Bullet")
+        {
+            Destroy(thing.gameObject);
+        }
     }
 }

@@ -14,7 +14,7 @@ GameObject:
   - 114: {fileID: 11467034}
   m_Layer: 0
   m_Name: bullet_obj
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -41,7 +41,7 @@ Rigidbody2D:
   m_Mass: 9.99999975e-05
   m_LinearDrag: 0
   m_AngularDrag: 0
-  m_GravityScale: .100000001
+  m_GravityScale: .25
   m_IsKinematic: 0
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -118,7 +118,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_GravityScale
-      value: .100000001
+      value: .25
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_LinearDrag
@@ -147,6 +147,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: damage
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_TagString
+      value: Bullet
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

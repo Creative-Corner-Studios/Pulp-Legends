@@ -14,34 +14,22 @@ public class Bullet : MonoBehaviour {
     void Start() {
         rBody = GetComponent<Rigidbody2D>();
         rBody.mass = 0.000001f;
-        rBody.gravityScale = 1f;
+        rBody.gravityScale = .01f;
         cBody = GetComponent<Collider2D>();
     }
 
     // Update is called once per frame
     void Update() {//detects collisions
 
-        if (GameObject.Find("WorldController") != null)//makes sure the world controller exists
+    }
+
+    void OnTriggerEnter2D(Collider2D thing)
+    {
+        print("test");
+        if (thing.tag == "Player")
         {
-            WorldController wc = GameObject.Find("WorldController").GetComponent<WorldController>();
-            if (wc.P1 != null)//makes sure there is a player 1
-            {
-                if (cBody.IsTouching(wc.P1.GetComponent<Collider2D>()))
-                {
-                    print("touched the butt");
-                    wc.P1.GetComponent<Player>().ModHealth(-damage);
-                    Destroy(gameObject);
-                }
-            }
-            if (wc.P2 != null)//makes sure there is a player 1
-            {
-                if (cBody.IsTouching(wc.P2.GetComponent<Collider2D>()))
-                {
-                    print("touched the butt 2");
-                    wc.P2.GetComponent<Player>().ModHealth(-damage);
-                    Destroy(gameObject);
-                }
-            }
+            thing.GetComponent<Player>().ModHealth(-damage);
+            Destroy(gameObject);
         }
     }
 
