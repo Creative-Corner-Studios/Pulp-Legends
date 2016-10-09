@@ -13,17 +13,11 @@ public class WorldController : MonoBehaviour {
     [SerializeField]
     private GameObject SamSpade; //holds the sam spade character prefab
     [SerializeField]
-<<<<<<< HEAD
-    private GameObject NoraCarter;
-    public GameObject P1;
-    public GameObject P2;
-=======
     private GameObject NoraCarter;// holds the nora carter character prefab
-    private GameObject P1; //holds player 1 gameobject
-    private GameObject P2; //holds player 2 game object
+    public GameObject P1; //holds player 1 gameobject
+    public GameObject P2; //holds player 2 game object
 
     //holds player script for player 1 and player 2
->>>>>>> origin/Test
     private Player player1;
     private Player player2;
 
