@@ -3,29 +3,35 @@ using UnityEditor;
 using System.Collections;
 
 public class WorldController : MonoBehaviour {
-    public enum Screen { MAINMENU, OPTIONMENU, TESTLEVEL, LEVEL1, GAMEOVER};
+    public enum Screen { MAINMENU, OPTIONMENU, TESTLEVEL, LEVEL1, GAMEOVER}; // a public finite state for all screens in game.
 
-    Camera GameCamera;
-    public Screen currentScreen = Screen.MAINMENU;
-    public bool runSetup = true;
+    Camera GameCamera;// holds the main game camera
+    public Screen currentScreen = Screen.MAINMENU; //finite state for which screen this is
+    public bool runSetup = true; //boolean to see if setup for the scene has been run
 
     //Player/Character selection Data
     [SerializeField]
-    private GameObject SamSpade;
+    private GameObject SamSpade; //holds the sam spade character prefab
     [SerializeField]
-    private GameObject NoraCarter;
-    private GameObject P1;
-    private GameObject P2;
+    private GameObject NoraCarter;// holds the nora carter character prefab
+    private GameObject P1; //holds player 1 gameobject
+    private GameObject P2; //holds player 2 game object
+
+    //holds player script for player 1 and player 2
     private Player player1;
     private Player player2;
+
+    //Finite states for player1 and player 2 character type
     private Player.CharacterType p1Char;
     private Player.CharacterType p2Char;
+
+    //booleans to see if which players are in game
     public bool p1Active = true;
     public bool p2Active = true;
 
     //Test Level Data
-    [SerializeField] private Vector3 p1TestPos;
-    [SerializeField] private Vector3 p2TestPos;
+    [SerializeField] private Vector3 p1TestPos;// player 1 start position
+    [SerializeField] private Vector3 p2TestPos;//player 2 start position
 
 
     //Properties
@@ -41,7 +47,7 @@ public class WorldController : MonoBehaviour {
 
     void Awake()//happens once, even if the script is not active
     {
-        DontDestroyOnLoad(GameObject.Find("WorldController"));
+        DontDestroyOnLoad(GameObject.Find("WorldController")); //keeps game object from being destroyed between scenes
     }
 
 	// Use this for initialization
@@ -61,7 +67,7 @@ public class WorldController : MonoBehaviour {
                 checkInOptionMenu();
                 break;
             case "Test Level":
-                if (runSetup)
+                if (runSetup) //checks to see if inital setup was run
                 {
                     SetupCharacter();
                     SetupTestLevel();
@@ -135,45 +141,46 @@ public class WorldController : MonoBehaviour {
 
     }
 
+    //this method sets up characters and instantiate them into current level
     public void SetupCharacter()
     {
-        if (p1Active)
+        if (p1Active) //if player 1 is active
         {
-            switch (p1Char)
+            switch (p1Char) // check which character player 1 is
             {
-                case Player.CharacterType.SAMSPADE:
-                    P1 = Instantiate(SamSpade);
-                    player1 = P1.GetComponent<Player>();
-                    player1.PlayerNum = 1;
+                case Player.CharacterType.SAMSPADE: 
+                    P1 = Instantiate(SamSpade); //instantiate a sam spade character and save it into p1 gameobject
+                    player1 = P1.GetComponent<Player>(); //get the player script from p1 object for player 1
+                    player1.PlayerNum = 1; // set this as player 1
                     break;
 
                 case Player.CharacterType.NORACARTER:
-                    P1 = Instantiate(NoraCarter);
-                    player1 = P1.GetComponent<Player>();
-                    player1.PlayerNum = 1;
+                    P1 = Instantiate(NoraCarter); //instantiate a sam spade character and save it into p1 gameobject
+                    player1 = P1.GetComponent<Player>(); //get the player script from p1 object for player 1
+                    player1.PlayerNum = 1; // set this as player 1
                     break;
             }
         }
 
-        if (p2Active)
+        if (p2Active) //if player 2 is active
         {
-            switch (p2Char)
+            switch (p2Char) //determine which character player 2 chose
             {
                 case Player.CharacterType.SAMSPADE:
-                    P2 = Instantiate(SamSpade);
-                    player2 = P2.GetComponent<Player>();
-                    player2.PlayerNum = 2;
-                    if (p1Char == Player.CharacterType.SAMSPADE && !p1Active)
+                    P2 = Instantiate(SamSpade); //instantiate a sam spade character and save it into p2 gameobject
+                    player2 = P2.GetComponent<Player>();//gets the player script from p2 object for player 2
+                    player2.PlayerNum = 2; //sets this as player 2
+                    if (p1Char == Player.CharacterType.SAMSPADE && p1Active) //if player 2 is same character as player 1 and player one is in game
                     {
-                        P2.GetComponent<SpriteRenderer>().color = Color.green;
+                        P2.GetComponent<SpriteRenderer>().color = Color.green; //render this sprite as green
                     }
                     break;
 
-                case Player.CharacterType.NORACARTER:
+                case Player.CharacterType.NORACARTER: //look at above comments to understand what is going on
                     P2 = Instantiate(NoraCarter);
                     player2 = P2.GetComponent<Player>();
                     player2.PlayerNum = 2;
-                    if (p1Char == Player.CharacterType.NORACARTER && !p1Active)
+                    if (p1Char == Player.CharacterType.NORACARTER && p1Active)
                     {
                         P2.GetComponent<SpriteRenderer>().color = Color.green;
                     }
@@ -182,6 +189,7 @@ public class WorldController : MonoBehaviour {
         }
     }
 
+    //this method setup the camera and character position in testLevel
     void SetupTestLevel()
     {
         GameCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
