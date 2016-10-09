@@ -8,7 +8,7 @@ public class Object : MonoBehaviour {
     private bool hazardous = false; //is the object harmful to the player
     private int damage = 0; //if it is hazardous how much damage will it do the player
     private bool moveable = true; //can the player move the object
-    private bool colectable = false;
+    private bool collectable = true; //can the player collect it/if the player collides with it will it dissapear
     private GameObject obj;
     private Rigidbody2D objRigid;
 
@@ -27,6 +27,15 @@ public class Object : MonoBehaviour {
 	void Update () {
 
 	}
+
+    //check if colliding with player and if it's collectable desctroy it
+    void OnTriggerEnter(Collider2D other)
+    {
+        if(other.gameObject.tag == "Player" && collectable)
+        {
+            DestroyObject();
+        }
+    }
 
     //destroys the fobject
     private void DestroyObject()
