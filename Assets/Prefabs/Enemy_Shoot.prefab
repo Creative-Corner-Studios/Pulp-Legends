@@ -1,13 +1,13 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &116558
+--- !u!1 &114926
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 457226}
+  - 4: {fileID: 445192}
   m_Layer: 0
   m_Name: GroundCheck
   m_TagString: Untagged
@@ -15,58 +15,58 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &143998
+--- !u!1 &158478
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 418434}
-  - 212: {fileID: 21244760}
-  - 114: {fileID: 11439740}
-  - 50: {fileID: 5010620}
-  - 61: {fileID: 6145978}
+  - 4: {fileID: 479790}
+  - 212: {fileID: 21282126}
+  - 50: {fileID: 5023634}
+  - 61: {fileID: 6184094}
+  - 114: {fileID: 11497124}
   m_Layer: 0
-  m_Name: Sam Spade
-  m_TagString: Player
+  m_Name: Enemy_Shoot
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &418434
+--- !u!4 &445192
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 143998}
+  m_GameObject: {fileID: 114926}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.94000006, y: 0, z: 0}
-  m_LocalScale: {x: .300000012, y: .300000012, z: .300000012}
-  m_Children:
-  - {fileID: 457226}
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
---- !u!4 &457226
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 116558}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.230000004, y: -3.3599999, z: 0}
+  m_LocalPosition: {x: -.330000013, y: -3.25999999, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 418434}
+  m_Father: {fileID: 479790}
   m_RootOrder: 0
---- !u!50 &5010620
+--- !u!4 &479790
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 158478}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.44899988, y: .104999997, z: 0}
+  m_LocalScale: {x: .300000012, y: .300000012, z: .300000012}
+  m_Children:
+  - {fileID: 445192}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!50 &5023634
 Rigidbody2D:
   serializedVersion: 2
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 143998}
-  m_Mass: 1
+  m_GameObject: {fileID: 158478}
+  m_Mass: 10
   m_LinearDrag: 0
   m_AngularDrag: .0500000007
   m_GravityScale: 3
@@ -75,46 +75,46 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &6145978
+--- !u!61 &6184094
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 143998}
+  m_GameObject: {fileID: 158478}
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: -.181851402, y: -.429832101}
+  m_Offset: {x: -.247979164, y: -.529023588}
   serializedVersion: 2
   m_Size: {x: 3, y: 6}
---- !u!114 &11439740
+--- !u!114 &11497124
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 143998}
+  m_GameObject: {fileID: 158478}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8477ef6c1e8c39148b0bcab37a1f988d, type: 3}
+  m_Script: {fileID: 11500000, guid: d40feb7045659204ca0451de0b7d5f98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
+  health: 5
   attackPower: 0
-  speed: 10
-  jumpPower: 800
-  bullet: {fileID: 0}
-  character: 0
-  ground:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  playerNum: 1
---- !u!212 &21244760
+  speed: 0
+  type: 1
+  Bullet: {fileID: 0}
+  endPointLeft: {fileID: 0}
+  endPointRight: {fileID: 0}
+  direction: 0
+  timeToShoot: 100
+  detectRange: 40
+--- !u!212 &21282126
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 143998}
+  m_GameObject: {fileID: 158478}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -135,8 +135,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 34cb84cea8899254697375a280350775, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300002, guid: 34cb84cea8899254697375a280350775, type: 3}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -145,46 +145,26 @@ Prefab:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 0}
-      propertyPath: m_TagString
-      value: Player
+      propertyPath: health
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 0}
-      propertyPath: m_Enabled
-      value: 0
+      propertyPath: m_Mass
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 0}
-      propertyPath: m_Offset.x
-      value: -.181851402
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_Offset.y
-      value: -.429832101
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_Size.y
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_Size.x
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_Color.r
+      propertyPath: type
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 0}
-      propertyPath: m_Color.b
-      value: 1
+      propertyPath: timeToShoot
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 0}
-      propertyPath: playerNum
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_Color.g
-      value: 1
+      propertyPath: detectRange
+      value: 40
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 143998}
+  m_RootGameObject: {fileID: 158478}
   m_IsPrefabParent: 1

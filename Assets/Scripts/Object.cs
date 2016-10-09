@@ -8,6 +8,7 @@ public class Object : MonoBehaviour {
     private bool hazardous = false; //is the object harmful to the player
     private int damage = 0; //if it is hazardous how much damage will it do the player
     private bool moveable = true; //can the player move the object
+    private bool colectable = false;
     private GameObject obj;
     private Rigidbody2D objRigid;
 
