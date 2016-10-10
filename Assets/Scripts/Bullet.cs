@@ -13,8 +13,8 @@ public class Bullet : MonoBehaviour {
     // Use this for initialization
     void Start() {
         rBody = GetComponent<Rigidbody2D>();
-        rBody.mass = 0.000001f;
-        rBody.gravityScale = .01f;
+        rBody.mass = 0.01f;
+        rBody.gravityScale = 0f;
         cBody = GetComponent<Collider2D>();
     }
 
@@ -25,12 +25,11 @@ public class Bullet : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D thing)
     {
-        print("test");
         if (thing.tag == "Player")
         {
             thing.GetComponent<Player>().ModHealth(-damage);
-            Destroy(gameObject);
         }
+        Destroy(gameObject);
     }
 
     public void adjustVelocity(bool direction)//adjusts the velocity of the bullet depending on turned left or right
