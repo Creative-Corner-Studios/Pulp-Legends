@@ -29,7 +29,7 @@ public class Object : MonoBehaviour {
 	}
 
     //check if colliding with player and if it's collectable desctroy it
-    void OnTriggerEnter(Collider2D other)
+    void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == "Player" && collectable)
         {

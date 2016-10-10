@@ -7,7 +7,8 @@ public class WorldController : MonoBehaviour {
 
     Camera GameCamera;// holds the main game camera
     public Screen currentScreen = Screen.MAINMENU; //finite state for which screen this is
-    public bool runSetup = true; //boolean to see if setup for the scene has been run
+    public bool runTestSetup = true; //boolean to see if setup for the scene has been run
+    public bool runLevel1Setup = true; //bool to see if setup for level 1 has been run
 
     //Player/Character selection Data
     [SerializeField]
@@ -33,6 +34,9 @@ public class WorldController : MonoBehaviour {
     [SerializeField] private Vector3 p1TestPos;// player 1 start position
     [SerializeField] private Vector3 p2TestPos;//player 2 start position
 
+    //Level 1 Data
+    [SerializeField] private Vector3 p1Level1Pos;// player 1 start position
+    [SerializeField] private Vector3 p2Level1Pos;//player 2 start position
 
     //Properties
     public Player.CharacterType P1Char
@@ -67,15 +71,21 @@ public class WorldController : MonoBehaviour {
                 checkInOptionMenu();
                 break;
             case "Test Level":
-                if (runSetup) //checks to see if inital setup was run
+                if (runTestSetup) //checks to see if inital setup was run
                 {
                     SetupCharacter();
                     SetupTestLevel();
-                    runSetup = false;
+                    runTestSetup = false;
                 }
                 checkInTestLevel();
                 break;
             case "Level 1":
+                if (runLevel1Setup)
+                {
+                    SetupCharacter();
+                    SetupLevel1();
+                    runLevel1Setup = false;
+                }
                 checkInLevel1();
                 break;
             default: //returns to main menu incase of error
@@ -207,6 +217,27 @@ public class WorldController : MonoBehaviour {
         if (p2Active)
         {
             P2.transform.localPosition = p2TestPos;
+            GameCamera.GetComponent<UnityStandardAssets._2D.Camera2DFollow>().target = P2.transform;
+        }
+    }
+
+    void SetupLevel1()
+    {
+        GameCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
+        if (p1Active)
+        {
+            P1.transform.localPosition = p1Level1Pos;
+            GameCamera.GetComponent<UnityStandardAssets._2D.Camera2DFollow>().target = P1.transform;
+        }
+        if (p1Active && p2Active)
+        {
+            P1.transform.localPosition = p1Level1Pos;
+            P2.transform.localPosition = p2Level1Pos;
+            GameCamera.GetComponent<UnityStandardAssets._2D.Camera2DFollow>().target = P1.transform;
+        }
+        if (p2Active)
+        {
+            P2.transform.localPosition = p2Level1Pos;
             GameCamera.GetComponent<UnityStandardAssets._2D.Camera2DFollow>().target = P2.transform;
         }
     }

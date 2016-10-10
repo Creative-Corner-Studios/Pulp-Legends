@@ -48,7 +48,16 @@ public class Goal : MonoBehaviour {
 
     void NextLevel()
     {
-        worldControl.runSetup = true;
+        switch (nextLevel)
+        {
+            case WorldController.Screen.TESTLEVEL:
+                worldControl.runTestSetup = true;
+                break;
+
+            case WorldController.Screen.LEVEL1:
+                worldControl.runLevel1Setup = true;
+                break;
+        }
         worldControl.currentScreen = nextLevel;
         Application.LoadLevel(level);
     }
