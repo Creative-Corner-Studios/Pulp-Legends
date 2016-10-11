@@ -96,7 +96,7 @@ public class WorldController : MonoBehaviour {
 
     public void GameOver() // this will end the game
     {
-        
+        Application.LoadLevel("Main Menu");
     }
 
     public void PauseGame() // pause game and opens pause menu
@@ -131,18 +131,35 @@ public class WorldController : MonoBehaviour {
 
     private void checkInTestLevel()//if the scene is the Test level, do this for update, will take out later
     {
-        if (P1 == null)
-        {
-            P1 = GameObject.Find("Sam Spade");
-        }
-        if (P2 == null)
-        {
-            P2 = GameObject.Find("Nora Carter");
-        }
+        bool p1Alive = true;
+        bool p2Alive = true;
 
-        if(P1 == null && P2 == null)//both characters are gone. Game Over
+        if (p1Active && p2Active)
         {
-            GameOver();
+            p1Alive = player1.CheckIsAlive();
+            p2Alive = player2.CheckIsAlive();
+            if(p1Alive == false)
+            {
+                GameCamera.GetComponent<UnityStandardAssets._2D.Camera2DFollow>().target = P2.transform;
+            }
+            if (p1Alive == false && p2Alive == false)//both characters are gone. Game Over
+            {
+                GameOver();
+            }
+        }
+        else if(p1Active)
+        {
+            if(player1.CheckIsAlive() == false)
+            {
+                GameOver();
+            }
+        }
+        else if (p2Active)
+        {
+            if(player2.CheckIsAlive() == false)
+            {
+                GameOver();
+            }
         }
     }
 
@@ -203,18 +220,18 @@ public class WorldController : MonoBehaviour {
     void SetupTestLevel()
     {
         GameCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
-        if (p1Active)
-        {
-            P1.transform.localPosition = p1TestPos;
-            GameCamera.GetComponent<UnityStandardAssets._2D.Camera2DFollow>().target = P1.transform;
-        }
-        if(p1Active && p2Active)
+        if (p1Active && p2Active)
         {
             P1.transform.localPosition = p1TestPos;
             P2.transform.localPosition = p2TestPos;
             GameCamera.GetComponent<UnityStandardAssets._2D.Camera2DFollow>().target = P1.transform;
         }
-        if (p2Active)
+        else if (p1Active)
+        {
+            P1.transform.localPosition = p1TestPos;
+            GameCamera.GetComponent<UnityStandardAssets._2D.Camera2DFollow>().target = P1.transform;
+        }
+        else if (p2Active)
         {
             P2.transform.localPosition = p2TestPos;
             GameCamera.GetComponent<UnityStandardAssets._2D.Camera2DFollow>().target = P2.transform;
