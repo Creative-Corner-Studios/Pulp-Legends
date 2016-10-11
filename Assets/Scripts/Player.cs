@@ -5,7 +5,7 @@ using System.Collections;
 [RequireComponent(typeof(Rigidbody2D))]
 public class Player : MonoBehaviour {
     public enum CharacterType { SAMSPADE , NORACARTER, NULL};
-    enum PulpPowerType { MALTESEFALCON, SATAN}
+    enum PulpPowerType { MALTESEFALCON, SATAN};
     [System.Serializable]
     public class InputSettings
     {

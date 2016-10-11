@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using UnityEditor;
+//using UnityEditor;
 using System.Collections;
 
 public class WorldController : MonoBehaviour {
@@ -241,18 +241,19 @@ public class WorldController : MonoBehaviour {
     void SetupLevel1()
     {
         GameCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
-        if (p1Active)
-        {
-            P1.transform.localPosition = p1Level1Pos;
-            GameCamera.GetComponent<UnityStandardAssets._2D.Camera2DFollow>().target = P1.transform;
-        }
+        
         if (p1Active && p2Active)
         {
             P1.transform.localPosition = p1Level1Pos;
             P2.transform.localPosition = p2Level1Pos;
             GameCamera.GetComponent<UnityStandardAssets._2D.Camera2DFollow>().target = P1.transform;
         }
-        if (p2Active)
+        else if (p1Active)
+        {
+            P1.transform.localPosition = p1Level1Pos;
+            GameCamera.GetComponent<UnityStandardAssets._2D.Camera2DFollow>().target = P1.transform;
+        }
+        else if (p2Active)
         {
             P2.transform.localPosition = p2Level1Pos;
             GameCamera.GetComponent<UnityStandardAssets._2D.Camera2DFollow>().target = P2.transform;
