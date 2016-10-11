@@ -47,7 +47,8 @@ public class Player : MonoBehaviour {
     private bool grounded;
     private Transform groundCheck;
     private PulpPowerType pulpPower;
-    
+    private WorldController worldControl;
+
     private GameObject player;
     private InputSettings input = new InputSettings();
     private Rigidbody2D rBody;
@@ -89,6 +90,7 @@ public class Player : MonoBehaviour {
     void Start() {
 
         input.ConfigureInput(playerNum); //configure the inputs for player 1 and 2
+        worldControl = GameObject.Find("WorldController").GetComponent<WorldController>();
 
         //setup basic for physics of  character
         player = gameObject;
@@ -201,6 +203,28 @@ public class Player : MonoBehaviour {
     }
 
     public void ModHealth(int mod) {
+        health += mod;
+    }
 
+    public bool CheckIsAlive()
+    {
+        if(health < 0) {
+            Destroy(gameObject);
+            switch (playerNum)
+            {
+                case 1:
+                    worldControl.p1Active = false;
+                    break;
+
+                case 2:
+                    worldControl.p2Active = false;
+                    break;
+            }
+            return false;
+        }
+        else
+        {
+            return true;
+        }
     }
 }

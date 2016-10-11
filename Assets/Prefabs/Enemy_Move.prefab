@@ -156,8 +156,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 5
-  attackPower: 0
-  speed: 0
+  attackPower: 1
+  speed: 1
   type: 0
   Bullet: {fileID: 0}
   endPointLeft: {fileID: 171656}
@@ -206,7 +206,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: speed
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: timeToShoot
@@ -215,6 +215,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: detectRange
       value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: attackPower
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

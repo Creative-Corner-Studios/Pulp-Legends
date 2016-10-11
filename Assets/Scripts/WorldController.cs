@@ -7,15 +7,16 @@ public class WorldController : MonoBehaviour {
 
     Camera GameCamera;// holds the main game camera
     public Screen currentScreen = Screen.MAINMENU; //finite state for which screen this is
-    public bool runSetup = true; //boolean to see if setup for the scene has been run
+    public bool runTestSetup = true; //boolean to see if setup for the scene has been run
+    public bool runLevel1Setup = true; //bool to see if setup for level 1 has been run
 
     //Player/Character selection Data
     [SerializeField]
     private GameObject SamSpade; //holds the sam spade character prefab
     [SerializeField]
     private GameObject NoraCarter;// holds the nora carter character prefab
-    private GameObject P1; //holds player 1 gameobject
-    private GameObject P2; //holds player 2 game object
+    public GameObject P1; //holds player 1 gameobject
+    public GameObject P2; //holds player 2 game object
 
     //holds player script for player 1 and player 2
     private Player player1;
@@ -33,6 +34,9 @@ public class WorldController : MonoBehaviour {
     [SerializeField] private Vector3 p1TestPos;// player 1 start position
     [SerializeField] private Vector3 p2TestPos;//player 2 start position
 
+    //Level 1 Data
+    [SerializeField] private Vector3 p1Level1Pos;// player 1 start position
+    [SerializeField] private Vector3 p2Level1Pos;//player 2 start position
 
     //Properties
     public Player.CharacterType P1Char
@@ -67,15 +71,21 @@ public class WorldController : MonoBehaviour {
                 checkInOptionMenu();
                 break;
             case "Test Level":
-                if (runSetup) //checks to see if inital setup was run
+                if (runTestSetup) //checks to see if inital setup was run
                 {
                     SetupCharacter();
                     SetupTestLevel();
-                    runSetup = false;
+                    runTestSetup = false;
                 }
                 checkInTestLevel();
                 break;
             case "Level 1":
+                if (runLevel1Setup)
+                {
+                    SetupCharacter();
+                    SetupLevel1();
+                    runLevel1Setup = false;
+                }
                 checkInLevel1();
                 break;
             default: //returns to main menu incase of error
@@ -86,7 +96,7 @@ public class WorldController : MonoBehaviour {
 
     public void GameOver() // this will end the game
     {
-        
+        Application.LoadLevel("Main Menu");
     }
 
     public void PauseGame() // pause game and opens pause menu
@@ -121,18 +131,35 @@ public class WorldController : MonoBehaviour {
 
     private void checkInTestLevel()//if the scene is the Test level, do this for update, will take out later
     {
-        if (P1 == null)
-        {
-            P1 = GameObject.Find("Sam Spade");
-        }
-        if (P2 == null)
-        {
-            P2 = GameObject.Find("Nora Carter");
-        }
+        bool p1Alive = true;
+        bool p2Alive = true;
 
-        if(P1 == null && P2 == null)//both characters are gone. Game Over
+        if (p1Active && p2Active)
         {
-            GameOver();
+            p1Alive = player1.CheckIsAlive();
+            p2Alive = player2.CheckIsAlive();
+            if(p1Alive == false)
+            {
+                GameCamera.GetComponent<UnityStandardAssets._2D.Camera2DFollow>().target = P2.transform;
+            }
+            if (p1Alive == false && p2Alive == false)//both characters are gone. Game Over
+            {
+                GameOver();
+            }
+        }
+        else if(p1Active)
+        {
+            if(player1.CheckIsAlive() == false)
+            {
+                GameOver();
+            }
+        }
+        else if (p2Active)
+        {
+            if(player2.CheckIsAlive() == false)
+            {
+                GameOver();
+            }
         }
     }
 
@@ -193,20 +220,41 @@ public class WorldController : MonoBehaviour {
     void SetupTestLevel()
     {
         GameCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
-        if (p1Active)
+        if (p1Active && p2Active)
+        {
+            P1.transform.localPosition = p1TestPos;
+            P2.transform.localPosition = p2TestPos;
+            GameCamera.GetComponent<UnityStandardAssets._2D.Camera2DFollow>().target = P1.transform;
+        }
+        else if (p1Active)
         {
             P1.transform.localPosition = p1TestPos;
             GameCamera.GetComponent<UnityStandardAssets._2D.Camera2DFollow>().target = P1.transform;
         }
-        if(p1Active && p2Active)
+        else if (p2Active)
         {
-            P1.transform.localPosition = p1TestPos;
             P2.transform.localPosition = p2TestPos;
+            GameCamera.GetComponent<UnityStandardAssets._2D.Camera2DFollow>().target = P2.transform;
+        }
+    }
+
+    void SetupLevel1()
+    {
+        GameCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
+        if (p1Active)
+        {
+            P1.transform.localPosition = p1Level1Pos;
+            GameCamera.GetComponent<UnityStandardAssets._2D.Camera2DFollow>().target = P1.transform;
+        }
+        if (p1Active && p2Active)
+        {
+            P1.transform.localPosition = p1Level1Pos;
+            P2.transform.localPosition = p2Level1Pos;
             GameCamera.GetComponent<UnityStandardAssets._2D.Camera2DFollow>().target = P1.transform;
         }
         if (p2Active)
         {
-            P2.transform.localPosition = p2TestPos;
+            P2.transform.localPosition = p2Level1Pos;
             GameCamera.GetComponent<UnityStandardAssets._2D.Camera2DFollow>().target = P2.transform;
         }
     }
