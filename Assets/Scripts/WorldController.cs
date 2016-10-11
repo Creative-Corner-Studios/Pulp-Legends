@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 //using UnityEditor;
 using System.Collections;
+using UnityEngine.UI;
 
 public class WorldController : MonoBehaviour {
     public enum Screen { MAINMENU, OPTIONMENU, TESTLEVEL, LEVEL1, GAMEOVER}; // a public finite state for all screens in game.
@@ -30,6 +31,13 @@ public class WorldController : MonoBehaviour {
     public bool p1Active = true;
     public bool p2Active = true;
 
+    //Game UI Data
+    public GameUI gameUI;
+    //public Slider p1HealthBar;
+    //public Slider p2HealthBar;
+    //public Slider p1PulpPowerBar;
+    //public Slider p2PulpPowerBar;
+
     //Test Level Data
     [SerializeField] private Vector3 p1TestPos;// player 1 start position
     [SerializeField] private Vector3 p2TestPos;//player 2 start position
@@ -47,6 +55,16 @@ public class WorldController : MonoBehaviour {
     public Player.CharacterType P2Char
     {
         set { p2Char = value; }
+    }
+
+    public Player Player1
+    {
+        get { return player1; }
+    }
+
+    public Player Player2
+    {
+        get { return player2; }
     }
 
     void Awake()//happens once, even if the script is not active
@@ -220,6 +238,9 @@ public class WorldController : MonoBehaviour {
     void SetupTestLevel()
     {
         GameCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
+        gameUI = GameObject.Find("Game UI Canvas").GetComponent<GameUI>();
+
+        gameUI.SetupUI();
         if (p1Active && p2Active)
         {
             P1.transform.localPosition = p1TestPos;
@@ -241,7 +262,9 @@ public class WorldController : MonoBehaviour {
     void SetupLevel1()
     {
         GameCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
-        
+        gameUI = GameObject.Find("Game UI Canvas").GetComponent<GameUI>();
+
+        gameUI.SetupUI();
         if (p1Active && p2Active)
         {
             P1.transform.localPosition = p1Level1Pos;

@@ -86,6 +86,11 @@ public class Player : MonoBehaviour {
         }
     }
 
+    public CharacterType Character
+    {
+        get { return character; }
+    }
+
     // Use this for initialization
     void Start() {
 
@@ -208,7 +213,7 @@ public class Player : MonoBehaviour {
 
     public bool CheckIsAlive()
     {
-        if(health < 0) {
+        if(health <= 0) {
             Destroy(gameObject);
             switch (playerNum)
             {
