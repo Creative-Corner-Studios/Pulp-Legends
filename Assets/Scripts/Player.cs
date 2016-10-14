@@ -41,6 +41,7 @@ public class Player : MonoBehaviour {
     [SerializeField] private CharacterType character;
     [SerializeField] private LayerMask ground;
     [SerializeField] private int playerNum;
+    private int score = 0;
 
     private Vector3 position = Vector3.zero;
     private Vector2 velocity = Vector2.zero;
@@ -160,7 +161,16 @@ public class Player : MonoBehaviour {
 
     private void PulpPower()
     {
+        switch (pulpPower)
+        {
+            case PulpPowerType.MALTESEFALCON:
 
+                break;
+
+            case PulpPowerType.SATAN:
+
+                break;
+        }
     }
 
     private void Jump()
@@ -231,5 +241,10 @@ public class Player : MonoBehaviour {
         {
             return true;
         }
+    }
+
+    public void addScore(int addition)
+    {
+        score += addition;
     }
 }

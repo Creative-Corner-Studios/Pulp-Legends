@@ -113,11 +113,11 @@ public class Enemy : MonoBehaviour {
             
             if (direction)//going left
             {
-                b.transform.position = new Vector3(transform.position.x - .5f, transform.position.y+.1f);
+                b.transform.position = new Vector3(transform.position.x - .6f, transform.position.y+.2f);
             }
             else//going right
             {
-                b.transform.position = new Vector3(transform.position.x + .5f, transform.position.y+.1f);
+                b.transform.position = new Vector3(transform.position.x + .6f, transform.position.y+.2f);
             }
             b.GetComponent<Bullet>().adjustVelocity(direction);
         }
