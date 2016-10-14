@@ -36,7 +36,7 @@ public class Player : MonoBehaviour {
     [SerializeField] private int health = 100;
     [SerializeField] private float attackPower = 20;
     [SerializeField] private float speed= 10;
-    [SerializeField] private float jumpPower = 800;
+    [SerializeField] private float jumpPower = 1000;
     [SerializeField] private GameObject bullet;
     [SerializeField] private CharacterType character;
     [SerializeField] private LayerMask ground;

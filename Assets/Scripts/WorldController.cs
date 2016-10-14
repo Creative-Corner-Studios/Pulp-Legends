@@ -183,7 +183,36 @@ public class WorldController : MonoBehaviour {
 
     private void checkInLevel1()//if the scene is level 1, do this for update
     {
+        bool p1Alive = true;
+        bool p2Alive = true;
 
+        if (p1Active && p2Active)
+        {
+            p1Alive = player1.CheckIsAlive();
+            p2Alive = player2.CheckIsAlive();
+            if (p1Alive == false)
+            {
+                GameCamera.GetComponent<UnityStandardAssets._2D.Camera2DFollow>().target = P2.transform;
+            }
+            if (p1Alive == false && p2Alive == false)//both characters are gone. Game Over
+            {
+                GameOver();
+            }
+        }
+        else if (p1Active)
+        {
+            if (player1.CheckIsAlive() == false)
+            {
+                GameOver();
+            }
+        }
+        else if (p2Active)
+        {
+            if (player2.CheckIsAlive() == false)
+            {
+                GameOver();
+            }
+        }
     }
 
     //this method sets up characters and instantiate them into current level
