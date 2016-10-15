@@ -1175,7 +1175,7 @@ Transform:
   m_LocalScale: {x: 6.01871586, y: 6.01871443, z: 6.01871443}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!1001 &542854532
 Prefab:
   m_ObjectHideFlags: 0
@@ -2171,6 +2171,8 @@ MonoBehaviour:
   runLevel1Setup: 1
   SamSpade: {fileID: 0}
   NoraCarter: {fileID: 0}
+  malteseFalcon: {fileID: 0}
+  fireBall: {fileID: 0}
   P1: {fileID: 0}
   P2: {fileID: 0}
   p1Active: 1
@@ -2825,7 +2827,7 @@ Transform:
   m_LocalScale: {x: .624037504, y: .624037504, z: .624037504}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 12
 --- !u!1 &1427416164
 GameObject:
   m_ObjectHideFlags: 0
@@ -3801,7 +3803,7 @@ Transform:
   m_LocalScale: {x: 6.01871586, y: 6.01871443, z: 6.01871443}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
 --- !u!1001 &1940739465
 Prefab:
   m_ObjectHideFlags: 0

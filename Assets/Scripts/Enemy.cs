@@ -152,10 +152,12 @@ public class Enemy : MonoBehaviour {
             
             if (direction)//going left
             {
+                b.transform.localScale = new Vector3(b.transform.localScale.x, b.transform.localScale.y);
                 b.transform.position = new Vector3(transform.position.x - .6f, transform.position.y+.2f);
             }
             else//going right
             {
+                b.transform.localScale = new Vector3(-b.transform.localScale.x, b.transform.localScale.y);
                 b.transform.position = new Vector3(transform.position.x + .6f, transform.position.y+.2f);
             }
             b.GetComponent<Bullet>().adjustVelocity(direction);
