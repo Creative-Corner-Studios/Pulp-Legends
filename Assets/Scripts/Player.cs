@@ -11,10 +11,12 @@ public class Player : MonoBehaviour {
     {
         //input variables
         public float delay = 0.3f;
-        public float fwdInput, jumpInput;
+        public float fwdInput, jumpInput, meleeInput;
         public string JUMP_AXIS;
         public string Horizontal_Axis;
+        public string Melee_Axis;
         public bool jump = false;
+        public bool melee;
 
         public void ConfigureInput(int playerNum)
         {
@@ -23,11 +25,13 @@ public class Player : MonoBehaviour {
                 case 1:
                     JUMP_AXIS = "P1_Jump";
                     Horizontal_Axis = "P1_Horizontal";
+                    Melee_Axis = "P1_Melee";
                     break;
 
                 case 2:
                     JUMP_AXIS = "P2_Jump";
                     Horizontal_Axis = "P2_Horizontal";
+                    Melee_Axis = "P2_Melee";
                     break;
             }
         }
@@ -52,7 +56,7 @@ public class Player : MonoBehaviour {
     private GameObject player;
     private InputSettings input = new InputSettings();
     private Rigidbody2D rBody;
-
+    private bool meleeAttackDone = true;
     
     //Properties
     public int Health
@@ -134,7 +138,9 @@ public class Player : MonoBehaviour {
 
         Move(); // moves the player based on input
         Jump(); //makes the player jump if there is input for jump
+        MeleeAttack();
         input.jump = false;
+        input.melee = false;
 
         if(input.fwdInput ==0 && input.jumpInput == 0 && grounded) //if there is no input and the character is on the ground
         {
@@ -151,11 +157,29 @@ public class Player : MonoBehaviour {
         {
             input.jump = Input.GetButtonDown(input.JUMP_AXIS);
         }
+        if (!input.melee)
+        {
+            input.melee = Input.GetButtonDown(input.Melee_Axis);
+        }
     }
 
-    private void Attack()
+    private void MeleeAttack()
     {
+        if (input.melee)
+        {
+            int range = 2;
+            Collider2D[] col = Physics2D.OverlapAreaAll(new Vector2(transform.position.x, transform.position.y), new Vector2(transform.position.x + range, transform.position.y+ 1));
 
+            foreach (Collider2D thing in col)
+            {
+                if (thing.tag == "Enemy")
+                {
+                    Enemy enemy = thing.GetComponent<Enemy>();
+                    enemy.Health -= (int)attackPower;
+                    Debug.Log("Enemy: " + thing.name + " was hit for " + attackPower + " damage");
+                }
+            }
+        }
     }
 
     private void PulpPower()
@@ -198,6 +222,11 @@ public class Player : MonoBehaviour {
                 grounded = true;
             }
         }
+    }
+
+    private void Flip()
+    {
+
     }
 
     public void DestroyPlayer()
