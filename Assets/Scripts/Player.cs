@@ -171,6 +171,7 @@ public class Player : MonoBehaviour {
             int range = 2;
             Collider2D[] col = Physics2D.OverlapAreaAll(new Vector2(transform.position.x, transform.position.y), new Vector2(transform.position.x + range, transform.position.y+ 1));
 
+
             foreach (Collider2D thing in col)
             {
                 if (thing.tag == "Enemy")

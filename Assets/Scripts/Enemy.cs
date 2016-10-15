@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour {
 
     //attributes
     public int health;
-    [SerializeField] private float attackPower;
+    [SerializeField] private int attackPower;
     [SerializeField] private float speed;
     [SerializeField] private enemyType type; //the type of enemy  
     [SerializeField] private GameObject Bullet;
@@ -19,7 +19,7 @@ public class Enemy : MonoBehaviour {
     private Vector3 ePRightStart;//the starting position of the right end point
     public bool direction; //left = true, right = false
     private int timer; //current amount has passed
-    [SerializeField] private int timeToShoot; //amount of frames have passed for enemy to shoot
+    [SerializeField] private int timeToAttack; //amount of frames have passed for enemy to attack
     [SerializeField] private float detectRange; //how close a player can be so the enemy will notice them
 
     [SerializeField] private int damageScore; //the score the player gets when they hit the enemy
@@ -29,7 +29,7 @@ public class Enemy : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        timer = 0;
+        timer = 100;
         rBody = GetComponent<Rigidbody2D>();
         rBody.mass = 1.0f;
         if (endPointLeft != null && endPointRight != null)
@@ -50,6 +50,7 @@ public class Enemy : MonoBehaviour {
             case enemyType.MOVING:
                 checkToMove();
                 Move();
+                checkToMelee();
                 break;
             case enemyType.SHOOTING:
                 checkToShoot();
@@ -116,10 +117,35 @@ public class Enemy : MonoBehaviour {
         }
     }
 
+    private void checkToMelee()//check to see if time to melee attack
+    {
+        if (timer % timeToAttack == 0)//time to shoot
+        {
+            int range = 2;
+            Collider2D[] col = Physics2D.OverlapAreaAll(new Vector2(transform.position.x, transform.position.y), new Vector2(transform.position.x + range, transform.position.y + 1));
+            if (direction)//left
+            {
+                col = Physics2D.OverlapAreaAll(new Vector2(transform.position.x, transform.position.y), new Vector2(transform.position.x - range, transform.position.y + 1));
+            }
+
+            foreach (Collider2D thing in col)
+            {
+                if (thing.tag == "Player")
+                {
+                    Player player = thing.GetComponent<Player>();
+                    player.ModHealth(-attackPower);
+                    Debug.Log("Player: " + thing.name + " was hit for " + attackPower + " damage");
+                }
+            }
+        }
+        timer++;
+        timer %= timeToAttack;
+    }
+
     private void checkToShoot()//check to see if time to shoot a bullet
     {
         //if(DetectPlayer())
-        if(timer % timeToShoot == 0)//time to shoot
+        if(timer % timeToAttack == 0)//time to shoot
         {
             //shoot animation
             GameObject b = GameObject.Instantiate(Bullet);
@@ -135,7 +161,7 @@ public class Enemy : MonoBehaviour {
             b.GetComponent<Bullet>().adjustVelocity(direction);
         }
         timer++;
-        timer %= timeToShoot;
+        timer %= timeToAttack;
     }
 
     //private void Sentry() // this method will have the enemy patrol for player

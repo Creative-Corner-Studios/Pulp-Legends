@@ -107,7 +107,7 @@ MonoBehaviour:
   endPointLeft: {fileID: 0}
   endPointRight: {fileID: 0}
   direction: 1
-  timeToShoot: 180
+  timeToAttack: 180
   detectRange: 40
   damageScore: 20
   deathScore: 50
@@ -202,6 +202,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: deathScore
       value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: timeToAttack
+      value: 180
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
