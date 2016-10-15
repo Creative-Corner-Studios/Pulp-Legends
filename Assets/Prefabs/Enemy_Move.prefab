@@ -221,10 +221,8 @@ Prefab:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 0}
-<<<<<<< HEAD
       propertyPath: m_TagString
       value: Enemy
-=======
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300002, guid: c745c957f978e294699de60d03009810,
@@ -240,7 +238,6 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Color.b
       value: 1
->>>>>>> origin/Test
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
