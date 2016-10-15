@@ -2566,62 +2566,6 @@ Transform:
   - {fileID: 998125132}
   m_Father: {fileID: 1261940433}
   m_RootOrder: 21
---- !u!1 &140944086
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 140944087}
-  - 212: {fileID: 140944088}
-  m_Layer: 0
-  m_Name: Crate
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &140944087
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 140944086}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -29.3791199, y: 29.446167, z: 1.5}
-  m_LocalScale: {x: .501562417, y: .501562417, z: .501562417}
-  m_Children: []
-  m_Father: {fileID: 1215971825}
-  m_RootOrder: 8
---- !u!212 &140944088
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 140944086}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_ReflectionProbeUsage: 0
-  m_ProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: .5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 78cade265ea9de447ba57d22fa98b6a0, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &149538852
 GameObject:
   m_ObjectHideFlags: 0
@@ -8566,7 +8510,7 @@ Transform:
   m_LocalScale: {x: 1, y: .100000001, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 48
+  m_RootOrder: 49
 --- !u!1 &583108705
 GameObject:
   m_ObjectHideFlags: 0
@@ -12009,11 +11953,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 22489404, guid: 8038339e3fc9be44388af287e74e85e2, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22489404, guid: 8038339e3fc9be44388af287e74e85e2, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22480048, guid: 8038339e3fc9be44388af287e74e85e2, type: 2}
       propertyPath: m_LocalPosition.x
@@ -12089,27 +12033,27 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22481470, guid: 8038339e3fc9be44388af287e74e85e2, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22481470, guid: 8038339e3fc9be44388af287e74e85e2, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22423172, guid: 8038339e3fc9be44388af287e74e85e2, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22423172, guid: 8038339e3fc9be44388af287e74e85e2, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22455912, guid: 8038339e3fc9be44388af287e74e85e2, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22455912, guid: 8038339e3fc9be44388af287e74e85e2, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8038339e3fc9be44388af287e74e85e2, type: 2}
@@ -16089,7 +16033,6 @@ Transform:
   - {fileID: 1591256858}
   - {fileID: 1718170332}
   - {fileID: 552371713}
-  - {fileID: 140944087}
   m_Father: {fileID: 0}
   m_RootOrder: 38
 --- !u!1 &1221251684
@@ -24307,7 +24250,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 44
+  m_RootOrder: 46
 --- !u!1001 &1839182766
 Prefab:
   m_ObjectHideFlags: 0

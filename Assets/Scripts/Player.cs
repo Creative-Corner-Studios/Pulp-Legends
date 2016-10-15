@@ -40,11 +40,12 @@ public class Player : MonoBehaviour {
     [SerializeField] private int health = 100;
     [SerializeField] private float attackPower = 20;
     [SerializeField] private float speed= 10;
-    [SerializeField] private float jumpPower = 800;
+    [SerializeField] private float jumpPower = 1000;
     [SerializeField] private GameObject bullet;
     [SerializeField] private CharacterType character;
     [SerializeField] private LayerMask ground;
     [SerializeField] private int playerNum;
+    private int score = 0;
 
     private Vector3 position = Vector3.zero;
     private Vector2 velocity = Vector2.zero;
@@ -184,7 +185,16 @@ public class Player : MonoBehaviour {
 
     private void PulpPower()
     {
+        switch (pulpPower)
+        {
+            case PulpPowerType.MALTESEFALCON:
 
+                break;
+
+            case PulpPowerType.SATAN:
+
+                break;
+        }
     }
 
     private void Jump()
@@ -260,5 +270,10 @@ public class Player : MonoBehaviour {
         {
             return true;
         }
+    }
+
+    public void addScore(int addition)
+    {
+        score += addition;
     }
 }
