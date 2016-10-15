@@ -27,11 +27,14 @@ public class FireBall : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D thing)
     {
-        if (thing.tag == "Player")
+        if (thing.tag == "Enemy")
         {
-            thing.GetComponent<Player>().ModHealth(-damage);
+            thing.GetComponent<Enemy>().Health-=damage;
         }
-        Destroy(gameObject);
+        if (thing.tag != "Player")
+        {
+            Destroy(gameObject);
+        }
     }
 
     public void adjustVelocity(bool direction)//adjusts the velocity of the bullet depending on turned left or right

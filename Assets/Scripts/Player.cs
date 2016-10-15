@@ -11,12 +11,14 @@ public class Player : MonoBehaviour {
     {
         //input variables
         public float delay = 0.3f;
-        public float fwdInput, jumpInput, meleeInput;
+        public float fwdInput, jumpInput, meleeInput, pulpInput;
         public string JUMP_AXIS;
         public string Horizontal_Axis;
         public string Melee_Axis;
+        public string Pulp_Axis;
         public bool jump = false;
         public bool melee;
+        public bool pulp;
 
         public void ConfigureInput(int playerNum)
         {
@@ -26,12 +28,14 @@ public class Player : MonoBehaviour {
                     JUMP_AXIS = "P1_Jump";
                     Horizontal_Axis = "P1_Horizontal";
                     Melee_Axis = "P1_Melee";
+                    Pulp_Axis = "P1_Pulp";
                     break;
 
                 case 2:
                     JUMP_AXIS = "P2_Jump";
                     Horizontal_Axis = "P2_Horizontal";
                     Melee_Axis = "P2_Melee";
+                    Pulp_Axis = "P2_Pulp";
                     break;
             }
         }
@@ -41,11 +45,11 @@ public class Player : MonoBehaviour {
     [SerializeField] private float attackPower = 20;
     [SerializeField] private float speed= 10;
     [SerializeField] private float jumpPower = 1000;
-    [SerializeField] private GameObject bullet;
     [SerializeField] private CharacterType character;
     [SerializeField] private LayerMask ground;
     [SerializeField] private int playerNum;
     [SerializeField] private int score = 0;
+    private bool direction;
 
     private Vector3 position = Vector3.zero;
     private Vector2 velocity = Vector2.zero;
@@ -106,6 +110,8 @@ public class Player : MonoBehaviour {
         player = gameObject;
         input.fwdInput = 0;
         input.jumpInput = 0;
+        input.pulpInput = 0;
+        
         groundCheck = transform.Find("GroundCheck");
         position = transform.position;
         rBody = GetComponent<Rigidbody2D>();
@@ -140,8 +146,10 @@ public class Player : MonoBehaviour {
         Move(); // moves the player based on input
         Jump(); //makes the player jump if there is input for jump
         MeleeAttack();
+        PulpPower();
         input.jump = false;
         input.melee = false;
+        input.pulp = false;
 
         if(input.fwdInput ==0 && input.jumpInput == 0 && grounded) //if there is no input and the character is on the ground
         {
@@ -154,6 +162,7 @@ public class Player : MonoBehaviour {
     {
         input.fwdInput = Input.GetAxis(input.Horizontal_Axis);
         input.jumpInput = Input.GetAxis(input.JUMP_AXIS);
+        input.pulpInput = Input.GetAxis(input.Pulp_Axis);
         if (!input.jump)
         {
             input.jump = Input.GetButtonDown(input.JUMP_AXIS);
@@ -161,6 +170,10 @@ public class Player : MonoBehaviour {
         if (!input.melee)
         {
             input.melee = Input.GetButtonDown(input.Melee_Axis);
+        }
+        if (!input.pulp)
+        {
+            input.pulp = Input.GetButtonDown(input.Pulp_Axis);
         }
     }
 
@@ -170,7 +183,10 @@ public class Player : MonoBehaviour {
         {
             int range = 2;
             Collider2D[] col = Physics2D.OverlapAreaAll(new Vector2(transform.position.x, transform.position.y), new Vector2(transform.position.x + range, transform.position.y+ 1));
-
+            if (direction)//left
+            {
+                col = Physics2D.OverlapAreaAll(new Vector2(transform.position.x, transform.position.y), new Vector2(transform.position.x - range, transform.position.y + 1));
+            }
 
             foreach (Collider2D thing in col)
             {
@@ -191,15 +207,30 @@ public class Player : MonoBehaviour {
 
     private void PulpPower()
     {
-        switch (pulpPower)
+        if (input.pulp)
         {
-            case PulpPowerType.MALTESEFALCON:
+            GameObject b = new GameObject();
+            switch (pulpPower)
+            {
+                case PulpPowerType.MALTESEFALCON:
+                    b = GameObject.Instantiate(worldControl.GetComponent<WorldController>().malteseFalcon);
+                    b.GetComponent<MalteseFalcon>().adjustVelocity(direction, gameObject);
+                    break;
 
-                break;
-
-            case PulpPowerType.SATAN:
-
-                break;
+                case PulpPowerType.SATAN:
+                    //shoot animation
+                    b = GameObject.Instantiate(worldControl.GetComponent<WorldController>().fireBall);
+                    b.GetComponent<FireBall>().adjustVelocity(direction);
+                    break;
+            }
+            if (direction)//going left
+            {
+                b.transform.position = new Vector3(transform.position.x - .6f, transform.position.y + .2f);
+            }
+            else//going right
+            {
+                b.transform.position = new Vector3(transform.position.x + .6f, transform.position.y + .2f);
+            }
         }
     }
 
@@ -219,6 +250,14 @@ public class Player : MonoBehaviour {
             rBody.velocity = new Vector2(input.fwdInput * speed, rBody.velocity.y);
 
             //velocity = new Vector2( input.fwdInput * speed, rBody.velocity.y);
+            if(input.fwdInput < 0)//left
+            {
+                direction = true;
+            }
+            else if(input.fwdInput > 0)//right
+            {
+                direction = false;
+            }
         }
         else
         {

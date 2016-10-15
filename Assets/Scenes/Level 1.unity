@@ -10407,6 +10407,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c1dca6418b0535c4689c74b45ba07f0f, type: 2}
   m_IsPrefabParent: 0
+--- !u!4 &777875833 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 418434, guid: c1dca6418b0535c4689c74b45ba07f0f, type: 2}
+  m_PrefabInternal: {fileID: 777875832}
 --- !u!1 &780011350
 GameObject:
   m_ObjectHideFlags: 0
@@ -11953,11 +11957,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 22489404, guid: 8038339e3fc9be44388af287e74e85e2, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22489404, guid: 8038339e3fc9be44388af287e74e85e2, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22480048, guid: 8038339e3fc9be44388af287e74e85e2, type: 2}
       propertyPath: m_LocalPosition.x
@@ -12033,27 +12037,27 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22481470, guid: 8038339e3fc9be44388af287e74e85e2, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22481470, guid: 8038339e3fc9be44388af287e74e85e2, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22423172, guid: 8038339e3fc9be44388af287e74e85e2, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22423172, guid: 8038339e3fc9be44388af287e74e85e2, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22455912, guid: 8038339e3fc9be44388af287e74e85e2, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22455912, guid: 8038339e3fc9be44388af287e74e85e2, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8038339e3fc9be44388af287e74e85e2, type: 2}
@@ -14238,10 +14242,6 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 6de686664d495c0428f0eeb205d93c2c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
---- !u!4 &1093309662 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 418434, guid: c1dca6418b0535c4689c74b45ba07f0f, type: 2}
-  m_PrefabInternal: {fileID: 777875832}
 --- !u!1001 &1095326268
 Prefab:
   m_ObjectHideFlags: 0
@@ -19665,6 +19665,7 @@ GameObject:
   - 92: {fileID: 1453148158}
   - 124: {fileID: 1453148157}
   - 81: {fileID: 1453148156}
+  - 114: {fileID: 1453148162}
   - 114: {fileID: 1453148161}
   m_Layer: 0
   m_Name: Main Camera
@@ -19746,14 +19747,31 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1453148155}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a64b276af25aaf4dad23a030a1d3b64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target1: {fileID: 0}
+  target2: {fileID: 0}
+  damping: .100000001
+  lookAheadFactor: 0
+  lookAheadReturnSpeed: .5
+  lookAheadMoveThreshold: .100000001
+--- !u!114 &1453148162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1453148155}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5d8238cc53530b64fbb7828c3d3bb591, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 1093309662}
-  damping: 1
-  lookAheadFactor: 3
+  target: {fileID: 777875833}
+  damping: .100000001
+  lookAheadFactor: 0
   lookAheadReturnSpeed: .5
   lookAheadMoveThreshold: .100000001
 --- !u!1 &1463030823
@@ -22901,6 +22919,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveable: 1
   collectable: 1
+  scoreBonus: 0
 --- !u!61 &1720804728
 BoxCollider2D:
   m_ObjectHideFlags: 0

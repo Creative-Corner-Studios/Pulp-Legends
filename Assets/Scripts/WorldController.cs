@@ -12,10 +12,10 @@ public class WorldController : MonoBehaviour {
     public bool runLevel1Setup = true; //bool to see if setup for level 1 has been run
 
     //Player/Character selection Data
-    [SerializeField]
-    private GameObject SamSpade; //holds the sam spade character prefab
-    [SerializeField]
-    private GameObject NoraCarter;// holds the nora carter character prefab
+    [SerializeField] private GameObject SamSpade; //holds the sam spade character prefab
+    [SerializeField] private GameObject NoraCarter;// holds the nora carter character prefab
+    public GameObject malteseFalcon; //pulp power for sam spade
+    public GameObject fireBall; //pulp power for lucy faire
     public GameObject P1; //holds player 1 gameobject
     public GameObject P2; //holds player 2 game object
 
