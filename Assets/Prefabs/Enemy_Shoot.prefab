@@ -109,6 +109,8 @@ MonoBehaviour:
   direction: 1
   timeToShoot: 180
   detectRange: 40
+  damageScore: 20
+  deathScore: 50
 --- !u!212 &21282126
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -192,6 +194,14 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_TagString
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: damageScore
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: deathScore
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

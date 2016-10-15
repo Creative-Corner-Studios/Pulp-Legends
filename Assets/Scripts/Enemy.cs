@@ -22,6 +22,9 @@ public class Enemy : MonoBehaviour {
     [SerializeField] private int timeToShoot; //amount of frames have passed for enemy to shoot
     [SerializeField] private float detectRange; //how close a player can be so the enemy will notice them
 
+    [SerializeField] private int damageScore; //the score the player gets when they hit the enemy
+    [SerializeField] private int deathScore; //the score the player gets when the enemy dies
+
     private Rigidbody2D rBody;
 
     // Use this for initialization
@@ -72,6 +75,16 @@ public class Enemy : MonoBehaviour {
     public void modHealth(int mod)  // add/subtract from health
     {
         health += mod;
+    }
+
+    public int DamageScore
+    {
+        get { return damageScore; }
+    }
+
+    public int DeathScore
+    {
+        get { return deathScore; }
     }
 
     private void checkToMove()

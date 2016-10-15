@@ -45,7 +45,7 @@ public class Player : MonoBehaviour {
     [SerializeField] private CharacterType character;
     [SerializeField] private LayerMask ground;
     [SerializeField] private int playerNum;
-    private int score = 0;
+    [SerializeField] private int score = 0;
 
     private Vector3 position = Vector3.zero;
     private Vector2 velocity = Vector2.zero;
@@ -177,6 +177,11 @@ public class Player : MonoBehaviour {
                 {
                     Enemy enemy = thing.GetComponent<Enemy>();
                     enemy.Health -= (int)attackPower;
+                    score += enemy.DamageScore;
+                    if(enemy.Health <= 0)
+                    {
+                        score += enemy.DeathScore;
+                    }
                     Debug.Log("Enemy: " + thing.name + " was hit for " + attackPower + " damage");
                 }
             }

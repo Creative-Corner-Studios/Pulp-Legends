@@ -155,7 +155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d40feb7045659204ca0451de0b7d5f98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 5
+  health: 125
   attackPower: 1
   speed: 1
   type: 0
@@ -165,6 +165,8 @@ MonoBehaviour:
   direction: 0
   timeToShoot: 1
   detectRange: 40
+  damageScore: 15
+  deathScore: 70
 --- !u!212 &21211714
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -202,7 +204,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: health
-      value: 5
+      value: 125
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: speed
@@ -223,8 +225,6 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_TagString
       value: Enemy
-      propertyPath: m_Sprite
-      value: 
       objectReference: {fileID: 21300002, guid: c745c957f978e294699de60d03009810,
         type: 3}
     - target: {fileID: 0}
@@ -238,6 +238,14 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Color.b
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: damageScore
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: deathScore
+      value: 70
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
