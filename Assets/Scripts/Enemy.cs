@@ -93,10 +93,12 @@ public class Enemy : MonoBehaviour {
         if (direction && Mathf.Abs(endPointLeft.transform.position.x - transform.position.x) <= speed)//walking left and close to end point
         {
             direction = false;
+            transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y);
         }
         if (!direction && Mathf.Abs(endPointRight.transform.position.x - transform.position.x) <= speed)//walking left and close to end point
         {
             direction = true;
+            transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y);
         }
     }
 
@@ -152,12 +154,12 @@ public class Enemy : MonoBehaviour {
             
             if (direction)//going left
             {
-                b.transform.localScale = new Vector3(b.transform.localScale.x, b.transform.localScale.y);
+                //b.transform.localScale = new Vector3(b.transform.localScale.x, b.transform.localScale.y);
                 b.transform.position = new Vector3(transform.position.x - .6f, transform.position.y+.2f);
             }
             else//going right
             {
-                b.transform.localScale = new Vector3(-b.transform.localScale.x, b.transform.localScale.y);
+                //b.transform.localScale = new Vector3(-b.transform.localScale.x, b.transform.localScale.y);
                 b.transform.position = new Vector3(transform.position.x + .6f, transform.position.y+.2f);
             }
             b.GetComponent<Bullet>().adjustVelocity(direction);
