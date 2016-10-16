@@ -252,10 +252,18 @@ public class Player : MonoBehaviour {
             //velocity = new Vector2( input.fwdInput * speed, rBody.velocity.y);
             if(input.fwdInput < 0)//left
             {
+                if(direction == false)
+                {
+                    transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y);
+                }
                 direction = true;
             }
             else if(input.fwdInput > 0)//right
             {
+                if (direction == true)
+                {
+                    transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y);
+                }
                 direction = false;
             }
         }
