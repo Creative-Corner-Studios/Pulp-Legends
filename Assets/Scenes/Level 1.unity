@@ -11957,11 +11957,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 22489404, guid: 8038339e3fc9be44388af287e74e85e2, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22489404, guid: 8038339e3fc9be44388af287e74e85e2, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22480048, guid: 8038339e3fc9be44388af287e74e85e2, type: 2}
       propertyPath: m_LocalPosition.x
@@ -12037,27 +12037,27 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22481470, guid: 8038339e3fc9be44388af287e74e85e2, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22481470, guid: 8038339e3fc9be44388af287e74e85e2, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22423172, guid: 8038339e3fc9be44388af287e74e85e2, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22423172, guid: 8038339e3fc9be44388af287e74e85e2, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22455912, guid: 8038339e3fc9be44388af287e74e85e2, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22455912, guid: 8038339e3fc9be44388af287e74e85e2, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8038339e3fc9be44388af287e74e85e2, type: 2}
@@ -19747,7 +19747,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1453148155}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6a64b276af25aaf4dad23a030a1d3b64, type: 3}
   m_Name: 
@@ -19764,7 +19764,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1453148155}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5d8238cc53530b64fbb7828c3d3bb591, type: 3}
   m_Name: 

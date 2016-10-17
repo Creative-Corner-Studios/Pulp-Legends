@@ -4,7 +4,7 @@ using System.Collections;
 using UnityEngine.UI;
 
 public class WorldController : MonoBehaviour {
-    public enum Screen { MAINMENU, OPTIONMENU, TESTLEVEL, LEVEL1, GAMEOVER}; // a public finite state for all screens in game.
+    public enum Screen { MAINMENU, OPTIONMENU, TUTORIALLEVEL, TESTLEVEL, LEVEL1, GAMEOVER}; // a public finite state for all screens in game.
 
     Camera GameCamera;// holds the main game camera
     public Screen currentScreen = Screen.MAINMENU; //finite state for which screen this is
@@ -30,6 +30,7 @@ public class WorldController : MonoBehaviour {
     //booleans to see if which players are in game
     public bool p1Active = true;
     public bool p2Active = true;
+    public bool has2Players;
 
     //Game UI Data
     public GameUI gameUI;
@@ -88,6 +89,9 @@ public class WorldController : MonoBehaviour {
             case "Option Menu":
                 checkInOptionMenu();
                 break;
+            case "Tutorial":
+
+                break;
             case "Test Level":
                 if (runTestSetup) //checks to see if inital setup was run
                 {
@@ -144,6 +148,11 @@ public class WorldController : MonoBehaviour {
     private void checkInOptionMenu()//if the scene is the option menu, do this for update
     {
         GameCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
+
+    }
+
+    private void TutorialLevel()
+    {
 
     }
 
@@ -218,6 +227,12 @@ public class WorldController : MonoBehaviour {
     //this method sets up characters and instantiate them into current level
     public void SetupCharacter()
     {
+        if (has2Players)
+        {
+            p1Active = true;
+            p2Active = true;
+        }
+
         if (p1Active) //if player 1 is active
         {
             switch (p1Char) // check which character player 1 is

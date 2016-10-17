@@ -23,7 +23,7 @@ public class GameCamera : MonoBehaviour {
     // Use this for initialization
     private void Start()
     {
-        worldControl = GameObject.Find("WorldController").GetComponent<WorldController>(); // links the world controller script to the world controll attribut to give access to world controller data
+        worldControl = GameObject.Find("WorldController").GetComponent<WorldController>(); // links the world controller script to the world control attribute to give access to world controller data
         cameraTarget = new GameObject();
         transform.parent = null;
     }

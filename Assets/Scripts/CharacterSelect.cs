@@ -297,6 +297,7 @@ public class CharacterSelect : MonoBehaviour {
                     worldControl.P2Char = p2Character;
                     worldControl.p1Active = p1Active;
                     worldControl.p2Active = p2Active;
+                    worldControl.has2Players = true;
                     worldControl.currentScreen = WorldController.Screen.TESTLEVEL;
                     worldControl.runTestSetup = true;
                     Application.LoadLevel("Test Level");
@@ -313,6 +314,7 @@ public class CharacterSelect : MonoBehaviour {
                     worldControl.P1Char = p1Character;
                     worldControl.p1Active = p1Active;
                     worldControl.p2Active = p2Active;
+                    worldControl.has2Players = false;
                     worldControl.currentScreen = WorldController.Screen.TESTLEVEL;
                     worldControl.runTestSetup = true;
                     Application.LoadLevel("Test Level");
@@ -329,6 +331,7 @@ public class CharacterSelect : MonoBehaviour {
                     worldControl.P2Char = p2Character;
                     worldControl.p1Active = p1Active;
                     worldControl.p2Active = p2Active;
+                    worldControl.has2Players = false;
                     worldControl.currentScreen = WorldController.Screen.TESTLEVEL;
                     worldControl.runTestSetup = true;
                     Application.LoadLevel("Test Level");
