@@ -41,18 +41,19 @@ public class FireBall : MonoBehaviour {
         }
     }
 
-    public void adjustVelocity(bool direction)//adjusts the velocity of the bullet depending on turned left or right
+    public void adjustVelocity(bool FacingLeft)//adjusts the velocity of the bullet depending on turned left or right
     {
         if (rBody == null)
         {
             rBody = GetComponent<Rigidbody2D>();
         }
-        if (direction)
+        if (FacingLeft)
         {
             rBody.velocity = new Vector2(-1 * speed, 0);//sets the velocity
         }
         else
         {
+            transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y);
             rBody.velocity = new Vector2(1 * speed, 0);//sets the velocity
         }
         rBody.velocity *= speed;//multiples by speed of bullet
