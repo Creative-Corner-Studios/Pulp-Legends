@@ -9,6 +9,7 @@ public class Object : MonoBehaviour {
     private int damage = 0; //if it is hazardous how much damage will it do the player
     [SerializeField] private bool moveable = true; //can the player move the object
     [SerializeField] private bool collectable = false; //can the player collect it/if the player collides with it will it dissapear
+    [SerializeField] private int scoreBonus;
     private GameObject obj;
     private Rigidbody2D objRigid;
 
@@ -33,6 +34,7 @@ public class Object : MonoBehaviour {
     {
         if(other.gameObject.tag == "Player" && collectable)
         {
+            other.GetComponent<Player>().addScore(scoreBonus);
             DestroyObject();
         }
     }

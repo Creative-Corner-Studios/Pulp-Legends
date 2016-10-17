@@ -40,10 +40,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentScreen: 0
+  runTutorialSetup: 1
+  runTestSetup: 1
+  runLevel1Setup: 1
+  GamePaused: 0
   SamSpade: {fileID: 143998, guid: c1dca6418b0535c4689c74b45ba07f0f, type: 2}
   NoraCarter: {fileID: 128284, guid: ca66f86d4b5289b4e89599df1cc9e62a, type: 2}
+  malteseFalcon: {fileID: 143124, guid: 94840eceed2182b4eaac61cb8336871a, type: 2}
+  fireBall: {fileID: 188510, guid: 271070c124ea6de4480f6e77e1da0d62, type: 2}
+  P1: {fileID: 0}
+  P2: {fileID: 0}
+  p1Active: 1
+  p2Active: 1
+  has2Players: 0
+  gameUI: {fileID: 0}
   p1TestPos: {x: -3.94000006, y: 0, z: 0}
   p2TestPos: {x: -5.80000019, y: 0, z: 0}
+  p1Level1Pos: {x: 0, y: 0, z: 0}
+  p2Level1Pos: {x: 0, y: 0, z: 0}
+  p1TutorialPos: {x: -10.0367203, y: -1.25890505, z: 0}
+  p2TutorialPos: {x: -7.69182396, y: -1.36882198, z: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -70,6 +86,30 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: p2TestPos.x
       value: -5.80000019
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: malteseFalcon
+      value: 
+      objectReference: {fileID: 143124, guid: 94840eceed2182b4eaac61cb8336871a, type: 2}
+    - target: {fileID: 0}
+      propertyPath: fireBall
+      value: 
+      objectReference: {fileID: 188510, guid: 271070c124ea6de4480f6e77e1da0d62, type: 2}
+    - target: {fileID: 0}
+      propertyPath: p1TutorialPos.x
+      value: -10.0367203
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: p1TutorialPos.y
+      value: -1.25890505
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: p2TutorialPos.x
+      value: -7.69182396
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: p2TutorialPos.y
+      value: -1.36882198
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

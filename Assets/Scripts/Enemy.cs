@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour {
 
     //attributes
     public int health;
-    [SerializeField] private float attackPower;
+    [SerializeField] private int attackPower;
     [SerializeField] private float speed;
     [SerializeField] private enemyType type; //the type of enemy  
     [SerializeField] private GameObject Bullet;
@@ -17,16 +17,20 @@ public class Enemy : MonoBehaviour {
     public GameObject endPointRight; //right end point to turn around for moving enemies
     private Vector3 ePLeftStart;//the starting position of the left end point
     private Vector3 ePRightStart;//the starting position of the right end point
-    public bool direction; //left = true, right = false
+    public bool facingLeft; //left = true, right = false
     private int timer; //current amount has passed
-    [SerializeField] private int timeToShoot; //amount of frames have passed for enemy to shoot
+    [SerializeField] private int timeToAttack; //amount of frames have passed for enemy to attack
     [SerializeField] private float detectRange; //how close a player can be so the enemy will notice them
 
+    [SerializeField] private int damageScore; //the score the player gets when they hit the enemy
+    [SerializeField] private int deathScore; //the score the player gets when the enemy dies
+
     private Rigidbody2D rBody;
+    private WorldController worldControl;
 
     // Use this for initialization
     void Start () {
-        timer = 0;
+        timer = 100;
         rBody = GetComponent<Rigidbody2D>();
         rBody.mass = 1.0f;
         if (endPointLeft != null && endPointRight != null)
@@ -34,25 +38,30 @@ public class Enemy : MonoBehaviour {
             ePLeftStart = endPointLeft.transform.position;
             ePRightStart = endPointRight.transform.position;
         }
+        worldControl = GameObject.Find("WorldController").GetComponent<WorldController>();
     }
 	
 	// Update is called once per frame
 	void Update () {
-	    if(health <= 0)//enemy is out of health, so die
+        if (!worldControl.GamePaused)
         {
-            this.DestroyEnemy();
-        }
-        switch(type)
-        {
-            case enemyType.MOVING:
-                checkToMove();
-                Move();
-                break;
-            case enemyType.SHOOTING:
-                checkToShoot();
-                break;
-            default:
-                break;
+            if (health <= 0)//enemy is out of health, so die
+            {
+                this.DestroyEnemy();
+            }
+            switch (type)
+            {
+                case enemyType.MOVING:
+                    checkToMove();
+                    Move();
+                    checkToMelee();
+                    break;
+                case enemyType.SHOOTING:
+                    checkToShoot();
+                    break;
+                default:
+                    break;
+            }
         }
 	}
 
@@ -74,21 +83,33 @@ public class Enemy : MonoBehaviour {
         health += mod;
     }
 
+    public int DamageScore
+    {
+        get { return damageScore; }
+    }
+
+    public int DeathScore
+    {
+        get { return deathScore; }
+    }
+
     private void checkToMove()
     {
-        if (direction && Mathf.Abs(endPointLeft.transform.position.x - transform.position.x) <= speed)//walking left and close to end point
+        if (facingLeft && Mathf.Abs(endPointLeft.transform.position.x - transform.position.x) <= speed)//walking left and close to end point
         {
-            direction = false;
+            facingLeft = false;
+            transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y);
         }
-        if (!direction && Mathf.Abs(endPointRight.transform.position.x - transform.position.x) <= speed)//walking left and close to end point
+        if (!facingLeft && Mathf.Abs(endPointRight.transform.position.x - transform.position.x) <= speed)//walking left and close to end point
         {
-            direction = true;
+            facingLeft = true;
+            transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y);
         }
     }
 
     private void Move()
     {
-        if (direction)
+        if (facingLeft)
         {
             rBody.velocity = new Vector2(-1 * speed, rBody.velocity.y);
         }
@@ -103,26 +124,53 @@ public class Enemy : MonoBehaviour {
         }
     }
 
+    private void checkToMelee()//check to see if time to melee attack
+    {
+        if (timer % timeToAttack == 0)//time to shoot
+        {
+            int range = 2;
+            Collider2D[] col = Physics2D.OverlapAreaAll(new Vector2(transform.position.x, transform.position.y), new Vector2(transform.position.x + range, transform.position.y + 1));
+            if (facingLeft)//left
+            {
+                col = Physics2D.OverlapAreaAll(new Vector2(transform.position.x, transform.position.y), new Vector2(transform.position.x - range, transform.position.y + 1));
+            }
+
+            foreach (Collider2D thing in col)
+            {
+                if (thing.tag == "Player")
+                {
+                    Player player = thing.GetComponent<Player>();
+                    player.ModHealth(-attackPower);
+                    Debug.Log("Player: " + thing.name + " was hit for " + attackPower + " damage");
+                }
+            }
+        }
+        timer++;
+        timer %= timeToAttack;
+    }
+
     private void checkToShoot()//check to see if time to shoot a bullet
     {
         //if(DetectPlayer())
-        if(timer % timeToShoot == 0)//time to shoot
+        if(timer % timeToAttack == 0)//time to shoot
         {
             //shoot animation
             GameObject b = GameObject.Instantiate(Bullet);
             
-            if (direction)//going left
+            if (facingLeft)//going left
             {
-                b.transform.position = new Vector3(transform.position.x - .5f, transform.position.y+.1f);
+                //b.transform.localScale = new Vector3(b.transform.localScale.x, b.transform.localScale.y);
+                b.transform.position = new Vector3(transform.position.x - .6f, transform.position.y+.2f);
             }
             else//going right
             {
-                b.transform.position = new Vector3(transform.position.x + .5f, transform.position.y+.1f);
+                //b.transform.localScale = new Vector3(-b.transform.localScale.x, b.transform.localScale.y);
+                b.transform.position = new Vector3(transform.position.x + .6f, transform.position.y+.2f);
             }
-            b.GetComponent<Bullet>().adjustVelocity(direction);
+            b.GetComponent<Bullet>().adjustVelocity(facingLeft);
         }
         timer++;
-        timer %= timeToShoot;
+        timer %= timeToAttack;
     }
 
     //private void Sentry() // this method will have the enemy patrol for player

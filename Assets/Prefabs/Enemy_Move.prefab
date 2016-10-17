@@ -14,7 +14,7 @@ GameObject:
   - 114: {fileID: 11426548}
   m_Layer: 0
   m_Name: Enemy_Move
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -155,16 +155,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d40feb7045659204ca0451de0b7d5f98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 5
-  attackPower: 1
+  health: 150
+  attackPower: 35
   speed: 1
   type: 0
   Bullet: {fileID: 0}
   endPointLeft: {fileID: 171656}
   endPointRight: {fileID: 169062}
-  direction: 0
-  timeToShoot: 1
+  facingLeft: 1
+  timeToAttack: 90
   detectRange: 40
+  damageScore: 15
+  deathScore: 70
 --- !u!212 &21211714
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -191,8 +193,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 34cb84cea8899254697375a280350775, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: 21300002, guid: c745c957f978e294699de60d03009810, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -202,7 +204,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: health
-      value: 5
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: speed
@@ -218,6 +220,39 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: attackPower
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 21300002, guid: c745c957f978e294699de60d03009810,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: damageScore
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: deathScore
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: timeToAttack
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: facingLeft
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
