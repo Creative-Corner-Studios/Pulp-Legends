@@ -298,9 +298,9 @@ public class CharacterSelect : MonoBehaviour {
                     worldControl.p1Active = p1Active;
                     worldControl.p2Active = p2Active;
                     worldControl.has2Players = true;
-                    worldControl.currentScreen = WorldController.Screen.TESTLEVEL;
-                    worldControl.runTestSetup = true;
-                    Application.LoadLevel("Test Level");
+                    worldControl.currentScreen = WorldController.Screen.TUTORIALLEVEL;
+                    worldControl.runTutorialSetup = true;
+                    Application.LoadLevel("Tutorial");
                 }
             }
         }
@@ -315,9 +315,9 @@ public class CharacterSelect : MonoBehaviour {
                     worldControl.p1Active = p1Active;
                     worldControl.p2Active = p2Active;
                     worldControl.has2Players = false;
-                    worldControl.currentScreen = WorldController.Screen.TESTLEVEL;
-                    worldControl.runTestSetup = true;
-                    Application.LoadLevel("Test Level");
+                    worldControl.currentScreen = WorldController.Screen.TUTORIALLEVEL;
+                    worldControl.runTutorialSetup = true;
+                    Application.LoadLevel("Tutorial");
                 }
             }
         }
@@ -332,9 +332,9 @@ public class CharacterSelect : MonoBehaviour {
                     worldControl.p1Active = p1Active;
                     worldControl.p2Active = p2Active;
                     worldControl.has2Players = false;
-                    worldControl.currentScreen = WorldController.Screen.TESTLEVEL;
-                    worldControl.runTestSetup = true;
-                    Application.LoadLevel("Test Level");
+                    worldControl.currentScreen = WorldController.Screen.TUTORIALLEVEL;
+                    worldControl.runTutorialSetup = true;
+                    Application.LoadLevel("Tutorial");
                 }
             }
         }

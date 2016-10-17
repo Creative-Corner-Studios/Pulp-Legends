@@ -32,7 +32,7 @@ public class GameCamera : MonoBehaviour {
     // Update is called once per frame
     private void Update()
     {
-        if (!setupComplete && ((Application.loadedLevelName == "Test Level" && !worldControl.runTestSetup) || (Application.loadedLevelName == "Level 1" && !worldControl.runLevel1Setup))) //setup for world controller is complete but not for camera
+        if (!setupComplete && ((Application.loadedLevelName == "Test Level" && !worldControl.runTestSetup) || (Application.loadedLevelName == "Level 1" && !worldControl.runLevel1Setup) || (Application.loadedLevelName == "Tutorial" && !worldControl.runTutorialSetup))) //setup for world controller is complete but not for camera
         {
             if (worldControl.p2Active)
             {

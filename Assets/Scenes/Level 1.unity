@@ -10481,10 +10481,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c1dca6418b0535c4689c74b45ba07f0f, type: 2}
   m_IsPrefabParent: 0
---- !u!4 &777875833 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 418434, guid: c1dca6418b0535c4689c74b45ba07f0f, type: 2}
-  m_PrefabInternal: {fileID: 777875832}
 --- !u!1 &780011350
 GameObject:
   m_ObjectHideFlags: 0
@@ -19775,7 +19771,6 @@ GameObject:
   - 92: {fileID: 1453148158}
   - 124: {fileID: 1453148157}
   - 81: {fileID: 1453148156}
-  - 114: {fileID: 1453148162}
   - 114: {fileID: 1453148161}
   m_Layer: 0
   m_Name: Main Camera
@@ -19864,22 +19859,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target1: {fileID: 0}
   target2: {fileID: 0}
-  damping: .100000001
-  lookAheadFactor: 0
-  lookAheadReturnSpeed: .5
-  lookAheadMoveThreshold: .100000001
---- !u!114 &1453148162
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1453148155}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d8238cc53530b64fbb7828c3d3bb591, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 777875833}
   damping: .100000001
   lookAheadFactor: 0
   lookAheadReturnSpeed: .5

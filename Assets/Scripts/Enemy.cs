@@ -17,7 +17,7 @@ public class Enemy : MonoBehaviour {
     public GameObject endPointRight; //right end point to turn around for moving enemies
     private Vector3 ePLeftStart;//the starting position of the left end point
     private Vector3 ePRightStart;//the starting position of the right end point
-    public bool direction; //left = true, right = false
+    public bool facingLeft; //left = true, right = false
     private int timer; //current amount has passed
     [SerializeField] private int timeToAttack; //amount of frames have passed for enemy to attack
     [SerializeField] private float detectRange; //how close a player can be so the enemy will notice them
@@ -95,21 +95,21 @@ public class Enemy : MonoBehaviour {
 
     private void checkToMove()
     {
-        if (direction && Mathf.Abs(endPointLeft.transform.position.x - transform.position.x) <= speed)//walking left and close to end point
+        if (facingLeft && Mathf.Abs(endPointLeft.transform.position.x - transform.position.x) <= speed)//walking left and close to end point
         {
-            direction = false;
+            facingLeft = false;
             transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y);
         }
-        if (!direction && Mathf.Abs(endPointRight.transform.position.x - transform.position.x) <= speed)//walking left and close to end point
+        if (!facingLeft && Mathf.Abs(endPointRight.transform.position.x - transform.position.x) <= speed)//walking left and close to end point
         {
-            direction = true;
+            facingLeft = true;
             transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y);
         }
     }
 
     private void Move()
     {
-        if (direction)
+        if (facingLeft)
         {
             rBody.velocity = new Vector2(-1 * speed, rBody.velocity.y);
         }
@@ -130,7 +130,7 @@ public class Enemy : MonoBehaviour {
         {
             int range = 2;
             Collider2D[] col = Physics2D.OverlapAreaAll(new Vector2(transform.position.x, transform.position.y), new Vector2(transform.position.x + range, transform.position.y + 1));
-            if (direction)//left
+            if (facingLeft)//left
             {
                 col = Physics2D.OverlapAreaAll(new Vector2(transform.position.x, transform.position.y), new Vector2(transform.position.x - range, transform.position.y + 1));
             }
@@ -157,7 +157,7 @@ public class Enemy : MonoBehaviour {
             //shoot animation
             GameObject b = GameObject.Instantiate(Bullet);
             
-            if (direction)//going left
+            if (facingLeft)//going left
             {
                 //b.transform.localScale = new Vector3(b.transform.localScale.x, b.transform.localScale.y);
                 b.transform.position = new Vector3(transform.position.x - .6f, transform.position.y+.2f);
@@ -167,7 +167,7 @@ public class Enemy : MonoBehaviour {
                 //b.transform.localScale = new Vector3(-b.transform.localScale.x, b.transform.localScale.y);
                 b.transform.position = new Vector3(transform.position.x + .6f, transform.position.y+.2f);
             }
-            b.GetComponent<Bullet>().adjustVelocity(direction);
+            b.GetComponent<Bullet>().adjustVelocity(facingLeft);
         }
         timer++;
         timer %= timeToAttack;

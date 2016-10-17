@@ -366,6 +366,6 @@ public class Player : MonoBehaviour {
 
     void OnCollisionStay2D(Collision2D col)
     {
-        Debug.Log("Rbody: " + rBody.velocity);
+        //Debug.Log("Rbody: " + rBody.velocity);
     }
 }
