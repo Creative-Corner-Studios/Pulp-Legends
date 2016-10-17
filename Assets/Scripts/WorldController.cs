@@ -10,7 +10,7 @@ public class WorldController : MonoBehaviour {
     public Screen currentScreen = Screen.MAINMENU; //finite state for which screen this is
     public bool runTestSetup = true; //boolean to see if setup for the scene has been run
     public bool runLevel1Setup = true; //bool to see if setup for level 1 has been run
-
+    public bool GamePaused = false;
     //Player/Character selection Data
     [SerializeField] private GameObject SamSpade; //holds the sam spade character prefab
     [SerializeField] private GameObject NoraCarter;// holds the nora carter character prefab
@@ -99,7 +99,10 @@ public class WorldController : MonoBehaviour {
                     SetupTestLevel();
                     runTestSetup = false;
                 }
-                checkInTestLevel();
+                if (!GamePaused)
+                {
+                    checkInTestLevel();
+                }
                 break;
             case "Level 1":
                 if (runLevel1Setup)
@@ -108,7 +111,10 @@ public class WorldController : MonoBehaviour {
                     SetupLevel1();
                     runLevel1Setup = false;
                 }
-                checkInLevel1();
+                if (GamePaused)
+                {
+                    checkInLevel1();
+                }
                 break;
             default: //returns to main menu incase of error
                 //Application.LoadLevel("Main Menu");

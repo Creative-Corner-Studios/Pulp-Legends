@@ -19,10 +19,21 @@ public class GameUI : MonoBehaviour {
     [SerializeField] private Sprite noraCarterSprite;
     [SerializeField] private Sprite samSpadeDeadSprite;
     [SerializeField] private Sprite noraCarterDeadSprite;
+    private bool pauseBtn;
+
+    //Pause menu Attributes
 
     private WorldController worldControl;
     private bool setup = false;
     private bool twoPlayers = false;
+    [SerializeField] private CanvasGroup PauseMenu;
+    [SerializeField] private CanvasGroup ControlsGroup;
+    [SerializeField] private Dropdown controlSelector;
+    [SerializeField] private Image controlImage;
+    [SerializeField] private Sprite keyboardControlSprite;
+    [SerializeField] private Sprite p1ControlSprite;
+    [SerializeField] private Sprite p2ControlSprite;
+
     // Use this for initialization
     void Start () {
         worldControl = GameObject.Find("WorldController").GetComponent<WorldController>();
@@ -31,8 +42,23 @@ public class GameUI : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        getInput();
+        if (pauseBtn && worldControl.GamePaused == false)
+        {
+            PauseGame();
+        }
+        else if(pauseBtn && worldControl.GamePaused)
+        {
+            ResumeGame();
+        }
+        pauseBtn = false;
         UpdatePlayerHealth();
 	}
+
+    void getInput()
+    {
+        pauseBtn = Input.GetButtonDown("Pause");
+    }
 
     public void SetupUI()
     {
@@ -147,5 +173,49 @@ public class GameUI : MonoBehaviour {
                 }
             }
         }
+    }
+
+    public void PauseGame()
+    {
+        worldControl.GamePaused = true;
+        PauseMenu.alpha = 1;
+        Time.timeScale = 0f;
+    }
+
+    public void ResumeGame()
+    {
+        worldControl.GamePaused = false;
+        PauseMenu.alpha = 0;
+        Time.timeScale = 1f;
+    }
+
+    public void UpdateControlDisplay()
+    {
+        switch (controlSelector.value)
+        {
+            case 0:
+                controlImage.sprite = keyboardControlSprite;
+                break;
+
+            case 1:
+                controlImage.sprite = p1ControlSprite;
+                break;
+
+            case 2:
+                controlImage.sprite = p2ControlSprite;
+                break;
+        }
+    }
+
+    public void DisplayControls()
+    {
+        ControlsGroup.alpha = 1;
+        PauseMenu.alpha = 0;
+    }
+
+    public void HideControls()
+    {
+        ControlsGroup.alpha = 0;
+        PauseMenu.alpha = 1;
     }
 }

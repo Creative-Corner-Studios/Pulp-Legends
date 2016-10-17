@@ -16,9 +16,11 @@ public class Player : MonoBehaviour {
         public string Horizontal_Axis;
         public string Melee_Axis;
         public string Pulp_Axis;
+        public string Pause_Axis = "Pause";
         public bool jump = false;
         public bool melee;
         public bool pulp;
+        public bool pauseBtn;
 
         public void ConfigureInput(int playerNum)
         {
@@ -137,31 +139,36 @@ public class Player : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        GetInput(); //gets input from players each frame
+        if (!worldControl.GamePaused)
+        {
+            GetInput(); //gets input from players each frame
+        }
 	}
 
     void FixedUpdate()
     {
-        IsGrounded(); // checks if player is on the ground
-        Move(); // moves the player based on input
-        Jump(); //makes the player jump if there is input for jump
-        MeleeAttack();
-        PulpPower();
-        input.jump = false;
-        input.melee = false;
-        input.pulp = false;
-
-        if(input.fwdInput ==0 && input.jumpInput == 0 && grounded) //if there is no input and the character is on the ground
+        if (!worldControl.GamePaused)
         {
-            rBody.velocity = Vector2.zero; // stops character 
-        }
+            IsGrounded(); // checks if player is on the ground
+            Move(); // moves the player based on input
+            Jump(); //makes the player jump if there is input for jump
+            MeleeAttack();
+            PulpPower();
+            input.jump = false;
+            input.melee = false;
+            input.pulp = false;
 
-        if(grounded)
-        {
-            airControl = true;
-        }
-        //Debug.Log("rbody vel: " + rBody.velocity);
+            if (input.fwdInput == 0 && input.jumpInput == 0 && grounded) //if there is no input and the character is on the ground
+            {
+                rBody.velocity = Vector2.zero; // stops character 
+            }
 
+            if (grounded)
+            {
+                airControl = true;
+            }
+            //Debug.Log("rbody vel: " + rBody.velocity);
+        }
     }
 
     private void GetInput()

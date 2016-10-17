@@ -9,7 +9,7 @@ public class FireBall : MonoBehaviour {
     private float speed;
     [SerializeField]
     private int damage;
-
+    private WorldController worldControl;
     // Use this for initialization
     void Start()
     {
@@ -17,12 +17,16 @@ public class FireBall : MonoBehaviour {
         rBody.mass = 0.01f;
         rBody.gravityScale = 0f;
         cBody = GetComponent<Collider2D>();
+        worldControl = GameObject.Find("WorldController").GetComponent<WorldController>();
     }
 
     // Update is called once per frame
     void Update()
-    {//detects collisions
-
+    {
+        if (!worldControl.GamePaused)
+        {
+            //detects collisions
+        }
     }
 
     void OnTriggerEnter2D(Collider2D thing)

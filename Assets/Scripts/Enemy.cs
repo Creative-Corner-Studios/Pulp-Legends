@@ -26,6 +26,7 @@ public class Enemy : MonoBehaviour {
     [SerializeField] private int deathScore; //the score the player gets when the enemy dies
 
     private Rigidbody2D rBody;
+    private WorldController worldControl;
 
     // Use this for initialization
     void Start () {
@@ -37,26 +38,30 @@ public class Enemy : MonoBehaviour {
             ePLeftStart = endPointLeft.transform.position;
             ePRightStart = endPointRight.transform.position;
         }
+        worldControl = GameObject.Find("WorldController").GetComponent<WorldController>();
     }
 	
 	// Update is called once per frame
 	void Update () {
-	    if(health <= 0)//enemy is out of health, so die
+        if (!worldControl.GamePaused)
         {
-            this.DestroyEnemy();
-        }
-        switch(type)
-        {
-            case enemyType.MOVING:
-                checkToMove();
-                Move();
-                checkToMelee();
-                break;
-            case enemyType.SHOOTING:
-                checkToShoot();
-                break;
-            default:
-                break;
+            if (health <= 0)//enemy is out of health, so die
+            {
+                this.DestroyEnemy();
+            }
+            switch (type)
+            {
+                case enemyType.MOVING:
+                    checkToMove();
+                    Move();
+                    checkToMelee();
+                    break;
+                case enemyType.SHOOTING:
+                    checkToShoot();
+                    break;
+                default:
+                    break;
+            }
         }
 	}
 
