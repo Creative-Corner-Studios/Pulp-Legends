@@ -33,7 +33,6 @@ public class GameUI : MonoBehaviour {
     [SerializeField] private Sprite keyboardControlSprite;
     [SerializeField] private Sprite p1ControlSprite;
     [SerializeField] private Sprite p2ControlSprite;
-
     // Use this for initialization
     void Start () {
         worldControl = GameObject.Find("WorldController").GetComponent<WorldController>();
@@ -217,5 +216,13 @@ public class GameUI : MonoBehaviour {
     {
         ControlsGroup.alpha = 0;
         PauseMenu.alpha = 1;
+    }
+
+    public void ReturnToMain()
+    {
+        Destroy(GameObject.Find("WorldController"));
+        Time.timeScale = 1f;
+        worldControl.currentScreen = WorldController.Screen.MAINMENU;
+        Application.LoadLevel(0);
     }
 }

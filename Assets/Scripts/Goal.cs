@@ -59,6 +59,10 @@ public class Goal : MonoBehaviour {
                 break;
         }
         worldControl.currentScreen = nextLevel;
+        if(level == "Main Menu")
+        {
+            Destroy(GameObject.Find("WorldController"));
+        }
         Application.LoadLevel(level);
     }
 }
