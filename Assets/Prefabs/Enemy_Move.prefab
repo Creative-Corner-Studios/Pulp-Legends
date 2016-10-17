@@ -162,7 +162,7 @@ MonoBehaviour:
   Bullet: {fileID: 0}
   endPointLeft: {fileID: 171656}
   endPointRight: {fileID: 169062}
-  direction: 0
+  facingLeft: 1
   timeToAttack: 90
   detectRange: 40
   damageScore: 15
@@ -250,6 +250,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: timeToAttack
       value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: facingLeft
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
