@@ -49,7 +49,7 @@ public class Player : MonoBehaviour {
     [SerializeField] private LayerMask ground;
     [SerializeField] private int playerNum;
     [SerializeField] private int score = 0;
-    private bool direction;
+    private bool FacingLeft;
 
     private Vector3 position = Vector3.zero;
     private Vector2 velocity = Vector2.zero;
@@ -62,7 +62,8 @@ public class Player : MonoBehaviour {
     private InputSettings input = new InputSettings();
     private Rigidbody2D rBody;
     private bool meleeAttackDone = true;
-    
+    private bool airControl = true;
+
     //Properties
     public int Health
     {
@@ -142,7 +143,6 @@ public class Player : MonoBehaviour {
     void FixedUpdate()
     {
         IsGrounded(); // checks if player is on the ground
-
         Move(); // moves the player based on input
         Jump(); //makes the player jump if there is input for jump
         MeleeAttack();
@@ -155,6 +155,12 @@ public class Player : MonoBehaviour {
         {
             rBody.velocity = Vector2.zero; // stops character 
         }
+
+        if(grounded)
+        {
+            airControl = true;
+        }
+        //Debug.Log("rbody vel: " + rBody.velocity);
 
     }
 
@@ -183,7 +189,7 @@ public class Player : MonoBehaviour {
         {
             int range = 2;
             Collider2D[] col = Physics2D.OverlapAreaAll(new Vector2(transform.position.x, transform.position.y), new Vector2(transform.position.x + range, transform.position.y+ 1));
-            if (direction)//left
+            if (FacingLeft)//left
             {
                 col = Physics2D.OverlapAreaAll(new Vector2(transform.position.x, transform.position.y), new Vector2(transform.position.x - range, transform.position.y + 1));
             }
@@ -214,16 +220,16 @@ public class Player : MonoBehaviour {
             {
                 case PulpPowerType.MALTESEFALCON:
                     b = GameObject.Instantiate(worldControl.GetComponent<WorldController>().malteseFalcon);
-                    b.GetComponent<MalteseFalcon>().adjustVelocity(direction, gameObject);
+                    b.GetComponent<MalteseFalcon>().adjustVelocity(FacingLeft, gameObject);
                     break;
 
                 case PulpPowerType.SATAN:
                     //shoot animation
                     b = GameObject.Instantiate(worldControl.GetComponent<WorldController>().fireBall);
-                    b.GetComponent<FireBall>().adjustVelocity(direction);
+                    b.GetComponent<FireBall>().adjustVelocity(FacingLeft);
                     break;
             }
-            if (direction)//going left
+            if (FacingLeft)//going left
             {
                 b.transform.position = new Vector3(transform.position.x - .6f, transform.position.y + .2f);
             }
@@ -247,24 +253,25 @@ public class Player : MonoBehaviour {
     {
         if(Mathf.Abs(input.fwdInput) > input.delay)
         {
-            rBody.velocity = new Vector2(input.fwdInput * speed, rBody.velocity.y);
-
-            //velocity = new Vector2( input.fwdInput * speed, rBody.velocity.y);
+            if (airControl || grounded)
+            {
+                rBody.velocity = new Vector2(input.fwdInput * speed, rBody.velocity.y);
+            }
             if(input.fwdInput < 0)//left
             {
-                if(direction == false)
+                if(FacingLeft == false)
                 {
                     transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y);
                 }
-                direction = true;
+                FacingLeft = true;
             }
             else if(input.fwdInput > 0)//right
             {
-                if (direction == true)
+                if (FacingLeft == true)
                 {
                     transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y);
                 }
-                direction = false;
+                FacingLeft = false;
             }
         }
         else
@@ -277,6 +284,7 @@ public class Player : MonoBehaviour {
     {
         grounded = false;
 
+        
         Collider2D[] colliders = Physics2D.OverlapCircleAll(groundCheck.position, 0.3f, ground);
         for(int i = 0; i < colliders.Length; i++)
         {
@@ -285,6 +293,12 @@ public class Player : MonoBehaviour {
                 grounded = true;
             }
         }
+    }
+
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawSphere(groundCheck.position, 0.3f);
     }
 
     private void Flip()
@@ -328,5 +342,23 @@ public class Player : MonoBehaviour {
     public void addScore(int addition)
     {
         score += addition;
+    }
+
+    void OnCollisionEnter2D(Collision2D coll)
+    {
+        if (!grounded)
+        {
+            airControl = false;     
+        }
+    }
+
+    void OnCollisionExit2D(Collision2D coll)
+    {
+        airControl = true;
+    }
+
+    void OnCollisionStay2D(Collision2D col)
+    {
+        Debug.Log("Rbody: " + rBody.velocity);
     }
 }

@@ -1,0 +1,232 @@
+fileFormatVersion: 2
+guid: d2480396e1bc1aa49974ee73764101cd
+timeCreated: 1476650484
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: lucy faire T-Pose
+    21300002: lucy faire Idle
+    21300004: lucy faire Run_0
+    21300006: lucy faire Run_1
+    21300008: lucy faire Run_2
+    21300010: lucy faire Jump_0
+    21300012: lucy faire Jump_1
+    21300014: lucy faire Jump_2
+    21300016: lucy faire Jump_3
+    21300018: lucy faire Jump_4
+    21300020: lucy faire Melee_0
+    21300022: lucy faire Melee_1
+    21300024: lucy faire Melee_2
+    21300026: lucy faire Melee_3
+    21300028: lucy faire temp_12
+    21300030: lucy faire Melee_4
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: lucy faire T-Pose
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 2441
+        width: 400
+        height: 600
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: lucy faire Idle
+      rect:
+        serializedVersion: 2
+        x: 610
+        y: 2442
+        width: 300
+        height: 610
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: lucy faire Run_0
+      rect:
+        serializedVersion: 2
+        x: 999
+        y: 2447
+        width: 300
+        height: 610
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: lucy faire Run_1
+      rect:
+        serializedVersion: 2
+        x: 1421
+        y: 2447
+        width: 300
+        height: 610
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: lucy faire Run_2
+      rect:
+        serializedVersion: 2
+        x: 1917
+        y: 2458
+        width: 300
+        height: 610
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: lucy faire Jump_0
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 1715
+        width: 300
+        height: 610
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: lucy faire Jump_1
+      rect:
+        serializedVersion: 2
+        x: 605
+        y: 1709
+        width: 300
+        height: 610
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: lucy faire Jump_2
+      rect:
+        serializedVersion: 2
+        x: 1005
+        y: 1703
+        width: 360
+        height: 610
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: lucy faire Jump_3
+      rect:
+        serializedVersion: 2
+        x: 1472
+        y: 1732
+        width: 300
+        height: 574
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: lucy faire Jump_4
+      rect:
+        serializedVersion: 2
+        x: 1962
+        y: 1738
+        width: 349
+        height: 563
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: lucy faire Melee_0
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 1016
+        width: 300
+        height: 610
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: lucy faire Melee_1
+      rect:
+        serializedVersion: 2
+        x: 622
+        y: 1022
+        width: 300
+        height: 610
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: lucy faire Melee_2
+      rect:
+        serializedVersion: 2
+        x: 1004
+        y: 1022
+        width: 300
+        height: 610
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: lucy faire Melee_3
+      rect:
+        serializedVersion: 2
+        x: 1466
+        y: 1039
+        width: 300
+        height: 610
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: lucy faire temp_12
+      rect:
+        serializedVersion: 2
+        x: 1934
+        y: 1034
+        width: 300
+        height: 610
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: lucy faire Melee_4
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 301
+        width: 300
+        height: 610
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
