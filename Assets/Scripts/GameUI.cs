@@ -51,7 +51,7 @@ public class GameUI : MonoBehaviour {
             ResumeGame();
         }
         pauseBtn = false;
-        UpdatePlayerHealth();
+        UpdatePlayerBars();
 	}
 
     void getInput()
@@ -66,6 +66,8 @@ public class GameUI : MonoBehaviour {
             twoPlayers = true;
             p1HealthBar.maxValue = worldControl.Player1.Health;
             p1HealthBar.value = worldControl.Player1.Health;
+            p1PulpPowerBar.maxValue = worldControl.Player1.PulpMax;
+            p1PulpPowerBar.value = worldControl.Player1.PulpCurrent;
             switch (worldControl.Player1.Character)
             {
                 case Player.CharacterType.SAMSPADE:
@@ -79,6 +81,8 @@ public class GameUI : MonoBehaviour {
 
             p2HealthBar.maxValue = worldControl.Player2.Health;
             p2HealthBar.value = worldControl.Player2.Health;
+            p2PulpPowerBar.maxValue = worldControl.Player2.PulpMax;
+            p2PulpPowerBar.value = worldControl.Player2.PulpCurrent;
             switch (worldControl.Player2.Character)
             {
                 case Player.CharacterType.SAMSPADE:
@@ -96,7 +100,8 @@ public class GameUI : MonoBehaviour {
 
             p1HealthBar.maxValue = worldControl.Player1.Health;
             p1HealthBar.value = worldControl.Player1.Health;
-
+            p1PulpPowerBar.maxValue = worldControl.Player1.PulpMax;
+            p1PulpPowerBar.value = worldControl.Player1.PulpCurrent;
             switch (worldControl.Player1.Character)
             {
                 case Player.CharacterType.SAMSPADE:
@@ -114,6 +119,8 @@ public class GameUI : MonoBehaviour {
 
             p2HealthBar.maxValue = worldControl.Player2.Health;
             p2HealthBar.value = worldControl.Player2.Health;
+            p2PulpPowerBar.maxValue = worldControl.Player2.PulpMax;
+            p2PulpPowerBar.value = worldControl.Player2.PulpCurrent;
             switch (worldControl.Player2.Character)
             {
                 case Player.CharacterType.SAMSPADE:
@@ -127,16 +134,19 @@ public class GameUI : MonoBehaviour {
         }
     }
 
-    void UpdatePlayerHealth()
+    void UpdatePlayerBars()
     {
         if(worldControl.p1Active && worldControl.p2Active)
         {
             p1HealthBar.value = worldControl.Player1.Health;
             p2HealthBar.value = worldControl.Player2.Health;
+            p1PulpPowerBar.value = worldControl.Player1.PulpCurrent;
+            p2PulpPowerBar.value = worldControl.Player2.PulpCurrent;
         }
         else if (worldControl.p1Active)
         {
             p1HealthBar.value = worldControl.Player1.Health;
+            p1PulpPowerBar.value = worldControl.Player1.PulpCurrent;
             if (twoPlayers == true)
             {
                 switch (worldControl.Player2.Character)
@@ -156,6 +166,7 @@ public class GameUI : MonoBehaviour {
         else if (worldControl.p2Active)
         {
             p2HealthBar.value = worldControl.Player2.Health;
+            p2PulpPowerBar.value = worldControl.Player2.PulpCurrent;
             if (twoPlayers == true)
             {
                 switch (worldControl.Player1.Character)

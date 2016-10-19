@@ -116,7 +116,7 @@ RectTransform:
   m_RootOrder: 3
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 26.2000008, y: -56.4000015}
+  m_AnchoredPosition: {x: 26.2000008, y: -45}
   m_SizeDelta: {x: 500, y: 80}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &83038750
@@ -667,10 +667,10 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1869003396}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 18.5, y: 6.80000019}
+  m_AnchoredPosition: {x: 18.5, y: -112.800003}
   m_SizeDelta: {x: 450, y: 80}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &519587958
@@ -704,7 +704,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Noah Parker = Lead Programer/ Lord of Scrub
+  m_Text: Noah Parker = Lead Programer/ Wielder of the Scope Hammer
 --- !u!222 &519587959
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -972,7 +972,7 @@ GameObject:
   - 222: {fileID: 965546328}
   - 114: {fileID: 965546327}
   m_Layer: 0
-  m_Name: Other
+  m_Name: Anna Karwacki
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -989,11 +989,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1869003396}
-  m_RootOrder: 4
+  m_RootOrder: 1
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 35, y: -112.800003}
-  m_SizeDelta: {x: 400, y: 80}
+  m_AnchoredPosition: {x: 21.7999992, y: 90.4000015}
+  m_SizeDelta: {x: 500, y: 80}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &965546327
 MonoBehaviour:
@@ -1026,7 +1026,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Anna Karwacki = Character Art
+  m_Text: Anna Karwacki = Lead Artist/ Character Artist/ Drawer of Corgis
 --- !u!222 &965546328
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1419,10 +1419,10 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1869003396}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 40.7999992, y: 90.4000015}
+  m_AnchoredPosition: {x: 40.7999992, y: 20}
   m_SizeDelta: {x: 500, y: 30}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1583432994
@@ -1497,7 +1497,7 @@ RectTransform:
   m_RootOrder: 5
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 24.9848022, y: -158}
+  m_AnchoredPosition: {x: 24.9848022, y: -180}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1606718635
@@ -1627,10 +1627,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1477728899}
-  - {fileID: 1583432993}
-  - {fileID: 519587957}
-  - {fileID: 83038749}
   - {fileID: 965546326}
+  - {fileID: 1583432993}
+  - {fileID: 83038749}
+  - {fileID: 519587957}
   - {fileID: 1606718634}
   m_Father: {fileID: 104257455}
   m_RootOrder: 1
