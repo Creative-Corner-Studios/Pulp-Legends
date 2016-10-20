@@ -56,4 +56,9 @@ public class MenuScript : MonoBehaviour {
         optionGroup.GetComponent<CanvasGroup>().interactable = true;
     }
 
+    public void ReturnToMenu()
+    {
+        LoadScene("Main Menu");
+    }
+
 }
