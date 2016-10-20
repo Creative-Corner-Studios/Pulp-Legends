@@ -189,6 +189,7 @@ public class GameUI : MonoBehaviour {
     {
         worldControl.GamePaused = true;
         PauseMenu.alpha = 1;
+        PauseMenu.interactable = true;
         Time.timeScale = 0f;
     }
 
@@ -196,6 +197,7 @@ public class GameUI : MonoBehaviour {
     {
         worldControl.GamePaused = false;
         PauseMenu.alpha = 0;
+        PauseMenu.interactable = false;
         Time.timeScale = 1f;
     }
 
