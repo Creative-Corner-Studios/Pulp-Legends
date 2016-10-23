@@ -43,6 +43,7 @@ public class Player : MonoBehaviour {
         }
     }
     //attributes 
+    private int healthMax;
     [SerializeField] private int health = 100;
     [SerializeField] private float attackPower = 20;
     [SerializeField] private float speed= 10;
@@ -50,6 +51,9 @@ public class Player : MonoBehaviour {
     [SerializeField] private CharacterType character;
     [SerializeField] private LayerMask ground;
     [SerializeField] private int playerNum;
+    [SerializeField] private int pulpMax;
+    [SerializeField] private int pulpCost;
+    private int pulpCurrent;
     [SerializeField] private int score = 0;
     private bool FacingLeft;
 
@@ -103,8 +107,20 @@ public class Player : MonoBehaviour {
         get { return character; }
     }
 
+    public int PulpMax
+    {
+        get { return pulpMax; }
+    }
+
+    public int PulpCurrent
+    {
+        get { return pulpCurrent; }
+        set { pulpCurrent = value; }
+    }
+
     // Use this for initialization
-    void Start() {
+    void Start()
+    {
 
         input.ConfigureInput(playerNum); //configure the inputs for player 1 and 2
         worldControl = GameObject.Find("WorldController").GetComponent<WorldController>();
@@ -114,7 +130,7 @@ public class Player : MonoBehaviour {
         input.fwdInput = 0;
         input.jumpInput = 0;
         input.pulpInput = 0;
-        
+
         groundCheck = transform.Find("GroundCheck");
         position = transform.position;
         rBody = GetComponent<Rigidbody2D>();
@@ -124,26 +140,37 @@ public class Player : MonoBehaviour {
         switch (character)
         {
             case CharacterType.SAMSPADE:
-                health = 120;
+                healthMax = 175;
+                health = 175;
                 attackPower = 35;
                 pulpPower = PulpPowerType.MALTESEFALCON;
                 break;
 
             case CharacterType.NORACARTER:
+                healthMax = 200;
                 health = 200;
-                attackPower = 50;
+                attackPower = 45;
                 pulpPower = PulpPowerType.SATAN;
                 break;
         }
+        pulpCurrent = pulpCost;
     }
-	
+
 	// Update is called once per frame
 	void Update () {
         if (!worldControl.GamePaused)
         {
             GetInput(); //gets input from players each frame
         }
-	}
+        if (pulpCurrent > pulpMax)
+        {
+            pulpCurrent = pulpMax;
+        }
+        if(health > healthMax)
+        {
+            health = healthMax;
+        }
+    }
 
     void FixedUpdate()
     {
@@ -208,9 +235,11 @@ public class Player : MonoBehaviour {
                     Enemy enemy = thing.GetComponent<Enemy>();
                     enemy.Health -= (int)attackPower;
                     score += enemy.DamageScore;
+                    pulpCurrent += 15;
                     if(enemy.Health <= 0)
                     {
                         score += enemy.DeathScore;
+                        pulpCurrent += 10;
                     }
                     Debug.Log("Enemy: " + thing.name + " was hit for " + attackPower + " damage");
                 }
@@ -222,27 +251,31 @@ public class Player : MonoBehaviour {
     {
         if (input.pulp)
         {
-            GameObject b = new GameObject();
-            switch (pulpPower)
+            if (pulpCurrent >= pulpCost)
             {
-                case PulpPowerType.MALTESEFALCON:
-                    b = GameObject.Instantiate(worldControl.GetComponent<WorldController>().malteseFalcon);
-                    b.GetComponent<MalteseFalcon>().adjustVelocity(FacingLeft, gameObject);
-                    break;
+                GameObject b = new GameObject();
+                switch (pulpPower)
+                {
+                    case PulpPowerType.MALTESEFALCON:
+                        b = GameObject.Instantiate(worldControl.GetComponent<WorldController>().malteseFalcon);
+                        b.GetComponent<MalteseFalcon>().adjustVelocity(FacingLeft, gameObject);
+                        break;
 
-                case PulpPowerType.SATAN:
-                    //shoot animation
-                    b = GameObject.Instantiate(worldControl.GetComponent<WorldController>().fireBall);
-                    b.GetComponent<FireBall>().adjustVelocity(FacingLeft);
-                    break;
-            }
-            if (FacingLeft)//going left
-            {
-                b.transform.position = new Vector3(transform.position.x - .6f, transform.position.y + .2f);
-            }
-            else//going right
-            {
-                b.transform.position = new Vector3(transform.position.x + .6f, transform.position.y + .2f);
+                    case PulpPowerType.SATAN:
+                        //shoot animation
+                        b = GameObject.Instantiate(worldControl.GetComponent<WorldController>().fireBall);
+                        b.GetComponent<FireBall>().adjustVelocity(FacingLeft);
+                        break;
+                }
+                if (FacingLeft)//going left
+                {
+                    b.transform.position = new Vector3(transform.position.x - .6f, transform.position.y + .2f);
+                }
+                else//going right
+                {
+                    b.transform.position = new Vector3(transform.position.x + .6f, transform.position.y + .2f);
+                }
+                pulpCurrent -= pulpCost;
             }
         }
     }

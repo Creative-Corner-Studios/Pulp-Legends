@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using System;
 
 public class WorldController : MonoBehaviour {
-    public enum Screen { MAINMENU, OPTIONMENU, TUTORIALLEVEL, TESTLEVEL, LEVEL1, GAMEOVER}; // a public finite state for all screens in game.
+    public enum Screen { MAINMENU, OPTIONMENU, TUTORIALLEVEL, TESTLEVEL, LEVEL1, WINGAME, GAMEOVER}; // a public finite state for all screens in game.
 
     Camera GameCamera;// holds the main game camera
     public Screen currentScreen = Screen.MAINMENU; //finite state for which screen this is
@@ -138,7 +138,7 @@ public class WorldController : MonoBehaviour {
 
     public void GameOver() // this will end the game
     {
-        Application.LoadLevel("Main Menu");
+        Application.LoadLevel("Game Over");
     }
 
     //public void PauseGame() // pause game and opens pause menu
@@ -148,7 +148,7 @@ public class WorldController : MonoBehaviour {
 
     public void WinGame() // done when you win the game
     {
-        
+        Application.LoadLevel("Win Game");
     }
 
 
@@ -180,10 +180,6 @@ public class WorldController : MonoBehaviour {
         {
             p1Alive = player1.CheckIsAlive();
             p2Alive = player2.CheckIsAlive();
-            if (p1Alive == false)
-            {
-                GameCamera.GetComponent<UnityStandardAssets._2D.Camera2DFollow>().target = P2.transform;
-            }
             if (p1Alive == false && p2Alive == false)//both characters are gone. Game Over
             {
                 GameOver();
@@ -214,10 +210,6 @@ public class WorldController : MonoBehaviour {
         {
             p1Alive = player1.CheckIsAlive();
             p2Alive = player2.CheckIsAlive();
-            if(p1Alive == false)
-            {
-                GameCamera.GetComponent<UnityStandardAssets._2D.Camera2DFollow>().target = P2.transform;
-            }
             if (p1Alive == false && p2Alive == false)//both characters are gone. Game Over
             {
                 GameOver();
@@ -248,10 +240,6 @@ public class WorldController : MonoBehaviour {
         {
             p1Alive = player1.CheckIsAlive();
             p2Alive = player2.CheckIsAlive();
-            if (p1Alive == false)
-            {
-                GameCamera.GetComponent<UnityStandardAssets._2D.Camera2DFollow>().target = P2.transform;
-            }
             if (p1Alive == false && p2Alive == false)//both characters are gone. Game Over
             {
                 GameOver();

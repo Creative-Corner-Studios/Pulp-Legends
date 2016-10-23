@@ -29,6 +29,15 @@ public class Goal : MonoBehaviour {
             case WorldController.Screen.OPTIONMENU:
                 level = "Option Menu";
                 break;
+
+            case WorldController.Screen.WINGAME:
+                level = "Win Game";
+                break;
+
+            case WorldController.Screen.GAMEOVER:
+                level = "Game Over";
+                break;
+
         }
 	}
 	
@@ -59,6 +68,10 @@ public class Goal : MonoBehaviour {
                 break;
         }
         worldControl.currentScreen = nextLevel;
+        if(level == "Main Menu")
+        {
+            Destroy(GameObject.Find("WorldController"));
+        }
         Application.LoadLevel(level);
     }
 }

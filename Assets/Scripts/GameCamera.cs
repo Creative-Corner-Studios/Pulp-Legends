@@ -55,14 +55,12 @@ public class GameCamera : MonoBehaviour {
                 //calculate size of screen needed
                 float xDis = Mathf.Abs(target1.position.x - cameraTarget.transform.position.x);
                 float yDis = Mathf.Abs(target1.position.y - cameraTarget.transform.position.y);
-                if (xDis > yDis)//x direction is bigger
-                {
-                    GetComponent<Camera>().orthographicSize = xDis * .9f;
-                }
-                else//y direction is bigger
-                {
-                    GetComponent<Camera>().orthographicSize = yDis + 2;
-                }
+
+                float theta = Mathf.Abs(Vector3.Dot(target1.position, cameraTarget.transform.position)/(Vector3.Magnitude(target1.position) * Vector3.Magnitude(cameraTarget.transform.position)));
+                float r1 = (xDis)/Mathf.Cos(theta);
+                float r2 = (yDis*3)/Mathf.Cos(theta);
+
+                GetComponent<Camera>().orthographicSize = (Mathf.Sqrt(((r1 * r1)) + (r2 * r2))/3);
                 if(GetComponent<Camera>().orthographicSize < 5) //the two charater are close to each other
                 {
                     GetComponent<Camera>().orthographicSize = 5;
@@ -72,10 +70,18 @@ public class GameCamera : MonoBehaviour {
             else if (target1 != null)//p1 player
             {
                 cameraTarget.transform.position = target1.position;
+                if (GetComponent<Camera>().orthographicSize > 5) //the two charater are close to each other
+                {
+                    GetComponent<Camera>().orthographicSize = 5;
+                }
             }
             else if (target2 != null)//p2 player
             {
                 cameraTarget.transform.position = target2.position;
+                if (GetComponent<Camera>().orthographicSize > 5) //the two charater are close to each other
+                {
+                    GetComponent<Camera>().orthographicSize = 5;
+                }
             }
 
             if (cameraTarget != null)
