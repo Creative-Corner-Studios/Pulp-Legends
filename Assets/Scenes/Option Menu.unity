@@ -150,7 +150,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Jason Noone = Lead Level Designer/Photoshop King
+  m_Text: Jason Noone = Lead Level Designer/King of Photoshop
 --- !u!222 &83038751
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1262,7 +1262,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Anna Karwacki = Lead Artist/ Character Artist/ Drawer of Corgis
+  m_Text: Anna Karwacki = Character Artist & Animator/ Drawer of Corgis
 --- !u!222 &965546328
 CanvasRenderer:
   m_ObjectHideFlags: 0
