@@ -1,27 +1,29 @@
 fileFormatVersion: 2
 guid: b591e52c532566943a9a46153f2d326e
-timeCreated: 1477288219
+timeCreated: 1477290804
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Lucy Fairre Sprite Sheet_0
-    21300002: Lucy Fairre Sprite Sheet_1
-    21300004: Lucy Fairre Sprite Sheet_2
-    21300006: Lucy Fairre Sprite Sheet_3
-    21300008: Lucy Fairre Sprite Sheet_4
-    21300010: Lucy Fairre Sprite Sheet_5
-    21300012: Lucy Fairre Sprite Sheet_6
-    21300014: Lucy Fairre Sprite Sheet_7
-    21300016: Lucy Fairre Sprite Sheet_8
-    21300018: Lucy Fairre Sprite Sheet_9
-    21300020: Lucy Fairre Sprite Sheet_10
-    21300022: Lucy Fairre Sprite Sheet_11
-    21300024: Lucy Fairre punch
-    21300026: Lucy Fairre Sprite Sheet_13
-    21300028: Lucy Fairre Sprite Sheet_14
-    21300030: Lucy Fairre Sprite Sheet_15
-    21300032: Lucy Fairre Sprite Sheet_16
-    21300034: Lucy Fairre Sprite Sheet_17
+    21300000: T
+    21300002: run
+    21300004: run 2
+    21300006: run 3
+    21300008: run 4
+    21300010: run 5
+    21300012: run 6
+    21300014: jump
+    21300016: jump 2
+    21300018: jump 3
+    21300020: jump 4
+    21300022: jump 5
+    21300024: punch 1
+    21300026: punch 2
+    21300028: punch 3
+    21300030: punch 4
+    21300032: punch 5
+    21300034: punch 6
+    21300036: run 1
+    21300038: jump 1
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -68,7 +70,7 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: Lucy Fairre Sprite Sheet_0
+    - name: T
       rect:
         serializedVersion: 2
         x: 159
@@ -78,7 +80,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Lucy Fairre Sprite Sheet_1
+    - name: run 1
       rect:
         serializedVersion: 2
         x: 610
@@ -88,7 +90,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Lucy Fairre Sprite Sheet_2
+    - name: run 2
       rect:
         serializedVersion: 2
         x: 1014
@@ -98,17 +100,17 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Lucy Fairre Sprite Sheet_3
+    - name: run 3
       rect:
         serializedVersion: 2
-        x: 1396
+        x: 1391
         y: 2456
         width: 322
         height: 574
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Lucy Fairre Sprite Sheet_4
+    - name: run 4
       rect:
         serializedVersion: 2
         x: 1905
@@ -118,7 +120,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Lucy Fairre Sprite Sheet_5
+    - name: run 5
       rect:
         serializedVersion: 2
         x: 595
@@ -128,7 +130,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Lucy Fairre Sprite Sheet_6
+    - name: run 6
       rect:
         serializedVersion: 2
         x: 1001
@@ -138,7 +140,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Lucy Fairre Sprite Sheet_7
+    - name: jump 1
       rect:
         serializedVersion: 2
         x: 1492
@@ -148,7 +150,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Lucy Fairre Sprite Sheet_8
+    - name: jump 2
       rect:
         serializedVersion: 2
         x: 264
@@ -158,7 +160,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Lucy Fairre Sprite Sheet_9
+    - name: jump 3
       rect:
         serializedVersion: 2
         x: 645
@@ -168,7 +170,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Lucy Fairre Sprite Sheet_10
+    - name: jump 4
       rect:
         serializedVersion: 2
         x: 1085
@@ -178,7 +180,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Lucy Fairre Sprite Sheet_11
+    - name: jump 5
       rect:
         serializedVersion: 2
         x: 1569
@@ -188,7 +190,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Lucy Fairre punch
+    - name: punch 1
       rect:
         serializedVersion: 2
         x: 2036
@@ -198,7 +200,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Lucy Fairre Sprite Sheet_13
+    - name: punch 2
       rect:
         serializedVersion: 2
         x: 173
@@ -208,7 +210,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Lucy Fairre Sprite Sheet_14
+    - name: punch 3
       rect:
         serializedVersion: 2
         x: 667
@@ -218,7 +220,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Lucy Fairre Sprite Sheet_15
+    - name: punch 4
       rect:
         serializedVersion: 2
         x: 1145
@@ -228,7 +230,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Lucy Fairre Sprite Sheet_16
+    - name: punch 5
       rect:
         serializedVersion: 2
         x: 1609
@@ -238,7 +240,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Lucy Fairre Sprite Sheet_17
+    - name: punch 6
       rect:
         serializedVersion: 2
         x: 2047

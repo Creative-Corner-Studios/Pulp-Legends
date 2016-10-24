@@ -261,6 +261,7 @@ public class Player : MonoBehaviour {
         {
             if (pulpCurrent >= pulpCost)
             {
+                animator.SetInteger("Movement", 3);
                 GameObject b = new GameObject();
                 switch (pulpPower)
                 {
@@ -323,6 +324,11 @@ public class Player : MonoBehaviour {
                     transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y);
                 }
                 FacingLeft = false;
+            }
+
+            if (!grounded)
+            {
+                animator.SetInteger("Movement", 2);
             }
         }
         else
