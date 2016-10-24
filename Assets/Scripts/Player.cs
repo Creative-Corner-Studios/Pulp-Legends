@@ -293,7 +293,7 @@ public class Player : MonoBehaviour {
     {
         if(input.jump && grounded == true)
         {
-            animator.SetInteger("Movement", 2);
+            animator.SetInteger("Movement", 1);
             grounded = false;
             rBody.AddForce(new Vector2(0f, jumpPower));
         }

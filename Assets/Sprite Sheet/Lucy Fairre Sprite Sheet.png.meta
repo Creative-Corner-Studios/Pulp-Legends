@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: b591e52c532566943a9a46153f2d326e
-timeCreated: 1477279958
+timeCreated: 1477288219
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -16,7 +16,7 @@ TextureImporter:
     21300018: Lucy Fairre Sprite Sheet_9
     21300020: Lucy Fairre Sprite Sheet_10
     21300022: Lucy Fairre Sprite Sheet_11
-    21300024: Lucy Fairre Sprite Sheet_12
+    21300024: Lucy Fairre punch
     21300026: Lucy Fairre Sprite Sheet_13
     21300028: Lucy Fairre Sprite Sheet_14
     21300030: Lucy Fairre Sprite Sheet_15
@@ -188,7 +188,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Lucy Fairre Sprite Sheet_12
+    - name: Lucy Fairre punch
       rect:
         serializedVersion: 2
         x: 2036
