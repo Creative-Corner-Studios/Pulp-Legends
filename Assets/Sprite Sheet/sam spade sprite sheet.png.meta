@@ -1,0 +1,278 @@
+fileFormatVersion: 2
+guid: 87ef82cf389a98f4d96af7fe4e7d4cc0
+timeCreated: 1477277807
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: sam spade sprite sheet_0
+    21300002: sam spade sprite sheet_2
+    21300004: sam spade sprite sheet_3
+    21300006: sam spade sprite sheet_4
+    21300008: sam spade sprite sheet_6
+    21300010: sam spade sprite sheet_7
+    21300012: sam spade sprite sheet_8
+    21300014: sam spade sprite sheet_9
+    21300016: sam spade sprite sheet_13
+    21300018: sam spade sprite sheet_14
+    21300020: sam spade sprite sheet_17
+    21300022: sam spade sprite sheet_19
+    21300024: sam spade sprite sheet_20
+    21300026: sam spade sprite sheet_21
+    21300028: sam spade sprite sheet_22
+    21300030: sam spade sprite sheet_27
+    21300032: sam spade sprite sheet_29
+    21300034: sam spade sprite sheet_30
+    21300036: sam spade sprite sheet_32
+    21300038: sam spade sprite sheet_38
+    21300040: sam spade sprite sheet_40
+    21300042: sam spade sprite sheet_42
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: sam spade sprite sheet_0
+      rect:
+        serializedVersion: 2
+        x: 684
+        y: 2691
+        width: 408
+        height: 544
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sam spade sprite sheet_2
+      rect:
+        serializedVersion: 2
+        x: 1407
+        y: 2689
+        width: 295
+        height: 544
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sam spade sprite sheet_3
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 2081
+        width: 338
+        height: 532
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sam spade sprite sheet_4
+      rect:
+        serializedVersion: 2
+        x: 446
+        y: 2077
+        width: 354
+        height: 536
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sam spade sprite sheet_6
+      rect:
+        serializedVersion: 2
+        x: 886
+        y: 2081
+        width: 345
+        height: 537
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sam spade sprite sheet_7
+      rect:
+        serializedVersion: 2
+        x: 1362
+        y: 2093
+        width: 338
+        height: 530
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sam spade sprite sheet_8
+      rect:
+        serializedVersion: 2
+        x: 1759
+        y: 2100
+        width: 354
+        height: 529
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sam spade sprite sheet_9
+      rect:
+        serializedVersion: 2
+        x: 2136
+        y: 2077
+        width: 350
+        height: 531
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sam spade sprite sheet_17
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 1408
+        width: 293
+        height: 520
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sam spade sprite sheet_19
+      rect:
+        serializedVersion: 2
+        x: 649
+        y: 1403
+        width: 331
+        height: 538
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sam spade sprite sheet_20
+      rect:
+        serializedVersion: 2
+        x: 1062
+        y: 1414
+        width: 366
+        height: 522
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sam spade sprite sheet_21
+      rect:
+        serializedVersion: 2
+        x: 1519
+        y: 1407
+        width: 357
+        height: 537
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sam spade sprite sheet_22
+      rect:
+        serializedVersion: 2
+        x: 1982
+        y: 1424
+        width: 366
+        height: 536
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sam spade sprite sheet_27
+      rect:
+        serializedVersion: 2
+        x: 437
+        y: 755
+        width: 293
+        height: 540
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sam spade sprite sheet_29
+      rect:
+        serializedVersion: 2
+        x: 922
+        y: 741
+        width: 295
+        height: 536
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sam spade sprite sheet_30
+      rect:
+        serializedVersion: 2
+        x: 1314
+        y: 754
+        width: 295
+        height: 533
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sam spade sprite sheet_32
+      rect:
+        serializedVersion: 2
+        x: 1764
+        y: 754
+        width: 314
+        height: 529
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sam spade sprite sheet_38
+      rect:
+        serializedVersion: 2
+        x: 658
+        y: 94
+        width: 324
+        height: 532
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sam spade sprite sheet_40
+      rect:
+        serializedVersion: 2
+        x: 1046
+        y: 94
+        width: 338
+        height: 532
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sam spade sprite sheet_42
+      rect:
+        serializedVersion: 2
+        x: 1444
+        y: 96
+        width: 350
+        height: 532
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
