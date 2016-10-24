@@ -70,6 +70,9 @@ public class Player : MonoBehaviour {
     private bool meleeAttackDone = true;
     private bool airControl = true;
 
+    //animation stuff
+    private Animator animator;
+
     //Properties
     public int Health
     {
@@ -154,6 +157,8 @@ public class Player : MonoBehaviour {
                 break;
         }
         pulpCurrent = pulpCost;
+
+        animator = this.GetComponent<Animator>();
     }
 
 	// Update is called once per frame
@@ -206,10 +211,12 @@ public class Player : MonoBehaviour {
         if (!input.jump)
         {
             input.jump = Input.GetButtonDown(input.JUMP_AXIS);
+            animator.SetInteger("Movement", 2);
         }
         if (!input.melee)
         {
             input.melee = Input.GetButtonDown(input.Melee_Axis);
+            animator.SetInteger("Movement", 3);
         }
         if (!input.pulp)
         {
@@ -313,10 +320,12 @@ public class Player : MonoBehaviour {
                 }
                 FacingLeft = false;
             }
+            //animator.SetInteger("Movement", 1);
         }
         else
         {
             velocity = Vector3.zero;
+            //animator.SetInteger("Movement", 0);
         }
     }
 
