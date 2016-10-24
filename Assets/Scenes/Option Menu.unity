@@ -270,6 +270,8 @@ MonoBehaviour:
     type: 3}
   p1ControlSprite: {fileID: 21300000, guid: ed46c8d0c91cdbf45b9e9d226d96ac90, type: 3}
   p2ControlSprite: {fileID: 21300002, guid: ed46c8d0c91cdbf45b9e9d226d96ac90, type: 3}
+  p1score: {fileID: 0}
+  p2score: {fileID: 0}
 --- !u!1 &205816338
 GameObject:
   m_ObjectHideFlags: 0
@@ -1260,7 +1262,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Anna Karwacki = Lead Artist/ Character Artist/ Drawer of Corgis
+  m_Text: Anna Karwacki = Character Artist
 --- !u!222 &965546328
 CanvasRenderer:
   m_ObjectHideFlags: 0

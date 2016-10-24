@@ -127,7 +127,7 @@ MonoBehaviour:
     m_Bits: 4294967295
   playerNum: 2
   pulpMax: 200
-  pulpCost: 100
+  pulpCost: 50
   score: 0
 --- !u!212 &21225738
 SpriteRenderer:
@@ -202,7 +202,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: pulpCost
-      value: 100
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: pulpMax

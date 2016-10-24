@@ -19,7 +19,7 @@ public class Object : MonoBehaviour {
 	    if(moveable == true)
         {
             objRigid = obj.AddComponent<Rigidbody2D>();
-            objRigid.mass = 5;
+            objRigid.mass = 10;
             
         }
 	}
