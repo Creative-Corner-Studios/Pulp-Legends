@@ -151,7 +151,7 @@ public class WorldController : MonoBehaviour {
                     SetupLevel1();
                     runLevel1Setup = false;
                 }
-                if (GamePaused)
+                if (!GamePaused)
                 {
                     CheckInLevel1();
                 }
