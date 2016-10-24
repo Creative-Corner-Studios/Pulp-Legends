@@ -293,7 +293,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   optionGroup: {fileID: 0}
   creditsGroup: {fileID: 0}
-  eventObject: {fileID: 530567549}
+  ControlsGroup: {fileID: 0}
+  controlSelector: {fileID: 0}
+  controlImage: {fileID: 0}
+  keyboardControlSprite: {fileID: 0}
+  p1ControlSprite: {fileID: 0}
+  p2ControlSprite: {fileID: 0}
 --- !u!1 &513335416
 GameObject:
   m_ObjectHideFlags: 0
@@ -576,7 +581,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   optionGroup: {fileID: 0}
   creditsGroup: {fileID: 0}
-  eventObject: {fileID: 530567549}
+  ControlsGroup: {fileID: 0}
+  controlSelector: {fileID: 0}
+  controlImage: {fileID: 0}
+  keyboardControlSprite: {fileID: 0}
+  p1ControlSprite: {fileID: 0}
+  p2ControlSprite: {fileID: 0}
 --- !u!1 &859737705
 GameObject:
   m_ObjectHideFlags: 0
@@ -747,7 +757,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300006, guid: edf6cfc030b7e394e872426f70fbb6e6, type: 3}
+  m_Sprite: {fileID: 21300002, guid: b591e52c532566943a9a46153f2d326e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!4 &1377302823
 Transform:
@@ -897,7 +907,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   optionGroup: {fileID: 0}
   creditsGroup: {fileID: 0}
-  eventObject: {fileID: 530567549}
+  ControlsGroup: {fileID: 0}
+  controlSelector: {fileID: 0}
+  controlImage: {fileID: 0}
+  keyboardControlSprite: {fileID: 0}
+  p1ControlSprite: {fileID: 0}
+  p2ControlSprite: {fileID: 0}
 --- !u!1001 &1549559902
 Prefab:
   m_ObjectHideFlags: 0

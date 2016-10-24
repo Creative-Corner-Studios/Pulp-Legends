@@ -1,102 +1,27 @@
 fileFormatVersion: 2
-guid: edf6cfc030b7e394e872426f70fbb6e6
-timeCreated: 1477277524
+guid: b591e52c532566943a9a46153f2d326e
+timeCreated: 1477279958
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Lucy Fairre Sprite Sheet_2
-    21300002: Lucy Fairre Sprite Sheet_3
-    21300004: Lucy Fairre Sprite Sheet_4
-    21300006: Lucy Fairre Sprite Sheet_5
-    21300008: Lucy Fairre Sprite Sheet_6
-    21300010: Lucy Fairre Sprite Sheet_7
-    21300012: Lucy Fairre Sprite Sheet_8
-    21300014: Lucy Fairre Sprite Sheet_9
-    21300016: Lucy Fairre Sprite Sheet_10
-    21300018: Lucy Fairre Sprite Sheet_13
-    21300020: Lucy Fairre Sprite Sheet_14
-    21300022: Lucy Fairre Sprite Sheet_15
-    21300024: Lucy Fairre Sprite Sheet_16
-    21300026: Lucy Fairre Sprite Sheet_17
-    21300028: Lucy Fairre Sprite Sheet_18
-    21300030: Lucy Fairre Sprite Sheet_19
-    21300032: Lucy Fairre Sprite Sheet_20
-    21300034: Lucy Fairre Sprite Sheet_21
-    21300036: Lucy Fairre Sprite Sheet_22
-    21300038: Lucy Fairre Sprite Sheet_23
-    21300040: Lucy Fairre Sprite Sheet_24
-    21300042: Lucy Fairre Sprite Sheet_25
-    21300044: Lucy Fairre Sprite Sheet_26
-    21300046: Lucy Fairre Sprite Sheet_27
-    21300048: Lucy Fairre Sprite Sheet_28
-    21300050: Lucy Fairre Sprite Sheet_29
-    21300052: Lucy Fairre Sprite Sheet_30
-    21300054: Lucy Fairre Sprite Sheet_31
-    21300056: Lucy Fairre Sprite Sheet_32
-    21300058: Lucy Fairre Sprite Sheet_33
-    21300060: Lucy Fairre Sprite Sheet_34
-    21300062: Lucy Fairre Sprite Sheet_35
-    21300064: Lucy Fairre Sprite Sheet_36
-    21300066: Lucy Fairre Sprite Sheet_37
-    21300068: Lucy Fairre Sprite Sheet_38
-    21300070: Lucy Fairre Sprite Sheet_39
-    21300072: Lucy Fairre Sprite Sheet_40
-    21300074: Lucy Fairre Sprite Sheet_41
-    21300076: Lucy Fairre Sprite Sheet_42
-    21300078: Lucy Fairre Sprite Sheet_43
-    21300080: Lucy Fairre Sprite Sheet_44
-    21300082: Lucy Fairre Sprite Sheet_45
-    21300084: Lucy Fairre Sprite Sheet_46
-    21300086: Lucy Fairre Sprite Sheet_47
-    21300088: Lucy Fairre Sprite Sheet_48
-    21300090: Lucy Fairre Sprite Sheet_49
-    21300092: Lucy Fairre Sprite Sheet_50
-    21300094: Lucy Fairre Sprite Sheet_51
-    21300096: Lucy Fairre Sprite Sheet_52
-    21300098: Lucy Fairre Sprite Sheet_53
-    21300100: Lucy Fairre Sprite Sheet_54
-    21300102: Lucy Fairre Sprite Sheet_55
-    21300104: Lucy Fairre Sprite Sheet_56
-    21300106: Lucy Fairre Sprite Sheet_57
-    21300108: Lucy Fairre Sprite Sheet_58
-    21300110: Lucy Fairre Sprite Sheet_59
-    21300112: Lucy Fairre Sprite Sheet_60
-    21300114: Lucy Fairre Sprite Sheet_61
-    21300116: Lucy Fairre Sprite Sheet_62
-    21300118: Lucy Fairre Sprite Sheet_63
-    21300120: Lucy Fairre Sprite Sheet_64
-    21300122: Lucy Fairre Sprite Sheet_65
-    21300124: Lucy Fairre Sprite Sheet_66
-    21300126: Lucy Fairre Sprite Sheet_67
-    21300128: Lucy Fairre Sprite Sheet_68
-    21300130: Lucy Fairre Sprite Sheet_69
-    21300132: Lucy Fairre Sprite Sheet_70
-    21300134: Lucy Fairre Sprite Sheet_71
-    21300136: Lucy Fairre Sprite Sheet_72
-    21300138: Lucy Fairre Sprite Sheet_73
-    21300140: Lucy Fairre Sprite Sheet_74
-    21300142: Lucy Fairre Sprite Sheet_75
-    21300144: Lucy Fairre Sprite Sheet_76
-    21300146: Lucy Fairre Sprite Sheet_77
-    21300148: Lucy Fairre Sprite Sheet_78
-    21300150: Lucy Fairre Sprite Sheet_79
-    21300152: Lucy Fairre Sprite Sheet_80
-    21300154: Lucy Fairre Sprite Sheet_81
-    21300156: Lucy Fairre Sprite Sheet_82
-    21300158: Lucy Fairre Sprite Sheet_83
-    21300160: Lucy Fairre Sprite Sheet_84
-    21300162: Lucy Fairre Sprite Sheet_85
-    21300164: Lucy Fairre Sprite Sheet_86
-    21300166: Lucy Fairre Sprite Sheet_87
-    21300168: Lucy Fairre Sprite Sheet_88
-    21300170: Lucy Fairre Sprite Sheet_89
-    21300172: Lucy Fairre Sprite Sheet_90
-    21300174: Lucy Fairre Sprite Sheet_91
-    21300176: Lucy Fairre Sprite Sheet_92
-    21300178: Lucy Fairre Sprite Sheet_93
-    21300180: Lucy Fairre Sprite Sheet_94
-    21300182: Lucy Fairre Sprite Sheet_95
-    21300184: Lucy Fairre Sprite Sheet_0
+    21300000: Lucy Fairre Sprite Sheet_0
+    21300002: Lucy Fairre Sprite Sheet_1
+    21300004: Lucy Fairre Sprite Sheet_2
+    21300006: Lucy Fairre Sprite Sheet_3
+    21300008: Lucy Fairre Sprite Sheet_4
+    21300010: Lucy Fairre Sprite Sheet_5
+    21300012: Lucy Fairre Sprite Sheet_6
+    21300014: Lucy Fairre Sprite Sheet_7
+    21300016: Lucy Fairre Sprite Sheet_8
+    21300018: Lucy Fairre Sprite Sheet_9
+    21300020: Lucy Fairre Sprite Sheet_10
+    21300022: Lucy Fairre Sprite Sheet_11
+    21300024: Lucy Fairre Sprite Sheet_12
+    21300026: Lucy Fairre Sprite Sheet_13
+    21300028: Lucy Fairre Sprite Sheet_14
+    21300030: Lucy Fairre Sprite Sheet_15
+    21300032: Lucy Fairre Sprite Sheet_16
+    21300034: Lucy Fairre Sprite Sheet_17
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -143,163 +68,183 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
+    - name: Lucy Fairre Sprite Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 2438
+        width: 399
+        height: 608
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Lucy Fairre Sprite Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 610
+        y: 2443
+        width: 285
+        height: 605
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Lucy Fairre Sprite Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 1014
+        y: 2457
+        width: 285
+        height: 573
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Lucy Fairre Sprite Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 1396
+        y: 2456
+        width: 322
+        height: 574
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: Lucy Fairre Sprite Sheet_4
       rect:
         serializedVersion: 2
-        x: 153
-        y: 2460
-        width: 389
-        height: 580
+        x: 1905
+        y: 2464
+        width: 288
+        height: 571
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Lucy Fairre Sprite Sheet_5
       rect:
         serializedVersion: 2
-        x: 641
-        y: 2460
-        width: 239
-        height: 580
+        x: 595
+        y: 1752
+        width: 271
+        height: 566
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Lucy Fairre Sprite Sheet_6
       rect:
         serializedVersion: 2
-        x: 1383
-        y: 2460
-        width: 342
-        height: 561
+        x: 1001
+        y: 1739
+        width: 293
+        height: 577
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Lucy Fairre Sprite Sheet_7
       rect:
         serializedVersion: 2
-        x: 1005
-        y: 2463
-        width: 266
-        height: 564
+        x: 1492
+        y: 1749
+        width: 327
+        height: 595
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Lucy Fairre Sprite Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 947
+        width: 271
+        height: 563
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Lucy Fairre Sprite Sheet_9
       rect:
         serializedVersion: 2
-        x: 1848
-        y: 2469
-        width: 346
-        height: 548
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Lucy Fairre Sprite Sheet_29
-      rect:
-        serializedVersion: 2
-        x: 131
-        y: 1733
-        width: 334
-        height: 580
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Lucy Fairre Sprite Sheet_31
-      rect:
-        serializedVersion: 2
-        x: 634
-        y: 1748
-        width: 260
-        height: 548
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Lucy Fairre Sprite Sheet_32
-      rect:
-        serializedVersion: 2
-        x: 1019
-        y: 1758
-        width: 271
-        height: 535
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Lucy Fairre Sprite Sheet_34
-      rect:
-        serializedVersion: 2
-        x: 1450
-        y: 1762
-        width: 316
-        height: 535
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Lucy Fairre Sprite Sheet_35
-      rect:
-        serializedVersion: 2
-        x: 1944
-        y: 1738
-        width: 319
-        height: 543
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Lucy Fairre Sprite Sheet_51
-      rect:
-        serializedVersion: 2
-        x: 1510
-        y: 1058
-        width: 249
-        height: 569
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Lucy Fairre Sprite Sheet_53
-      rect:
-        serializedVersion: 2
-        x: 677
-        y: 1039
-        width: 249
-        height: 567
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Lucy Fairre Sprite Sheet_54
-      rect:
-        serializedVersion: 2
-        x: 1055
-        y: 1039
-        width: 229
-        height: 568
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Lucy Fairre Sprite Sheet_57
-      rect:
-        serializedVersion: 2
-        x: 123
-        y: 1024
-        width: 333
-        height: 562
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Lucy Fairre Sprite Sheet_89
-      rect:
-        serializedVersion: 2
-        x: 163
-        y: 341
-        width: 289
-        height: 564
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Lucy Fairre Sprite Sheet_0
-      rect:
-        serializedVersion: 2
-        x: 1956
-        y: 1034
+        x: 645
+        y: 955
         width: 279
+        height: 577
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Lucy Fairre Sprite Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 1085
+        y: 960
+        width: 323
+        height: 542
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Lucy Fairre Sprite Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 1569
+        y: 936
+        width: 333
+        height: 553
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Lucy Fairre Sprite Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 2036
+        y: 917
+        width: 255
+        height: 585
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Lucy Fairre Sprite Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 217
+        width: 311
+        height: 577
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Lucy Fairre Sprite Sheet_14
+      rect:
+        serializedVersion: 2
+        x: 667
+        y: 200
+        width: 279
+        height: 590
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Lucy Fairre Sprite Sheet_15
+      rect:
+        serializedVersion: 2
+        x: 1145
+        y: 217
+        width: 281
+        height: 582
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Lucy Fairre Sprite Sheet_16
+      rect:
+        serializedVersion: 2
+        x: 1609
+        y: 195
+        width: 293
         height: 580
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Lucy Fairre Sprite Sheet_17
+      rect:
+        serializedVersion: 2
+        x: 2047
+        y: 190
+        width: 297
+        height: 579
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
