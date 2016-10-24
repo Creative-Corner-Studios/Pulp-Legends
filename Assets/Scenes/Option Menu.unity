@@ -263,7 +263,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   optionGroup: {fileID: 640069411}
   creditsGroup: {fileID: 1869003395}
-  eventObject: {fileID: 672802761}
   ControlsGroup: {fileID: 516012147}
   controlSelector: {fileID: 1083378665}
   controlImage: {fileID: 1839416303}
@@ -501,9 +500,8 @@ GameObject:
   - 222: {fileID: 348263491}
   - 114: {fileID: 348263490}
   - 114: {fileID: 348263489}
-  - 114: {fileID: 348263488}
   m_Layer: 5
-  m_Name: Input Settings Btn
+  m_Name: Controls Btn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -527,26 +525,6 @@ RectTransform:
   m_AnchoredPosition: {x: -31.2999878, y: 47}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: .5, y: .5}
---- !u!114 &348263488
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 348263486}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b95661dc078c29e42a6490187d8f4e27, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  optionGroup: {fileID: 640069411}
-  creditsGroup: {fileID: 1869003395}
-  eventObject: {fileID: 672802761}
-  ControlsGroup: {fileID: 0}
-  controlSelector: {fileID: 0}
-  controlImage: {fileID: 0}
-  keyboardControlSprite: {fileID: 0}
-  p1ControlSprite: {fileID: 0}
-  p2ControlSprite: {fileID: 0}
 --- !u!114 &348263489
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -586,7 +564,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 348263490}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 104257456}
+        m_MethodName: SwitchControls
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &348263490
@@ -633,7 +622,6 @@ GameObject:
   - 222: {fileID: 420815885}
   - 114: {fileID: 420815884}
   - 114: {fileID: 420815883}
-  - 114: {fileID: 420815886}
   m_Layer: 5
   m_Name: Credits Btn
   m_TagString: Untagged
@@ -699,7 +687,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 420815886}
+      - m_Target: {fileID: 104257456}
         m_MethodName: SwitchCredits
         m_Mode: 1
         m_Arguments:
@@ -745,26 +733,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 420815881}
---- !u!114 &420815886
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 420815881}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b95661dc078c29e42a6490187d8f4e27, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  optionGroup: {fileID: 640069411}
-  creditsGroup: {fileID: 1869003395}
-  eventObject: {fileID: 672802761}
-  ControlsGroup: {fileID: 0}
-  controlSelector: {fileID: 0}
-  controlImage: {fileID: 0}
-  keyboardControlSprite: {fileID: 0}
-  p1ControlSprite: {fileID: 0}
-  p2ControlSprite: {fileID: 0}
 --- !u!1 &432445196
 GameObject:
   m_ObjectHideFlags: 0
@@ -2052,7 +2020,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Control Settings
+  m_Text: View Controls
 --- !u!222 &1496752023
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2142,9 +2110,8 @@ GameObject:
   - 222: {fileID: 1606718638}
   - 114: {fileID: 1606718637}
   - 114: {fileID: 1606718636}
-  - 114: {fileID: 1606718635}
   m_Layer: 5
-  m_Name: Back Btn
+  m_Name: Credits Back Btn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2168,26 +2135,6 @@ RectTransform:
   m_AnchoredPosition: {x: 24.9848022, y: -180}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: .5, y: .5}
---- !u!114 &1606718635
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1606718633}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b95661dc078c29e42a6490187d8f4e27, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  optionGroup: {fileID: 640069411}
-  creditsGroup: {fileID: 1869003395}
-  eventObject: {fileID: 672802761}
-  ControlsGroup: {fileID: 0}
-  controlSelector: {fileID: 0}
-  controlImage: {fileID: 0}
-  keyboardControlSprite: {fileID: 0}
-  p1ControlSprite: {fileID: 0}
-  p2ControlSprite: {fileID: 0}
 --- !u!114 &1606718636
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2228,7 +2175,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1606718635}
+      - m_Target: {fileID: 104257456}
         m_MethodName: SwitchOption
         m_Mode: 1
         m_Arguments:
@@ -2584,7 +2531,7 @@ GameObject:
   - 114: {fileID: 1795421919}
   - 114: {fileID: 1795421918}
   m_Layer: 5
-  m_Name: Back Btn
+  m_Name: Controls Back Btn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2650,8 +2597,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: HideControls
+      - m_Target: {fileID: 104257456}
+        m_MethodName: SwitchOption
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2928,7 +2875,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1869003396
 Transform:
   m_ObjectHideFlags: 0
@@ -3197,7 +3144,6 @@ GameObject:
   - 222: {fileID: 2094866845}
   - 114: {fileID: 2094866844}
   - 114: {fileID: 2094866843}
-  - 114: {fileID: 2094866846}
   m_Layer: 5
   m_Name: Main Menu Btn
   m_TagString: Untagged
@@ -3263,7 +3209,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2094866846}
+      - m_Target: {fileID: 104257456}
         m_MethodName: LoadScene
         m_Mode: 5
         m_Arguments:
@@ -3309,23 +3255,3 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2094866841}
---- !u!114 &2094866846
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2094866841}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b95661dc078c29e42a6490187d8f4e27, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  optionGroup: {fileID: 640069411}
-  creditsGroup: {fileID: 1869003395}
-  eventObject: {fileID: 672802761}
-  ControlsGroup: {fileID: 0}
-  controlSelector: {fileID: 0}
-  controlImage: {fileID: 0}
-  keyboardControlSprite: {fileID: 0}
-  p1ControlSprite: {fileID: 0}
-  p2ControlSprite: {fileID: 0}
