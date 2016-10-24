@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 87ef82cf389a98f4d96af7fe4e7d4cc0
-timeCreated: 1477277807
+timeCreated: 1477291045
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -14,11 +14,11 @@ TextureImporter:
     21300014: sam spade sprite sheet_9
     21300016: sam spade sprite sheet_13
     21300018: sam spade sprite sheet_14
-    21300020: sam spade sprite sheet_17
-    21300022: sam spade sprite sheet_19
-    21300024: sam spade sprite sheet_20
-    21300026: sam spade sprite sheet_21
-    21300028: sam spade sprite sheet_22
+    21300020: jump 1
+    21300022: jump 2
+    21300024: jump 3
+    21300026: jump 4
+    21300028: jump 5
     21300030: sam spade sprite sheet_27
     21300032: sam spade sprite sheet_29
     21300034: sam spade sprite sheet_30
@@ -152,7 +152,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: sam spade sprite sheet_17
+    - name: jump 1
       rect:
         serializedVersion: 2
         x: 218
@@ -162,7 +162,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: sam spade sprite sheet_19
+    - name: jump 2
       rect:
         serializedVersion: 2
         x: 649
@@ -172,7 +172,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: sam spade sprite sheet_20
+    - name: jump 3
       rect:
         serializedVersion: 2
         x: 1062
@@ -182,7 +182,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: sam spade sprite sheet_21
+    - name: jump 4
       rect:
         serializedVersion: 2
         x: 1519
@@ -192,7 +192,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: sam spade sprite sheet_22
+    - name: jump 5
       rect:
         serializedVersion: 2
         x: 1982
