@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class GameUI : MonoBehaviour {
 
@@ -20,6 +21,8 @@ public class GameUI : MonoBehaviour {
     [SerializeField] private Sprite samSpadeDeadSprite;
     [SerializeField] private Sprite noraCarterDeadSprite;
     private bool pauseBtn;
+    private Text p1score;
+    private Text p2score;
 
     //Pause menu Attributes
 
@@ -36,7 +39,10 @@ public class GameUI : MonoBehaviour {
     // Use this for initialization
     void Start () {
         worldControl = GameObject.Find("WorldController").GetComponent<WorldController>();
-        
+        p1score = GameObject.Find("P1Score").GetComponent<Text>();
+        p2score = GameObject.Find("P2Score").GetComponent<Text>();
+
+        UpdateScore(worldControl.P1Score, worldControl.P2Score);
 	}
 	
 	// Update is called once per frame
@@ -52,6 +58,7 @@ public class GameUI : MonoBehaviour {
         }
         pauseBtn = false;
         UpdatePlayerBars();
+        UpdateScore(worldControl.P1Score, worldControl.P2Score);
 	}
 
     void getInput()
@@ -207,28 +214,35 @@ public class GameUI : MonoBehaviour {
         {
             case 0:
                 controlImage.sprite = keyboardControlSprite;
+                EventSystem.current.SetSelectedGameObject(controlSelector.gameObject);
                 break;
 
             case 1:
                 controlImage.sprite = p1ControlSprite;
+                EventSystem.current.SetSelectedGameObject(controlSelector.gameObject);
                 break;
 
             case 2:
                 controlImage.sprite = p2ControlSprite;
+                EventSystem.current.SetSelectedGameObject(controlSelector.gameObject);
                 break;
         }
     }
 
     public void DisplayControls()
     {
-        ControlsGroup.alpha = 1;
-        PauseMenu.alpha = 0;
+        ControlsGroup.gameObject.SetActive(true);
+        PauseMenu.gameObject.SetActive(false);
+
+        EventSystem.current.SetSelectedGameObject(controlSelector.gameObject);
     }
 
     public void HideControls()
     {
-        ControlsGroup.alpha = 0;
-        PauseMenu.alpha = 1;
+        ControlsGroup.gameObject.SetActive(false);
+        PauseMenu.gameObject.SetActive(true);
+
+        EventSystem.current.SetSelectedGameObject(GameObject.Find("Resume Btn"));
     }
 
     public void ReturnToMain()
@@ -237,5 +251,11 @@ public class GameUI : MonoBehaviour {
         Time.timeScale = 1f;
         worldControl.currentScreen = WorldController.Screen.MAINMENU;
         Application.LoadLevel(0);
+    }
+
+    public void UpdateScore(int Score1, int Score2)
+    {
+        p1score.text = "Score: " + Score1;
+        p2score.text = "Score: " + Score2;
     }
 }

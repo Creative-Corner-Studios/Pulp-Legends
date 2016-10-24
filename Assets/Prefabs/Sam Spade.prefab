@@ -27,6 +27,7 @@ GameObject:
   - 114: {fileID: 11439740}
   - 50: {fileID: 5010620}
   - 61: {fileID: 6145978}
+  - 95: {fileID: 9542078}
   m_Layer: 0
   m_Name: Sam Spade
   m_TagString: Player
@@ -41,8 +42,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 143998}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.94000006, y: 0, z: 0}
-  m_LocalScale: {x: -.300000012, y: .300000012, z: .300000012}
+  m_LocalPosition: {x: 89.7369156, y: -1.95085347, z: 0}
+  m_LocalScale: {x: -.397964031, y: .397963971, z: .397963971}
   m_Children:
   - {fileID: 457226}
   m_Father: {fileID: 0}
@@ -54,7 +55,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 116558}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.230000004, y: -3.3599999, z: 0}
+  m_LocalPosition: {x: -.0599999987, y: -2.6099999, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 418434}
@@ -85,9 +86,26 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: -.181851402, y: -.429832101}
+  m_Offset: {x: .00999999978, y: -.00999999978}
   serializedVersion: 2
-  m_Size: {x: 3, y: 6}
+  m_Size: {x: 2.8900001, y: 5.38000011}
+--- !u!95 &9542078
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 143998}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d0481d1f521e154468509b13837f38f4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &11439740
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -137,7 +155,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 34cb84cea8899254697375a280350775, type: 3}
+  m_Sprite: {fileID: 21300002, guid: 87ef82cf389a98f4d96af7fe4e7d4cc0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:
@@ -152,19 +170,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Offset.x
-      value: -.181851402
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Offset.y
-      value: -.429832101
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Size.y
-      value: 6
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Size.x

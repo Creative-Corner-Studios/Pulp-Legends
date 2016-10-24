@@ -70,6 +70,9 @@ public class Player : MonoBehaviour {
     private bool meleeAttackDone = true;
     private bool airControl = true;
 
+    //animation stuff
+    private Animator animator;
+
     //Properties
     public int Health
     {
@@ -154,6 +157,8 @@ public class Player : MonoBehaviour {
                 break;
         }
         pulpCurrent = pulpCost;
+
+        animator = this.GetComponent<Animator>();
     }
 
 	// Update is called once per frame
@@ -221,6 +226,7 @@ public class Player : MonoBehaviour {
     {
         if (input.melee)
         {
+            animator.SetInteger("Movement", 3);
             int range = 2;
             Collider2D[] col = Physics2D.OverlapAreaAll(new Vector2(transform.position.x, transform.position.y), new Vector2(transform.position.x + range, transform.position.y+ 1));
             if (FacingLeft)//left
@@ -234,11 +240,13 @@ public class Player : MonoBehaviour {
                 {
                     Enemy enemy = thing.GetComponent<Enemy>();
                     enemy.Health -= (int)attackPower;
-                    score += enemy.DamageScore;
+
+                    addScore(enemy.DamageScore);
+
                     pulpCurrent += 15;
                     if(enemy.Health <= 0)
                     {
-                        score += enemy.DeathScore;
+                        addScore(enemy.DeathScore);
                         pulpCurrent += 10;
                     }
                     Debug.Log("Enemy: " + thing.name + " was hit for " + attackPower + " damage");
@@ -265,6 +273,7 @@ public class Player : MonoBehaviour {
                         //shoot animation
                         b = GameObject.Instantiate(worldControl.GetComponent<WorldController>().fireBall);
                         b.GetComponent<FireBall>().adjustVelocity(FacingLeft);
+                        b.GetComponent<FireBall>().home = gameObject;
                         break;
                 }
                 if (FacingLeft)//going left
@@ -284,6 +293,7 @@ public class Player : MonoBehaviour {
     {
         if(input.jump && grounded == true)
         {
+            animator.SetInteger("Movement", 2);
             grounded = false;
             rBody.AddForce(new Vector2(0f, jumpPower));
         }
@@ -291,15 +301,16 @@ public class Player : MonoBehaviour {
 
     private void Move()
     {
+        animator.SetInteger("Movement", 1);
         if(Mathf.Abs(input.fwdInput) > input.delay)
         {
             if (airControl || grounded)
             {
-                rBody.velocity = new Vector2(input.fwdInput * speed, rBody.velocity.y);
+                rBody.velocity = new Vector2(input.fwdInput * speed, rBody.velocity.y);    
             }
             if(input.fwdInput < 0)//left
             {
-                if(FacingLeft == false)
+                if (FacingLeft == false)
                 {
                     transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y);
                 }
@@ -317,6 +328,7 @@ public class Player : MonoBehaviour {
         else
         {
             velocity = Vector3.zero;
+            animator.SetInteger("Movement", 0);
         }
     }
 
@@ -381,7 +393,16 @@ public class Player : MonoBehaviour {
 
     public void addScore(int addition)
     {
-        score += addition;
+        switch (playerNum)
+        {
+            case 1:
+                worldControl.P1Score += addition;
+                break;
+
+            case 2:
+                worldControl.P2Score += addition;
+                break;
+        }
     }
 
     void OnCollisionEnter2D(Collision2D coll)

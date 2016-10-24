@@ -10,6 +10,8 @@ public class FireBall : MonoBehaviour {
     [SerializeField]
     private int damage;
     private WorldController worldControl;
+    internal GameObject home;
+
     // Use this for initialization
     void Start()
     {
@@ -34,6 +36,11 @@ public class FireBall : MonoBehaviour {
         if (thing.tag == "Enemy")
         {
             thing.GetComponent<Enemy>().Health-=damage;
+            home.GetComponent<Player>().addScore(thing.GetComponent<Enemy>().DamageScore);
+            if (thing.GetComponent<Enemy>().Health <= 0)
+            {
+                home.GetComponent<Player>().addScore(thing.GetComponent<Enemy>().DeathScore);
+            }
         }
         if (thing.tag != "Player")
         {
