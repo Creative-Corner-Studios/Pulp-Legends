@@ -273,6 +273,7 @@ public class Player : MonoBehaviour {
                         //shoot animation
                         b = GameObject.Instantiate(worldControl.GetComponent<WorldController>().fireBall);
                         b.GetComponent<FireBall>().adjustVelocity(FacingLeft);
+                        b.GetComponent<FireBall>().home = gameObject;
                         break;
                 }
                 if (FacingLeft)//going left
