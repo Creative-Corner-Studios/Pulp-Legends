@@ -10,9 +10,10 @@ public class CharacterSelect : MonoBehaviour {
         public string P2_SUBMIT = "P2_Submit";
         public string P1_CANCEL = "P1_Cancel";
         public string P2_CANCEL = "P2_Cancel";
-
+        public string PAUSE_AXIS = "Pause";
         public float P1Hinput, P2Hinput, P1SubInput, P2SubInput, P1CancelInput, P2CancelInput;
 
+        public bool Pause = false;
         public bool P1Submit = false;
         public bool P2Submit = false;
         public bool P1Cancel = false;
@@ -58,6 +59,12 @@ public class CharacterSelect : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         GetInput(); //gets all input from players
+
+        if (input.Pause)
+        {
+            Destroy(GameObject.Find("WorldController"));
+            Application.LoadLevel(0);
+        }
 
         CheckActive(); // checks and updates which players are active in game
 
@@ -105,6 +112,10 @@ public class CharacterSelect : MonoBehaviour {
         input.P2SubInput = Input.GetAxis(input.P2_SUBMIT);
         input.P2CancelInput = Input.GetAxis(input.P2_CANCEL);
 
+        if (!input.Pause)
+        {
+            input.Pause = Input.GetButtonDown(input.PAUSE_AXIS);
+        }
         if (!input.P1Submit)
         {
             input.P1Submit = Input.GetButtonDown(input.P1_SUBMIT);
