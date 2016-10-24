@@ -34,12 +34,12 @@ public class WorldController : MonoBehaviour {
     public bool p2Active = true;
     public bool has2Players;
 
+    //Player Stats
+    private int p1Score = 0;
+    private int p2Score = 0;
+
     //Game UI Data
     public GameUI gameUI;
-    //public Slider p1HealthBar;
-    //public Slider p2HealthBar;
-    //public Slider p1PulpPowerBar;
-    //public Slider p2PulpPowerBar;
 
     //Test Level Data
     [SerializeField] private Vector3 p1TestPos;// player 1 start position
@@ -71,6 +71,32 @@ public class WorldController : MonoBehaviour {
     public Player Player2
     {
         get { return player2; }
+    }
+
+    public int P1Score
+    {
+        get { return p1Score; }
+        set
+        {
+            p1Score = value;
+            if(p1Score < 0)
+            {
+                p1Score = 0;
+            }
+        }
+    }
+
+    public int P2Score
+    {
+        get { return p2Score; }
+        set
+        {
+            p2Score = value;
+            if (p2Score < 0)
+            {
+                p2Score = 0;
+            }
+        }
     }
 
     void Awake()//happens once, even if the script is not active

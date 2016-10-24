@@ -241,11 +241,13 @@ public class Player : MonoBehaviour {
                 {
                     Enemy enemy = thing.GetComponent<Enemy>();
                     enemy.Health -= (int)attackPower;
-                    score += enemy.DamageScore;
+
+                    addScore(enemy.DamageScore);
+
                     pulpCurrent += 15;
                     if(enemy.Health <= 0)
                     {
-                        score += enemy.DeathScore;
+                        addScore(enemy.DeathScore);
                         pulpCurrent += 10;
                     }
                     Debug.Log("Enemy: " + thing.name + " was hit for " + attackPower + " damage");
@@ -390,7 +392,16 @@ public class Player : MonoBehaviour {
 
     public void addScore(int addition)
     {
-        score += addition;
+        switch (playerNum)
+        {
+            case 1:
+                worldControl.P1Score += addition;
+                break;
+
+            case 2:
+                worldControl.P2Score += addition;
+                break;
+        }
     }
 
     void OnCollisionEnter2D(Collision2D coll)
