@@ -20,6 +20,7 @@ public class GameUI : MonoBehaviour {
     [SerializeField] private Sprite noraCarterSprite;
     [SerializeField] private Sprite samSpadeDeadSprite;
     [SerializeField] private Sprite noraCarterDeadSprite;
+    [SerializeField] private Color pulpPowerBarColor;
     private bool pauseBtn;
     private Text p1score;
     private Text p2score;
@@ -148,12 +149,36 @@ public class GameUI : MonoBehaviour {
             p1HealthBar.value = worldControl.Player1.Health;
             p2HealthBar.value = worldControl.Player2.Health;
             p1PulpPowerBar.value = worldControl.Player1.PulpCurrent;
+            if(p1PulpPowerBar.value >= worldControl.Player1.PulpCost)
+            {
+                p1PulpPowerBar.gameObject.GetComponentInChildren<Image>().color = Color.blue;
+            }
+            else
+            {
+                p1PulpPowerBar.gameObject.GetComponentInChildren<Image>().color = pulpPowerBarColor;
+            }
             p2PulpPowerBar.value = worldControl.Player2.PulpCurrent;
+            if (p2PulpPowerBar.value >= worldControl.Player2.PulpCost)
+            {
+                p2PulpPowerBar.gameObject.GetComponentInChildren<Image>().color = Color.blue;
+            }
+            else
+            {
+                p2PulpPowerBar.gameObject.GetComponentInChildren<Image>().color = pulpPowerBarColor;
+            }
         }
         else if (worldControl.p1Active)
         {
             p1HealthBar.value = worldControl.Player1.Health;
             p1PulpPowerBar.value = worldControl.Player1.PulpCurrent;
+            if (p1PulpPowerBar.value >= worldControl.Player1.PulpCost)
+            {
+                p1PulpPowerBar.gameObject.GetComponentInChildren<Image>().color = Color.blue;
+            }
+            else
+            {
+                p1PulpPowerBar.gameObject.GetComponentInChildren<Image>().color = pulpPowerBarColor;
+            }
             if (twoPlayers == true)
             {
                 switch (worldControl.Player2.Character)
@@ -174,6 +199,14 @@ public class GameUI : MonoBehaviour {
         {
             p2HealthBar.value = worldControl.Player2.Health;
             p2PulpPowerBar.value = worldControl.Player2.PulpCurrent;
+            if (p2PulpPowerBar.value >= worldControl.Player2.PulpCost)
+            {
+                p2PulpPowerBar.gameObject.GetComponentInChildren<Image>().color = Color.blue;
+            }
+            else
+            {
+                p2PulpPowerBar.gameObject.GetComponentInChildren<Image>().color = pulpPowerBarColor;
+            }
             if (twoPlayers == true)
             {
                 switch (worldControl.Player1.Character)

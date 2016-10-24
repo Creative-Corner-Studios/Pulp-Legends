@@ -121,6 +121,11 @@ public class Player : MonoBehaviour {
         set { pulpCurrent = value; }
     }
 
+    public int PulpCost
+    {
+        get { return pulpCost; }
+    }
+
     // Use this for initialization
     void Start()
     {
