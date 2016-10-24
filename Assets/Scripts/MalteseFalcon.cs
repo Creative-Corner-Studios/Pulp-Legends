@@ -52,8 +52,14 @@ public class MalteseFalcon : MonoBehaviour {
                 rBody.velocity *= 2 * speed;
             }
 
-            if (rBody.velocity.x > 0) { transform.Rotate(new Vector3(0, 0, -5)); }
-            else { transform.Rotate(new Vector3(0, 0, 5)); }
+            if (rBody.velocity.x > 0) {//right
+                //transform.Rotate(new Vector3(0, 0, -5));
+                transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y);
+            }
+            else {//leftd
+                //transform.Rotate(new Vector3(0, 0, 5));
+                transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y);
+            }
         }
     }
 
