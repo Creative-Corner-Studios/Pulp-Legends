@@ -96,6 +96,7 @@ public class MenuScript : MonoBehaviour {
 
     public void ReturnToMenu()
     {
+        Destroy(GameObject.Find("WorldController"));
         LoadScene("Main Menu");
     }
 
