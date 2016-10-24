@@ -211,12 +211,10 @@ public class Player : MonoBehaviour {
         if (!input.jump)
         {
             input.jump = Input.GetButtonDown(input.JUMP_AXIS);
-            animator.SetInteger("Movement", 2);
         }
         if (!input.melee)
         {
             input.melee = Input.GetButtonDown(input.Melee_Axis);
-            animator.SetInteger("Movement", 3);
         }
         if (!input.pulp)
         {
@@ -228,6 +226,7 @@ public class Player : MonoBehaviour {
     {
         if (input.melee)
         {
+            animator.SetInteger("Movement", 3);
             int range = 2;
             Collider2D[] col = Physics2D.OverlapAreaAll(new Vector2(transform.position.x, transform.position.y), new Vector2(transform.position.x + range, transform.position.y+ 1));
             if (FacingLeft)//left
@@ -293,6 +292,7 @@ public class Player : MonoBehaviour {
     {
         if(input.jump && grounded == true)
         {
+            animator.SetInteger("Movement", 2);
             grounded = false;
             rBody.AddForce(new Vector2(0f, jumpPower));
         }
@@ -300,15 +300,16 @@ public class Player : MonoBehaviour {
 
     private void Move()
     {
+        animator.SetInteger("Movement", 1);
         if(Mathf.Abs(input.fwdInput) > input.delay)
         {
             if (airControl || grounded)
             {
-                rBody.velocity = new Vector2(input.fwdInput * speed, rBody.velocity.y);
+                rBody.velocity = new Vector2(input.fwdInput * speed, rBody.velocity.y);    
             }
             if(input.fwdInput < 0)//left
             {
-                if(FacingLeft == false)
+                if (FacingLeft == false)
                 {
                     transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y);
                 }
@@ -322,12 +323,11 @@ public class Player : MonoBehaviour {
                 }
                 FacingLeft = false;
             }
-            //animator.SetInteger("Movement", 1);
         }
         else
         {
             velocity = Vector3.zero;
-            //animator.SetInteger("Movement", 0);
+            animator.SetInteger("Movement", 0);
         }
     }
 
