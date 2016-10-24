@@ -326,6 +326,7 @@ public class CharacterSelect : MonoBehaviour {
                     worldControl.p1Active = p1Active;
                     worldControl.p2Active = p2Active;
                     worldControl.has2Players = false;
+                    worldControl.hasP1 = true;
                     worldControl.currentScreen = WorldController.Screen.TUTORIALLEVEL;
                     worldControl.runTutorialSetup = true;
                     Application.LoadLevel("Tutorial");
@@ -343,6 +344,7 @@ public class CharacterSelect : MonoBehaviour {
                     worldControl.p1Active = p1Active;
                     worldControl.p2Active = p2Active;
                     worldControl.has2Players = false;
+                    worldControl.hasP2 = true;
                     worldControl.currentScreen = WorldController.Screen.TUTORIALLEVEL;
                     worldControl.runTutorialSetup = true;
                     Application.LoadLevel("Tutorial");

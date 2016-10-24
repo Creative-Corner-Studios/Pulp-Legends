@@ -2,6 +2,7 @@
 using UnityEngine.EventSystems;
 using System.Collections;
 using UnityEngine.UI;
+using System;
 
 public class MenuScript : MonoBehaviour {
 
@@ -22,15 +23,39 @@ public class MenuScript : MonoBehaviour {
     private Sprite p1ControlSprite;
     [SerializeField]
     private Sprite p2ControlSprite;
-
+    [SerializeField]
+    private Text p1score;
+    [SerializeField]
+    private Text p2score;
+    private WorldController worldControl;
     // Use this for initialization
     void Start () {
+        worldControl = GameObject.Find("WorldController").GetComponent<WorldController>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
+        switch (worldControl.currentScreen)
+        {
+            case WorldController.Screen.GAMEOVER:
+                GameOverUpdate();
+                break;
+
+            case WorldController.Screen.WINGAME:
+                WinUpdate();
+                break;
+        }
 	}
+
+    private void WinUpdate()
+    {
+        UpdateScore(worldControl.P1Score, worldControl.P2Score);
+    }
+
+    private void GameOverUpdate()
+    {
+        UpdateScore(worldControl.P1Score, worldControl.P2Score);
+    }
 
     //loads a unity scene 
     public void LoadScene(string sceneName){ //NOTE: scene must be in the build to be able to go to that scene
@@ -115,6 +140,27 @@ public class MenuScript : MonoBehaviour {
             case 2:
                 controlImage.sprite = p2ControlSprite;
                 break;
+        }
+    }
+
+    private void UpdateScore(int score1, int score2)
+    {
+        if (worldControl.has2Players)
+        {
+            p1score.gameObject.SetActive(true);
+            p2score.gameObject.SetActive(true);
+            p1score.text = "Player 1 Score: " + score1;
+            p2score.text = "Player 2 Score: " + score2;
+        }else if (worldControl.hasP1)
+        {
+            p1score.gameObject.SetActive(true);
+            p1score.text = "Player Score: " + score1;
+            p2score.gameObject.SetActive(false);
+        }else if (worldControl.hasP2)
+        {
+            p1score.gameObject.SetActive(false);
+            p2score.gameObject.SetActive(true);
+            p2score.text = "Player Score: " + score2;
         }
     }
 }

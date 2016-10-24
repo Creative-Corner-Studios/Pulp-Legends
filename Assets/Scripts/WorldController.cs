@@ -32,7 +32,9 @@ public class WorldController : MonoBehaviour {
     //booleans to see if which players are in game
     public bool p1Active = true;
     public bool p2Active = true;
-    public bool has2Players;
+    public bool has2Players = false;
+    public bool hasP1= false;
+    public bool hasP2= false;
 
     //Player Stats
     private int p1Score = 0;
@@ -164,6 +166,7 @@ public class WorldController : MonoBehaviour {
 
     public void GameOver() // this will end the game
     {
+        currentScreen = Screen.GAMEOVER;
         Application.LoadLevel("Game Over");
     }
 
@@ -174,6 +177,7 @@ public class WorldController : MonoBehaviour {
 
     public void WinGame() // done when you win the game
     {
+        currentScreen = Screen.WINGAME;
         Application.LoadLevel("Win Game");
     }
 
