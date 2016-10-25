@@ -45,7 +45,7 @@ public class Player : MonoBehaviour {
     //attributes 
     private int healthMax;
     [SerializeField] private int health = 100;
-    [SerializeField] private float attackPower = 20;
+    [SerializeField] private float attackPower;
     [SerializeField] private float speed= 10;
     [SerializeField] private float jumpPower = 1000;
     [SerializeField] private CharacterType character;
@@ -148,16 +148,14 @@ public class Player : MonoBehaviour {
         switch (character)
         {
             case CharacterType.SAMSPADE:
-                healthMax = 175;
-                health = 175;
-                attackPower = 35;
+                healthMax = 150;
+                health = 150;
                 pulpPower = PulpPowerType.MALTESEFALCON;
                 break;
 
             case CharacterType.NORACARTER:
                 healthMax = 200;
                 health = 200;
-                attackPower = 45;
                 pulpPower = PulpPowerType.SATAN;
                 break;
         }
