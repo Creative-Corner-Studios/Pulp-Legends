@@ -299,6 +299,8 @@ MonoBehaviour:
   keyboardControlSprite: {fileID: 0}
   p1ControlSprite: {fileID: 0}
   p2ControlSprite: {fileID: 0}
+  p1score: {fileID: 0}
+  p2score: {fileID: 0}
 --- !u!1 &513335416
 GameObject:
   m_ObjectHideFlags: 0
@@ -587,6 +589,8 @@ MonoBehaviour:
   keyboardControlSprite: {fileID: 0}
   p1ControlSprite: {fileID: 0}
   p2ControlSprite: {fileID: 0}
+  p1score: {fileID: 0}
+  p2score: {fileID: 0}
 --- !u!1 &859737705
 GameObject:
   m_ObjectHideFlags: 0
@@ -913,6 +917,8 @@ MonoBehaviour:
   keyboardControlSprite: {fileID: 0}
   p1ControlSprite: {fileID: 0}
   p2ControlSprite: {fileID: 0}
+  p1score: {fileID: 0}
+  p2score: {fileID: 0}
 --- !u!1001 &1549559902
 Prefab:
   m_ObjectHideFlags: 0
