@@ -59,12 +59,28 @@ public class MenuScript : MonoBehaviour {
 
     //loads a unity scene 
     public void LoadScene(string sceneName){ //NOTE: scene must be in the build to be able to go to that scene
+        switch (sceneName)
+        {
+            case "Main Menu":
+                worldControl.currentScreen = WorldController.Screen.MAINMENU;
+                Destroy(worldControl);
+                break;
+
+            case "Character Selection":
+                worldControl.currentScreen = WorldController.Screen.CHARACTERSELECT;
+                break;
+
+            case "Loading Scene":
+                worldControl.currentScreen = WorldController.Screen.LOADING;
+                break;
+        }
         Application.LoadLevel(sceneName);
     }
 
     public void StartGame()
     {
-        LoadScene("Character Selection");
+        worldControl.currentScreen = WorldController.Screen.LOADING;
+        LoadScene("Loading Scene");
     }
 
     public void ExitGame()
