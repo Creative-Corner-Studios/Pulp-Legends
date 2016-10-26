@@ -72,7 +72,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
-  damage: 80
+  damage: 100
   returningMaxTime: 90
   existenceMaxTime: 1000
 --- !u!212 &21268728
@@ -124,7 +124,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: damage
-      value: 80
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: returningMaxTime

@@ -35,8 +35,8 @@ public class Object : MonoBehaviour {
         if(other.gameObject.tag == "Player" && collectable)
         {
             other.GetComponent<Player>().addScore(scoreBonus);
-            other.GetComponent<Player>().PulpCurrent += 20;
-            other.GetComponent<Player>().Health += 25;
+            other.GetComponent<Player>().PulpCurrent += 40;
+            other.GetComponent<Player>().Health +=  40;
             DestroyObject();
         }
     }
