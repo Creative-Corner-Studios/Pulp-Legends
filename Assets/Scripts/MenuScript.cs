@@ -63,7 +63,7 @@ public class MenuScript : MonoBehaviour {
         {
             case "Main Menu":
                 worldControl.currentScreen = WorldController.Screen.MAINMENU;
-                Destroy(worldControl);
+                //Destroy(worldControl);
                 break;
 
             case "Character Selection":
