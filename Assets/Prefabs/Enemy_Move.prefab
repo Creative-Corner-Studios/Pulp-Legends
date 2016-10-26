@@ -156,7 +156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 150
-  attackPower: 35
+  attackPower: 30
   speed: 1
   type: 0
   Bullet: {fileID: 0}
@@ -166,7 +166,7 @@ MonoBehaviour:
   timeToAttack: 90
   detectRange: 40
   damageScore: 15
-  deathScore: 70
+  deathScore: 75
 --- !u!212 &21211714
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -220,7 +220,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: attackPower
-      value: 35
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_TagString
@@ -245,7 +245,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: deathScore
-      value: 70
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: timeToAttack

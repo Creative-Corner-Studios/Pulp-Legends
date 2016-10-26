@@ -246,11 +246,11 @@ public class Player : MonoBehaviour {
 
                     addScore(enemy.DamageScore);
 
-                    pulpCurrent += 15;
+                    pulpCurrent += 10;
                     if(enemy.Health <= 0)
                     {
                         addScore(enemy.DeathScore);
-                        pulpCurrent += 10;
+                        pulpCurrent += 15;
                     }
                     Debug.Log("Enemy: " + thing.name + " was hit for " + attackPower + " damage");
                 }
