@@ -27,6 +27,7 @@ GameObject:
   - 50: {fileID: 5023634}
   - 61: {fileID: 6184094}
   - 114: {fileID: 11497124}
+  - 95: {fileID: 9516880}
   m_Layer: 0
   m_Name: Enemy_Shoot
   m_TagString: Enemy
@@ -88,6 +89,23 @@ BoxCollider2D:
   m_Offset: {x: .724354386, y: -.0271383915}
   serializedVersion: 2
   m_Size: {x: 3.00653696, y: 6.40392399}
+--- !u!95 &9516880
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 158478}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 699e6f63de2b591469b616c6ba6b022d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &11497124
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -214,6 +232,14 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Constraints
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 699e6f63de2b591469b616c6ba6b022d, type: 2}
+    - target: {fileID: 0}
+      propertyPath: m_ApplyRootMotion
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

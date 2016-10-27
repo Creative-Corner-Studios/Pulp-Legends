@@ -3,6 +3,7 @@ using System.Collections;
 
 [RequireComponent(typeof(Collider2D))]
 [RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(Animation))]
 public class Enemy : MonoBehaviour {
 
     [System.Serializable] enum enemyType { MOVING, SHOOTING }; //we should create a state machine so we can distinguish enemy types
@@ -28,6 +29,9 @@ public class Enemy : MonoBehaviour {
     private Rigidbody2D rBody;
     private WorldController worldControl;
 
+    //animation stuff
+    private Animator animator;
+
     // Use this for initialization
     void Start () {
         timer = 100;
@@ -39,6 +43,7 @@ public class Enemy : MonoBehaviour {
             ePRightStart = endPointRight.transform.position;
         }
         worldControl = GameObject.Find("WorldController").GetComponent<WorldController>();
+        animator = this.GetComponent<Animator>();
     }
 	
 	// Update is called once per frame
@@ -151,24 +156,30 @@ public class Enemy : MonoBehaviour {
 
     private void checkToShoot()//check to see if time to shoot a bullet
     {
+        if (animator.GetCurrentAnimatorStateInfo(0).length > animator.GetCurrentAnimatorStateInfo(0).normalizedTime)
+        {
+            animator.SetBool("shooting", false);
+        }
         //if(DetectPlayer())
-        if(timer % timeToAttack == 0)//time to shoot
+        if (timer % timeToAttack == 0)//time to shoot
         {
             //shoot animation
             GameObject b = GameObject.Instantiate(Bullet);
-            
+
             if (facingLeft)//going left
             {
                 //b.transform.localScale = new Vector3(b.transform.localScale.x, b.transform.localScale.y);
-                b.transform.position = new Vector3(transform.position.x - .6f, transform.position.y+.2f);
+                b.transform.position = new Vector3(transform.position.x - .6f, transform.position.y + .2f);
             }
             else//going right
             {
                 //b.transform.localScale = new Vector3(-b.transform.localScale.x, b.transform.localScale.y);
-                b.transform.position = new Vector3(transform.position.x + .6f, transform.position.y+.2f);
+                b.transform.position = new Vector3(transform.position.x + .6f, transform.position.y + .2f);
             }
             b.GetComponent<Bullet>().adjustVelocity(facingLeft);
+            animator.SetBool("shooting", true);
         }
+
         timer++;
         timer %= timeToAttack;
     }
