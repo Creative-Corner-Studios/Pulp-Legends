@@ -31,6 +31,7 @@ public class Enemy : MonoBehaviour {
 
     //animation stuff
     private Animator animator;
+    private Animation ani;
 
     // Use this for initialization
     void Start () {
@@ -63,11 +64,14 @@ public class Enemy : MonoBehaviour {
                     break;
                 case enemyType.SHOOTING:
                     checkToShoot();
+                    if (animator.GetCurrentAnimatorStateInfo(0).IsName("PEW"))
+                        animator.SetBool("shooting", false);
                     break;
                 default:
                     break;
             }
         }
+        
 	}
 
     //prooperites
@@ -156,10 +160,7 @@ public class Enemy : MonoBehaviour {
 
     private void checkToShoot()//check to see if time to shoot a bullet
     {
-        if (animator.GetCurrentAnimatorStateInfo(0).length > animator.GetCurrentAnimatorStateInfo(0).normalizedTime)
-        {
-            animator.SetBool("shooting", false);
-        }
+
         //if(DetectPlayer())
         if (timer % timeToAttack == 0)//time to shoot
         {
@@ -179,7 +180,7 @@ public class Enemy : MonoBehaviour {
             b.GetComponent<Bullet>().adjustVelocity(facingLeft);
             animator.SetBool("shooting", true);
         }
-
+        
         timer++;
         timer %= timeToAttack;
     }
