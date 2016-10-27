@@ -108,11 +108,13 @@ public class Enemy : MonoBehaviour {
         {
             facingLeft = false;
             transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y);
+            animator.SetBool("walk", true);
         }
         if (!facingLeft && Mathf.Abs(endPointRight.transform.position.x - transform.position.x) <= speed)//walking left and close to end point
         {
             facingLeft = true;
             transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y);
+            animator.SetBool("walk", true);
         }
     }
 
@@ -130,6 +132,11 @@ public class Enemy : MonoBehaviour {
         {
             endPointLeft.transform.position = ePLeftStart;
             endPointRight.transform.position = ePRightStart;
+        }
+
+        if(rBody.velocity == new Vector2(0, 0))
+        {
+            animator.SetBool("walk", false);
         }
     }
 
