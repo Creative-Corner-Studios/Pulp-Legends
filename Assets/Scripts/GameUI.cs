@@ -230,6 +230,7 @@ public class GameUI : MonoBehaviour {
         worldControl.GamePaused = true;
         PauseMenu.alpha = 1;
         PauseMenu.interactable = true;
+        EventSystem.current.SetSelectedGameObject(GameObject.Find("Resume Btn"));
         Time.timeScale = 0f;
     }
 

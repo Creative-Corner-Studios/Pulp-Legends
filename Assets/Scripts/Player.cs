@@ -59,7 +59,7 @@ public class Player : MonoBehaviour {
 
     private Vector3 position = Vector3.zero;
     private Vector2 velocity = Vector2.zero;
-    private bool grounded;
+    [SerializeField] private bool grounded;
     private Transform groundCheck;
     private PulpPowerType pulpPower;
     private WorldController worldControl;
@@ -151,15 +151,17 @@ public class Player : MonoBehaviour {
                 healthMax = 150;
                 health = 150;
                 pulpPower = PulpPowerType.MALTESEFALCON;
+                PulpCurrent = pulpCost;
                 break;
 
             case CharacterType.NORACARTER:
                 healthMax = 200;
                 health = 200;
                 pulpPower = PulpPowerType.SATAN;
+                PulpCurrent = pulpCost * 2;
                 break;
         }
-        pulpCurrent = pulpCost;
+        
 
         animator = this.GetComponent<Animator>();
     }

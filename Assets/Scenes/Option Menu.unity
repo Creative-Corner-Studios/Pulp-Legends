@@ -2117,7 +2117,7 @@ RectTransform:
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: 40.7999992, y: 20}
-  m_SizeDelta: {x: 500, y: 30}
+  m_SizeDelta: {x: 500, y: 50}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1583432994
 MonoBehaviour:
@@ -2145,12 +2145,12 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 4
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Josh Malmquist = Game Lead/Dog Whisperer
+  m_Text: Josh Malmquist = Game Lead/Programmer/Dog Whisperer
 --- !u!222 &1583432995
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2960,7 +2960,7 @@ CanvasGroup:
   m_GameObject: {fileID: 1869003395}
   m_Enabled: 1
   m_Alpha: 0
-  m_Interactable: 1
+  m_Interactable: 0
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
 --- !u!1 &1876705860
