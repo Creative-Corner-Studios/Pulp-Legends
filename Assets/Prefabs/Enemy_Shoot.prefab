@@ -27,6 +27,7 @@ GameObject:
   - 50: {fileID: 5023634}
   - 61: {fileID: 6184094}
   - 114: {fileID: 11497124}
+  - 95: {fileID: 9516880}
   m_Layer: 0
   m_Name: Enemy_Shoot
   m_TagString: Enemy
@@ -53,8 +54,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 158478}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.32999992, y: -.34799999, z: 0}
-  m_LocalScale: {x: .323721319, y: .323720753, z: .323720753}
+  m_LocalPosition: {x: 2.58899999, y: -1.83800006, z: 0}
+  m_LocalScale: {x: .341456354, y: .341455758, z: .341455758}
   m_Children:
   - {fileID: 445192}
   m_Father: {fileID: 0}
@@ -85,9 +86,26 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: .724354386, y: -.0271383915}
+  m_Offset: {x: .724354386, y: -.100000001}
   serializedVersion: 2
-  m_Size: {x: 3.00653696, y: 6.40392399}
+  m_Size: {x: 2.6400001, y: 5.6500001}
+--- !u!95 &9516880
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 158478}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 699e6f63de2b591469b616c6ba6b022d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &11497124
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -107,7 +125,7 @@ MonoBehaviour:
   endPointLeft: {fileID: 0}
   endPointRight: {fileID: 0}
   facingLeft: 1
-  timeToAttack: 180
+  timeToAttack: 120
   detectRange: 40
   damageScore: 20
   deathScore: 50
@@ -205,7 +223,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: timeToAttack
-      value: 180
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: facingLeft
@@ -214,6 +232,14 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Constraints
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 699e6f63de2b591469b616c6ba6b022d, type: 2}
+    - target: {fileID: 0}
+      propertyPath: m_ApplyRootMotion
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

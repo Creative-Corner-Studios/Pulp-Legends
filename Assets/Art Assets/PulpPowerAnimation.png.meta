@@ -1,11 +1,14 @@
 fileFormatVersion: 2
 guid: d91b76c88fb37f84d90e0250c4d7da08
-timeCreated: 1476544789
+timeCreated: 1477508656
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
     21300000: FireBall
     21300002: Falcon
+    21300004: Falcon 2
+    21300006: falcon 1
+    21300008: falcon 3
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -62,13 +65,33 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Falcon
+    - name: Falcon 2
       rect:
         serializedVersion: 2
         x: 526
-        y: 2830
-        width: 446
-        height: 123
+        y: 2738
+        width: 592
+        height: 215
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: falcon 1
+      rect:
+        serializedVersion: 2
+        x: 506
+        y: 2989
+        width: 608
+        height: 247
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: falcon 3
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 2495
+        width: 613
+        height: 243
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}

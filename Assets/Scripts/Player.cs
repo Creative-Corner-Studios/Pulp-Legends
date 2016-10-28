@@ -45,7 +45,7 @@ public class Player : MonoBehaviour {
     //attributes 
     private int healthMax;
     [SerializeField] private int health = 100;
-    [SerializeField] private float attackPower = 20;
+    [SerializeField] private float attackPower;
     [SerializeField] private float speed= 10;
     [SerializeField] private float jumpPower = 1000;
     [SerializeField] private CharacterType character;
@@ -59,7 +59,7 @@ public class Player : MonoBehaviour {
 
     private Vector3 position = Vector3.zero;
     private Vector2 velocity = Vector2.zero;
-    private bool grounded;
+    [SerializeField] private bool grounded;
     private Transform groundCheck;
     private PulpPowerType pulpPower;
     private WorldController worldControl;
@@ -121,6 +121,11 @@ public class Player : MonoBehaviour {
         set { pulpCurrent = value; }
     }
 
+    public int PulpCost
+    {
+        get { return pulpCost; }
+    }
+
     // Use this for initialization
     void Start()
     {
@@ -143,20 +148,20 @@ public class Player : MonoBehaviour {
         switch (character)
         {
             case CharacterType.SAMSPADE:
-                healthMax = 175;
-                health = 175;
-                attackPower = 35;
+                healthMax = 150;
+                health = 150;
                 pulpPower = PulpPowerType.MALTESEFALCON;
+                PulpCurrent = pulpCost;
                 break;
 
             case CharacterType.NORACARTER:
                 healthMax = 200;
                 health = 200;
-                attackPower = 45;
                 pulpPower = PulpPowerType.SATAN;
+                PulpCurrent = pulpCost * 2;
                 break;
         }
-        pulpCurrent = pulpCost;
+        
 
         animator = this.GetComponent<Animator>();
     }
@@ -243,11 +248,11 @@ public class Player : MonoBehaviour {
 
                     addScore(enemy.DamageScore);
 
-                    pulpCurrent += 15;
+                    pulpCurrent += 10;
                     if(enemy.Health <= 0)
                     {
                         addScore(enemy.DeathScore);
-                        pulpCurrent += 10;
+                        pulpCurrent += 15;
                     }
                     Debug.Log("Enemy: " + thing.name + " was hit for " + attackPower + " damage");
                 }
@@ -261,6 +266,7 @@ public class Player : MonoBehaviour {
         {
             if (pulpCurrent >= pulpCost)
             {
+                animator.SetInteger("Movement", 3);
                 GameObject b = new GameObject();
                 switch (pulpPower)
                 {
@@ -323,6 +329,11 @@ public class Player : MonoBehaviour {
                     transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y);
                 }
                 FacingLeft = false;
+            }
+
+            if (!grounded)
+            {
+                animator.SetInteger("Movement", 2);
             }
         }
         else

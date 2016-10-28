@@ -3,6 +3,7 @@ using System.Collections;
 
 [RequireComponent(typeof(Collider2D))]
 [RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(Animation))]
 public class Enemy : MonoBehaviour {
 
     [System.Serializable] enum enemyType { MOVING, SHOOTING }; //we should create a state machine so we can distinguish enemy types
@@ -28,6 +29,10 @@ public class Enemy : MonoBehaviour {
     private Rigidbody2D rBody;
     private WorldController worldControl;
 
+    //animation stuff
+    private Animator animator;
+    private Animation ani;
+
     // Use this for initialization
     void Start () {
         timer = 100;
@@ -39,6 +44,7 @@ public class Enemy : MonoBehaviour {
             ePRightStart = endPointRight.transform.position;
         }
         worldControl = GameObject.Find("WorldController").GetComponent<WorldController>();
+        animator = this.GetComponent<Animator>();
     }
 	
 	// Update is called once per frame
@@ -58,11 +64,14 @@ public class Enemy : MonoBehaviour {
                     break;
                 case enemyType.SHOOTING:
                     checkToShoot();
+                    if (animator.GetCurrentAnimatorStateInfo(0).IsName("PEW"))
+                        animator.SetBool("shooting", false);
                     break;
                 default:
                     break;
             }
         }
+        
 	}
 
     //prooperites
@@ -99,11 +108,13 @@ public class Enemy : MonoBehaviour {
         {
             facingLeft = false;
             transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y);
+            animator.SetBool("walk", true);
         }
         if (!facingLeft && Mathf.Abs(endPointRight.transform.position.x - transform.position.x) <= speed)//walking left and close to end point
         {
             facingLeft = true;
             transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y);
+            animator.SetBool("walk", true);
         }
     }
 
@@ -121,6 +132,11 @@ public class Enemy : MonoBehaviour {
         {
             endPointLeft.transform.position = ePLeftStart;
             endPointRight.transform.position = ePRightStart;
+        }
+
+        if(rBody.velocity == new Vector2(0, 0))
+        {
+            animator.SetBool("walk", false);
         }
     }
 
@@ -151,24 +167,27 @@ public class Enemy : MonoBehaviour {
 
     private void checkToShoot()//check to see if time to shoot a bullet
     {
+
         //if(DetectPlayer())
-        if(timer % timeToAttack == 0)//time to shoot
+        if (timer % timeToAttack == 0)//time to shoot
         {
             //shoot animation
             GameObject b = GameObject.Instantiate(Bullet);
-            
+
             if (facingLeft)//going left
             {
                 //b.transform.localScale = new Vector3(b.transform.localScale.x, b.transform.localScale.y);
-                b.transform.position = new Vector3(transform.position.x - .6f, transform.position.y+.2f);
+                b.transform.position = new Vector3(transform.position.x - .6f, transform.position.y + .2f);
             }
             else//going right
             {
                 //b.transform.localScale = new Vector3(-b.transform.localScale.x, b.transform.localScale.y);
-                b.transform.position = new Vector3(transform.position.x + .6f, transform.position.y+.2f);
+                b.transform.position = new Vector3(transform.position.x + .6f, transform.position.y + .2f);
             }
             b.GetComponent<Bullet>().adjustVelocity(facingLeft);
+            animator.SetBool("shooting", true);
         }
+        
         timer++;
         timer %= timeToAttack;
     }

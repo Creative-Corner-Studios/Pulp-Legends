@@ -2184,6 +2184,7 @@ MonoBehaviour:
   samSpadeDeadSprite: {fileID: 21300000, guid: 3772250e9a20e8c4d8f3b9031ed8d012, type: 3}
   noraCarterDeadSprite: {fileID: 21300000, guid: 34166b299859e6145a65a98530d42216,
     type: 3}
+  pulpPowerBarColor: {r: .613793373, g: 0, b: 1, a: 1}
   PauseMenu: {fileID: 22589586}
   ControlsGroup: {fileID: 22540712}
   controlSelector: {fileID: 11432042}
@@ -3484,6 +3485,30 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Alpha
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: pulpPowerColor.r
+      value: .613793373
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: pulpPowerColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: pulpPowerColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: pulpPowerBarColor.r
+      value: .613793373
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: pulpPowerBarColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: pulpPowerBarColor.a
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

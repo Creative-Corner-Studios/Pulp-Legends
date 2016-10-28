@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using System;
 
 public class WorldController : MonoBehaviour {
-    public enum Screen { MAINMENU, OPTIONMENU, TUTORIALLEVEL, TESTLEVEL, LEVEL1, WINGAME, GAMEOVER}; // a public finite state for all screens in game.
+    public enum Screen { MAINMENU, OPTIONMENU, TUTORIALLEVEL, LOADING, CHARACTERSELECT, TESTLEVEL, LEVEL1, WINGAME, GAMEOVER}; // a public finite state for all screens in game.
 
     Camera GameCamera;// holds the main game camera
     public Screen currentScreen = Screen.MAINMENU; //finite state for which screen this is

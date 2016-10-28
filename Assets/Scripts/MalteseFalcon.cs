@@ -22,6 +22,7 @@ public class MalteseFalcon : MonoBehaviour {
         rBody = GetComponent<Rigidbody2D>();
         rBody.mass = 0.01f;
         rBody.gravityScale = 0f;
+        transform.position = new Vector3(rBody.position.x, rBody.position.y,  -5f);
         cBody = GetComponent<Collider2D>();
         returning = false;
         worldControl = GameObject.Find("WorldController").GetComponent<WorldController>();
@@ -52,8 +53,12 @@ public class MalteseFalcon : MonoBehaviour {
                 rBody.velocity *= 2 * speed;
             }
 
-            if (rBody.velocity.x > 0) { transform.Rotate(new Vector3(0, 0, -5)); }
-            else { transform.Rotate(new Vector3(0, 0, 5)); }
+            if (rBody.velocity.x > 0) {//right
+                transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y);
+            }
+            else {//leftd
+                transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y);
+            }
         }
     }
 
